@@ -99,6 +99,10 @@ For production, replace the player UI or persistence without replacing the graph
 
 Open **Window > General > Test Runner**, select **EditMode**, and run `NovelGraph.Tests.Editor`. The tests cover dialogue pauses, character voice metadata, choice branches and signals, function requests, integer conditions, save restoration, and mandatory tooltip coverage.
 
+## GitHub Actions
+
+The Unity test workflow runs on pushes and pull requests targeting `main`. Because Unity requires an activated editor even for automated tests, configure either `UNITY_LICENSE`, or all of `UNITY_SERIAL`, `UNITY_EMAIL`, and `UNITY_PASSWORD`, under the repository's **Settings > Secrets and variables > Actions** page. Until valid credentials are present, the workflow finishes successfully with a notice and skips only the licensed Unity test step; local EditMode tests remain available through Unity's Test Runner.
+
 ## Repository
 
-The repository ignores Unity-generated folders and tracks all source assets with their `.meta` files. Git is configured locally for the `artuangp` identity; authenticate GitHub CLI or GitHub Desktop before publishing, then create a repository and push the `main` branch.
+The repository ignores Unity-generated folders and tracks all source assets with their `.meta` files. It is published from `main` at [artuanDev/Novelify](https://github.com/artuanDev/Novelify). Local commits use the `artuangp <artuangp@gmail.com>` author identity, while `artuanDev` is the authenticated GitHub username and repository owner.
