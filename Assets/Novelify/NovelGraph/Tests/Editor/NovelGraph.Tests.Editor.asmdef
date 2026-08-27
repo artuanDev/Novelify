@@ -2,7 +2,8 @@
   "name": "NovelGraph.Tests.Editor",
   "rootNamespace": "NovelGraph.Tests",
   "references": [
-    "NovelGraph.Runtime"
+    "NovelGraph.Runtime",
+    "NovelGraph"
   ],
   "includePlatforms": [
     "Editor"

@@ -30,6 +30,7 @@ namespace NovelGraph
         public event Action<NovelNodeResult> PresentationChanged;
         public event Action<string> SignalRaised;
         public event Action<string> FunctionRequested;
+        public event Action<NovelCharacterStageCommand> CharacterStageRequested;
         public event Action Completed;
         public event Action<string> Faulted;
 
@@ -43,7 +44,7 @@ namespace NovelGraph
 
             m_graph = graph;
             m_graph.Init(owner);
-            m_context = new NovelGraphContext(graph, State, owner, RaiseSignal, RequestFunction);
+            m_context = new NovelGraphContext(graph, State, owner, RaiseSignal, RequestFunction, RequestCharacterStage);
             State.Clear();
 
             NovelGraphNode start = graph.GetStartNode();
@@ -125,7 +126,7 @@ namespace NovelGraph
             }
 
             State.Load(data.state);
-            m_context = new NovelGraphContext(graph, State, owner, RaiseSignal, RequestFunction);
+            m_context = new NovelGraphContext(graph, State, owner, RaiseSignal, RequestFunction, RequestCharacterStage);
             m_currentNodeId = data.nodeId;
             Status = NovelGraphRunnerStatus.Running;
             Pump();
@@ -208,6 +209,11 @@ namespace NovelGraph
             {
                 FunctionRequested?.Invoke(functionId);
             }
+        }
+
+        private void RequestCharacterStage(NovelCharacterStageCommand command)
+        {
+            CharacterStageRequested?.Invoke(command);
         }
 
         private void Finish()

@@ -1,0 +1,128 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eae335c092c76ae42b1adc7ed85567c4, type: 3}
+  m_Name: Orin
+  m_EditorClassIdentifier: NovelGraph.Runtime::NovelGraph.NovelCharacter
+  m_displayName: Orin Voss
+  m_letterSound: {fileID: 8300000, guid: ccf42eb4a9b24e04b90546b936356cbf, type: 3}
+  m_synthesizedFrequency: 245
+  m_voiceVolume: 0.2
+  m_pitchVariation: 0.08
+  m_nameColor: {r: 0.86, g: 0.46, b: 0.92, a: 1}
+  m_body:
+    m_sprite: {fileID: 21300000, guid: 0f10be320d8065541a966e7909761cdb, type: 3}
+    m_animationFrames: []
+    m_framesPerSecond: 1
+    m_loop: 1
+    m_framing:
+      m_point: {x: 0.5, y: 0.58}
+      m_radius: 0.47
+      m_offset: {x: 0, y: 0}
+      m_flipX: 0
+  m_defaultExpression: neutral
+  m_expressions:
+  - m_id: neutral
+    m_eyes:
+      m_sprite: {fileID: 21300000, guid: 1a4fc98ec28911d48bd9a14a22f65176, type: 3}
+      m_animationFrames: []
+      m_framesPerSecond: 1
+      m_loop: 1
+      m_framing:
+        m_point: {x: 0.5, y: 0.58}
+        m_radius: 0.47
+        m_offset: {x: 0, y: 0}
+        m_flipX: 0
+    m_mouth:
+      m_idleSprite: {fileID: 21300000, guid: c6579e71cb4d01748a1dbf9ea33447fe, type: 3}
+      m_idleAnimationFrames: []
+      m_talkingAnimationFrames:
+      - {fileID: 21300000, guid: c6579e71cb4d01748a1dbf9ea33447fe, type: 3}
+      - {fileID: 21300000, guid: fc0a6120dbc731246badd905c27dc1d2, type: 3}
+      m_framesPerSecond: 6
+      m_framing:
+        m_point: {x: 0.5, y: 0.58}
+        m_radius: 0.47
+        m_offset: {x: 0, y: 0}
+        m_flipX: 0
+    m_sprite: {fileID: 0}
+    m_animationFrames: []
+    m_framesPerSecond: 8
+    m_loop: 1
+    m_framing:
+      m_point: {x: 0.5, y: 0.5}
+      m_radius: 0.5
+      m_offset: {x: 0, y: 0}
+      m_flipX: 0
+  - m_id: shocked
+    m_eyes:
+      m_sprite: {fileID: 21300000, guid: 9dce60c1f75130046918d94152fddaed, type: 3}
+      m_animationFrames: []
+      m_framesPerSecond: 1
+      m_loop: 1
+      m_framing:
+        m_point: {x: 0.5, y: 0.58}
+        m_radius: 0.47
+        m_offset: {x: 0, y: 0}
+        m_flipX: 0
+    m_mouth:
+      m_idleSprite: {fileID: 21300000, guid: f6aa05a93553c824ba1e5386d5b13ca3, type: 3}
+      m_idleAnimationFrames: []
+      m_talkingAnimationFrames:
+      - {fileID: 21300000, guid: f6aa05a93553c824ba1e5386d5b13ca3, type: 3}
+      - {fileID: 21300000, guid: fc0a6120dbc731246badd905c27dc1d2, type: 3}
+      m_framesPerSecond: 6
+      m_framing:
+        m_point: {x: 0.5, y: 0.58}
+        m_radius: 0.47
+        m_offset: {x: 0, y: 0}
+        m_flipX: 0
+    m_sprite: {fileID: 0}
+    m_animationFrames: []
+    m_framesPerSecond: 8
+    m_loop: 1
+    m_framing:
+      m_point: {x: 0.5, y: 0.5}
+      m_radius: 0.5
+      m_offset: {x: 0, y: 0}
+      m_flipX: 0
+  - m_id: suspicious
+    m_eyes:
+      m_sprite: {fileID: 21300000, guid: fe17e46ed3b4789418b0de6e8a675ce0, type: 3}
+      m_animationFrames: []
+      m_framesPerSecond: 1
+      m_loop: 1
+      m_framing:
+        m_point: {x: 0.5, y: 0.58}
+        m_radius: 0.47
+        m_offset: {x: 0, y: 0}
+        m_flipX: 0
+    m_mouth:
+      m_idleSprite: {fileID: 21300000, guid: 2cc39e3516a07664397c21ffc3000419, type: 3}
+      m_idleAnimationFrames: []
+      m_talkingAnimationFrames:
+      - {fileID: 21300000, guid: 2cc39e3516a07664397c21ffc3000419, type: 3}
+      - {fileID: 21300000, guid: fc0a6120dbc731246badd905c27dc1d2, type: 3}
+      m_framesPerSecond: 6
+      m_framing:
+        m_point: {x: 0.5, y: 0.58}
+        m_radius: 0.47
+        m_offset: {x: 0, y: 0}
+        m_flipX: 0
+    m_sprite: {fileID: 0}
+    m_animationFrames: []
+    m_framesPerSecond: 8
+    m_loop: 1
+    m_framing:
+      m_point: {x: 0.5, y: 0.5}
+      m_radius: 0.5
+      m_offset: {x: 0, y: 0}
+      m_flipX: 0

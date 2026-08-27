@@ -7,6 +7,7 @@ namespace NovelGraph
     {
         private readonly Action<string> m_signalHandler;
         private readonly Action<string> m_functionHandler;
+        private readonly Action<NovelCharacterStageCommand> m_characterStageHandler;
 
         public NovelGraphAsset Graph { get; }
         public NovelGraphState State { get; }
@@ -17,13 +18,15 @@ namespace NovelGraph
             NovelGraphState state,
             GameObject owner,
             Action<string> signalHandler,
-            Action<string> functionHandler)
+            Action<string> functionHandler,
+            Action<NovelCharacterStageCommand> characterStageHandler)
         {
             Graph = graph;
             State = state;
             Owner = owner;
             m_signalHandler = signalHandler;
             m_functionHandler = functionHandler;
+            m_characterStageHandler = characterStageHandler;
         }
 
         public void RaiseSignal(string signal)
@@ -40,6 +43,11 @@ namespace NovelGraph
             {
                 m_functionHandler?.Invoke(functionId.Trim());
             }
+        }
+
+        public void StageCharacter(NovelCharacterStageCommand command)
+        {
+            m_characterStageHandler?.Invoke(command);
         }
     }
 }

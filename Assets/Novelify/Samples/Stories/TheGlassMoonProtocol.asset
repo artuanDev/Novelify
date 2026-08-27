@@ -1,0 +1,1568 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ca3c65bee3324924abeef5501a79b74b, type: 3}
+  m_Name: TheGlassMoonProtocol
+  m_EditorClassIdentifier: NovelGraph.Runtime::NovelGraph.NovelGraphAsset
+  m_nodes:
+  - rid: 1574623326257545216
+  - rid: 1574623326257545217
+  - rid: 1574623326257545218
+  - rid: 1574623326257545219
+  - rid: 1574623326257545220
+  - rid: 1574623326257545221
+  - rid: 1574623326257545222
+  - rid: 1574623326257545223
+  - rid: 1574623326257545224
+  - rid: 1574623326257545225
+  - rid: 1574623326257545226
+  - rid: 1574623326257545227
+  - rid: 1574623326257545228
+  - rid: 1574623326257545229
+  - rid: 1574623326257545230
+  - rid: 1574623326257545231
+  - rid: 1574623326257545232
+  - rid: 1574623326257545233
+  - rid: 1574623326257545234
+  - rid: 1574623326257545235
+  - rid: 1574623326257545236
+  - rid: 1574623326257545237
+  - rid: 1574623326257545238
+  - rid: 1574623326257545239
+  - rid: 1574623326257545240
+  - rid: 1574623326257545241
+  - rid: 1574623326257545242
+  - rid: 1574623326257545243
+  - rid: 1574623326257545244
+  - rid: 1574623326257545245
+  - rid: 1574623326257545246
+  - rid: 1574623326257545247
+  - rid: 1574623326257545248
+  - rid: 1574623326257545249
+  - rid: 1574623326257545250
+  - rid: 1574623326257545251
+  - rid: 1574623326257545252
+  - rid: 1574623326257545253
+  - rid: 1574623326257545254
+  - rid: 1574623326257545255
+  - rid: 1574623326257545256
+  - rid: 1574623326257545257
+  - rid: 1574623326257545258
+  - rid: 1574623326257545259
+  - rid: 1574623326257545260
+  - rid: 1574623326257545261
+  - rid: 1574623326257545262
+  - rid: 1574623326257545263
+  - rid: 1574623326257545264
+  - rid: 1574623326257545265
+  - rid: 1574623326257545266
+  - rid: 1574623326257545267
+  - rid: 1574623326257545268
+  - rid: 1574623326257545269
+  - rid: 1574623326257545270
+  - rid: 1574623326257545271
+  - rid: 1574623326257545272
+  - rid: 1574623326257545273
+  - rid: 1574623326257545274
+  - rid: 1574623326257545275
+  - rid: 1574623326257545276
+  - rid: 1574623326257545277
+  - rid: 1574623326257545278
+  - rid: 1574623326257545279
+  - rid: 1574623326257545280
+  - rid: 1574623326257545281
+  - rid: 1574623326257545282
+  - rid: 1574623326257545283
+  - rid: 1574623326257545284
+  m_connections:
+  - inputPort:
+      nodeId: 959254df-64e2-4060-a2d1-50877c416e56
+      portIndex: 1
+    outputPort:
+      nodeId: a8bb69f8-8c71-4923-b3a1-68857e0d8919
+      portIndex: 0
+  - inputPort:
+      nodeId: 6cf052df-6eed-4e62-83b0-6de12f69eda1
+      portIndex: 1
+    outputPort:
+      nodeId: 959254df-64e2-4060-a2d1-50877c416e56
+      portIndex: 0
+  - inputPort:
+      nodeId: c8e81ab6-5f80-4d01-9a4c-729a473aa827
+      portIndex: 1
+    outputPort:
+      nodeId: 6cf052df-6eed-4e62-83b0-6de12f69eda1
+      portIndex: 0
+  - inputPort:
+      nodeId: fec2ca3d-0b72-4a86-ab36-aec76aa398a7
+      portIndex: 1
+    outputPort:
+      nodeId: c8e81ab6-5f80-4d01-9a4c-729a473aa827
+      portIndex: 0
+  - inputPort:
+      nodeId: 6cfed44a-e91f-4056-aa7f-e1a8eaf4e8e7
+      portIndex: 1
+    outputPort:
+      nodeId: fec2ca3d-0b72-4a86-ab36-aec76aa398a7
+      portIndex: 0
+  - inputPort:
+      nodeId: 11de703c-e406-46a8-82e1-2bd42c34933d
+      portIndex: 1
+    outputPort:
+      nodeId: 6cfed44a-e91f-4056-aa7f-e1a8eaf4e8e7
+      portIndex: 0
+  - inputPort:
+      nodeId: 9f8b56e7-3cd2-472b-80ab-d6ea636ccc18
+      portIndex: 1
+    outputPort:
+      nodeId: 11de703c-e406-46a8-82e1-2bd42c34933d
+      portIndex: 0
+  - inputPort:
+      nodeId: fea81585-1836-4f6c-9271-a8011f023249
+      portIndex: 1
+    outputPort:
+      nodeId: 9f8b56e7-3cd2-472b-80ab-d6ea636ccc18
+      portIndex: 0
+  - inputPort:
+      nodeId: 7f40829d-a274-409f-ab5d-de4739a5003a
+      portIndex: 1
+    outputPort:
+      nodeId: fea81585-1836-4f6c-9271-a8011f023249
+      portIndex: 0
+  - inputPort:
+      nodeId: ef447e90-7fc9-4bda-998e-1dafbde338d3
+      portIndex: 1
+    outputPort:
+      nodeId: 7f40829d-a274-409f-ab5d-de4739a5003a
+      portIndex: 0
+  - inputPort:
+      nodeId: 64018f0a-de9f-4bce-a3dc-66917faf01b3
+      portIndex: 1
+    outputPort:
+      nodeId: ef447e90-7fc9-4bda-998e-1dafbde338d3
+      portIndex: 0
+  - inputPort:
+      nodeId: ca53d33e-ef68-4e17-9bde-e190bc980e92
+      portIndex: 1
+    outputPort:
+      nodeId: 64018f0a-de9f-4bce-a3dc-66917faf01b3
+      portIndex: 0
+  - inputPort:
+      nodeId: eb5b047d-8176-460c-b5ae-d47e1b8cdc2b
+      portIndex: 1
+    outputPort:
+      nodeId: ca53d33e-ef68-4e17-9bde-e190bc980e92
+      portIndex: 0
+  - inputPort:
+      nodeId: 32b74155-37fa-4365-979f-4873fc00903a
+      portIndex: 1
+    outputPort:
+      nodeId: eb5b047d-8176-460c-b5ae-d47e1b8cdc2b
+      portIndex: 0
+  - inputPort:
+      nodeId: 433ae7ad-5081-437d-8708-d7d06d22c4e9
+      portIndex: 1
+    outputPort:
+      nodeId: 32b74155-37fa-4365-979f-4873fc00903a
+      portIndex: 0
+  - inputPort:
+      nodeId: b333f294-4ed4-414f-865d-5a9664789817
+      portIndex: 4
+    outputPort:
+      nodeId: 433ae7ad-5081-437d-8708-d7d06d22c4e9
+      portIndex: 0
+  - inputPort:
+      nodeId: e27f63ca-6c9f-4e11-b6ff-8aefa670b20e
+      portIndex: 1
+    outputPort:
+      nodeId: b333f294-4ed4-414f-865d-5a9664789817
+      portIndex: 0
+  - inputPort:
+      nodeId: 00d11912-f487-48c8-86d1-dddf6c2aee6a
+      portIndex: 1
+    outputPort:
+      nodeId: e27f63ca-6c9f-4e11-b6ff-8aefa670b20e
+      portIndex: 0
+  - inputPort:
+      nodeId: aca6166c-1db5-4332-be28-69e208ced828
+      portIndex: 1
+    outputPort:
+      nodeId: 00d11912-f487-48c8-86d1-dddf6c2aee6a
+      portIndex: 0
+  - inputPort:
+      nodeId: 6e3b0ac6-c0cb-4773-9325-da393a9ca90b
+      portIndex: 1
+    outputPort:
+      nodeId: aca6166c-1db5-4332-be28-69e208ced828
+      portIndex: 0
+  - inputPort:
+      nodeId: ff2e5e82-5f98-4a13-9399-8ebaa47913e8
+      portIndex: 1
+    outputPort:
+      nodeId: 6e3b0ac6-c0cb-4773-9325-da393a9ca90b
+      portIndex: 0
+  - inputPort:
+      nodeId: ce2bf549-e849-4619-81e8-33769dbb38d6
+      portIndex: 2
+    outputPort:
+      nodeId: ff2e5e82-5f98-4a13-9399-8ebaa47913e8
+      portIndex: 0
+  - inputPort:
+      nodeId: fa517caa-2d4c-4eed-9bf3-e3ea247e0c50
+      portIndex: 1
+    outputPort:
+      nodeId: ce2bf549-e849-4619-81e8-33769dbb38d6
+      portIndex: 0
+  - inputPort:
+      nodeId: 647d0309-4a07-4705-80a8-cfca4a083c37
+      portIndex: 1
+    outputPort:
+      nodeId: fa517caa-2d4c-4eed-9bf3-e3ea247e0c50
+      portIndex: 0
+  - inputPort:
+      nodeId: 4cacddf2-504a-4384-af86-f8ee8a2740e8
+      portIndex: 1
+    outputPort:
+      nodeId: 647d0309-4a07-4705-80a8-cfca4a083c37
+      portIndex: 0
+  - inputPort:
+      nodeId: 14052cf8-d3c5-4d6e-9e0a-4a1060e78adb
+      portIndex: 0
+    outputPort:
+      nodeId: 4cacddf2-504a-4384-af86-f8ee8a2740e8
+      portIndex: 0
+  - inputPort:
+      nodeId: 1fadce16-3bdc-4a5e-bdd5-15f645605de1
+      portIndex: 1
+    outputPort:
+      nodeId: ce2bf549-e849-4619-81e8-33769dbb38d6
+      portIndex: 1
+  - inputPort:
+      nodeId: 093c2e4f-87b7-4d58-ab57-28a39d661604
+      portIndex: 0
+    outputPort:
+      nodeId: 1fadce16-3bdc-4a5e-bdd5-15f645605de1
+      portIndex: 0
+  - inputPort:
+      nodeId: 729a8c8a-6d51-443e-a745-2263b9e228a1
+      portIndex: 1
+    outputPort:
+      nodeId: b333f294-4ed4-414f-865d-5a9664789817
+      portIndex: 1
+  - inputPort:
+      nodeId: cc78d7b0-f3bc-4fe2-9614-10531f51a221
+      portIndex: 1
+    outputPort:
+      nodeId: 729a8c8a-6d51-443e-a745-2263b9e228a1
+      portIndex: 0
+  - inputPort:
+      nodeId: 89d99aca-c9c4-471d-b59d-d72f869509a9
+      portIndex: 1
+    outputPort:
+      nodeId: cc78d7b0-f3bc-4fe2-9614-10531f51a221
+      portIndex: 0
+  - inputPort:
+      nodeId: d8f7a483-d21f-44b0-9722-09c00e6edc7a
+      portIndex: 1
+    outputPort:
+      nodeId: 89d99aca-c9c4-471d-b59d-d72f869509a9
+      portIndex: 0
+  - inputPort:
+      nodeId: dce22d7e-b87a-48d0-b4e1-2b8456c7b7ad
+      portIndex: 2
+    outputPort:
+      nodeId: d8f7a483-d21f-44b0-9722-09c00e6edc7a
+      portIndex: 0
+  - inputPort:
+      nodeId: f5e0b5c5-c221-4306-9cbb-d735b43a5cd8
+      portIndex: 2
+    outputPort:
+      nodeId: dce22d7e-b87a-48d0-b4e1-2b8456c7b7ad
+      portIndex: 0
+  - inputPort:
+      nodeId: 04a12c42-d4f2-439f-b116-646bd79906ee
+      portIndex: 2
+    outputPort:
+      nodeId: dce22d7e-b87a-48d0-b4e1-2b8456c7b7ad
+      portIndex: 1
+  - inputPort:
+      nodeId: df75b047-3ba1-4195-b67d-0d2321ccc651
+      portIndex: 1
+    outputPort:
+      nodeId: f5e0b5c5-c221-4306-9cbb-d735b43a5cd8
+      portIndex: 0
+  - inputPort:
+      nodeId: 432428c3-b6c8-4a13-b11b-2f26a05ecb7b
+      portIndex: 0
+    outputPort:
+      nodeId: f5e0b5c5-c221-4306-9cbb-d735b43a5cd8
+      portIndex: 1
+  - inputPort:
+      nodeId: 210620d7-d037-4cbf-8250-814a8558733d
+      portIndex: 1
+    outputPort:
+      nodeId: df75b047-3ba1-4195-b67d-0d2321ccc651
+      portIndex: 0
+  - inputPort:
+      nodeId: d27bedc1-d124-4d83-aa46-9a860fe34735
+      portIndex: 0
+    outputPort:
+      nodeId: 210620d7-d037-4cbf-8250-814a8558733d
+      portIndex: 0
+  - inputPort:
+      nodeId: 380767bc-5b77-429f-a310-8f43e120bb05
+      portIndex: 0
+    outputPort:
+      nodeId: 04a12c42-d4f2-439f-b116-646bd79906ee
+      portIndex: 0
+  - inputPort:
+      nodeId: 63154ec8-1ab7-4e47-b678-f8079a40bbc5
+      portIndex: 1
+    outputPort:
+      nodeId: 04a12c42-d4f2-439f-b116-646bd79906ee
+      portIndex: 1
+  - inputPort:
+      nodeId: c346e92e-0d2a-47d4-97bc-23785b51a97b
+      portIndex: 1
+    outputPort:
+      nodeId: 63154ec8-1ab7-4e47-b678-f8079a40bbc5
+      portIndex: 0
+  - inputPort:
+      nodeId: cd757f30-02b8-405a-ab8d-ba608f8e7173
+      portIndex: 1
+    outputPort:
+      nodeId: c346e92e-0d2a-47d4-97bc-23785b51a97b
+      portIndex: 0
+  - inputPort:
+      nodeId: cb82a7cf-cc42-4bc8-bdd5-33e9f87cdd0d
+      portIndex: 1
+    outputPort:
+      nodeId: cd757f30-02b8-405a-ab8d-ba608f8e7173
+      portIndex: 0
+  - inputPort:
+      nodeId: ad9fefd3-a232-4969-8592-0f8f70b710df
+      portIndex: 0
+    outputPort:
+      nodeId: cb82a7cf-cc42-4bc8-bdd5-33e9f87cdd0d
+      portIndex: 0
+  - inputPort:
+      nodeId: 9e2a079e-677a-4cb8-9c3b-bdcdfff1ea1c
+      portIndex: 1
+    outputPort:
+      nodeId: b333f294-4ed4-414f-865d-5a9664789817
+      portIndex: 2
+  - inputPort:
+      nodeId: 2e095bf7-11b2-4335-91f0-184eb61efaa6
+      portIndex: 1
+    outputPort:
+      nodeId: 9e2a079e-677a-4cb8-9c3b-bdcdfff1ea1c
+      portIndex: 0
+  - inputPort:
+      nodeId: 66cb45b0-bcb9-43f2-986c-347029adf16e
+      portIndex: 1
+    outputPort:
+      nodeId: 2e095bf7-11b2-4335-91f0-184eb61efaa6
+      portIndex: 0
+  - inputPort:
+      nodeId: 20791a49-3a49-40b6-92a9-918294aa2010
+      portIndex: 1
+    outputPort:
+      nodeId: 66cb45b0-bcb9-43f2-986c-347029adf16e
+      portIndex: 0
+  - inputPort:
+      nodeId: 3ed748cb-8b48-451e-857b-ca0b241393f3
+      portIndex: 1
+    outputPort:
+      nodeId: 20791a49-3a49-40b6-92a9-918294aa2010
+      portIndex: 0
+  - inputPort:
+      nodeId: ce8e0616-0c34-4f92-baf1-b9ac40982663
+      portIndex: 1
+    outputPort:
+      nodeId: 3ed748cb-8b48-451e-857b-ca0b241393f3
+      portIndex: 0
+  - inputPort:
+      nodeId: 66f23fa8-f48b-4f55-b8e5-f458b399cc70
+      portIndex: 1
+    outputPort:
+      nodeId: ce8e0616-0c34-4f92-baf1-b9ac40982663
+      portIndex: 0
+  - inputPort:
+      nodeId: f4c98823-3dc3-4efa-af5f-daa6887efd0b
+      portIndex: 1
+    outputPort:
+      nodeId: 66f23fa8-f48b-4f55-b8e5-f458b399cc70
+      portIndex: 0
+  - inputPort:
+      nodeId: a634500c-e5cf-4f39-b5a9-91274dcbe6aa
+      portIndex: 1
+    outputPort:
+      nodeId: f4c98823-3dc3-4efa-af5f-daa6887efd0b
+      portIndex: 0
+  - inputPort:
+      nodeId: 5ba5b2aa-ea5e-4e11-9846-1a48a1d13391
+      portIndex: 1
+    outputPort:
+      nodeId: a634500c-e5cf-4f39-b5a9-91274dcbe6aa
+      portIndex: 0
+  - inputPort:
+      nodeId: 44772af9-92ca-4f03-b00e-0673ddd0daee
+      portIndex: 1
+    outputPort:
+      nodeId: 5ba5b2aa-ea5e-4e11-9846-1a48a1d13391
+      portIndex: 0
+  - inputPort:
+      nodeId: 5ecb4518-dca2-4e62-8e43-89a50615c850
+      portIndex: 0
+    outputPort:
+      nodeId: 44772af9-92ca-4f03-b00e-0673ddd0daee
+      portIndex: 0
+  - inputPort:
+      nodeId: ae5890ce-10a6-4c4a-a85d-16be438bd576
+      portIndex: 1
+    outputPort:
+      nodeId: b333f294-4ed4-414f-865d-5a9664789817
+      portIndex: 3
+  - inputPort:
+      nodeId: 51037c31-77bc-441a-bb82-a18aa16b6e87
+      portIndex: 1
+    outputPort:
+      nodeId: ae5890ce-10a6-4c4a-a85d-16be438bd576
+      portIndex: 0
+  - inputPort:
+      nodeId: 3bd0bddc-cc04-4e26-9f7a-c8f5257787cf
+      portIndex: 1
+    outputPort:
+      nodeId: 51037c31-77bc-441a-bb82-a18aa16b6e87
+      portIndex: 0
+  - inputPort:
+      nodeId: 77885119-c5c7-4811-934d-c82e35073406
+      portIndex: 1
+    outputPort:
+      nodeId: 3bd0bddc-cc04-4e26-9f7a-c8f5257787cf
+      portIndex: 0
+  - inputPort:
+      nodeId: 6d123815-9e76-4cf4-b73e-e04a032bc3a0
+      portIndex: 1
+    outputPort:
+      nodeId: 77885119-c5c7-4811-934d-c82e35073406
+      portIndex: 0
+  - inputPort:
+      nodeId: 3279dfb9-34a4-4a98-b5ba-e0d607533b38
+      portIndex: 1
+    outputPort:
+      nodeId: 6d123815-9e76-4cf4-b73e-e04a032bc3a0
+      portIndex: 0
+  - inputPort:
+      nodeId: d0589439-e937-4f1c-b566-3ecfc269faea
+      portIndex: 1
+    outputPort:
+      nodeId: 3279dfb9-34a4-4a98-b5ba-e0d607533b38
+      portIndex: 0
+  - inputPort:
+      nodeId: efcd5223-7d46-4816-b42e-684b8aa54d85
+      portIndex: 1
+    outputPort:
+      nodeId: d0589439-e937-4f1c-b566-3ecfc269faea
+      portIndex: 0
+  - inputPort:
+      nodeId: e9eba7ba-8d72-4f46-b8e7-f38454e7f611
+      portIndex: 1
+    outputPort:
+      nodeId: efcd5223-7d46-4816-b42e-684b8aa54d85
+      portIndex: 0
+  - inputPort:
+      nodeId: 9d249516-18bb-4cfb-8875-9b5e6cbea96a
+      portIndex: 1
+    outputPort:
+      nodeId: e9eba7ba-8d72-4f46-b8e7-f38454e7f611
+      portIndex: 0
+  - inputPort:
+      nodeId: 2c0db6fa-dc9d-4082-927f-4fd0f82f2340
+      portIndex: 0
+    outputPort:
+      nodeId: 9d249516-18bb-4cfb-8875-9b5e6cbea96a
+      portIndex: 0
+  gameObject: {fileID: 0}
+  references:
+    version: 2
+    RefIds:
+    - rid: 1574623326257545216
+      type: {class: StartNode, ns: NovelGraph, asm: NovelGraph.Runtime}
+      data:
+        m_guid: a8bb69f8-8c71-4923-b3a1-68857e0d8919
+        m_position:
+          serializedVersion: 2
+          x: 40
+          y: 320
+          width: 250
+          height: 170
+        typeName: 
+    - rid: 1574623326257545217
+      type: {class: DebugLogNode, ns: NovelGraph, asm: NovelGraph.Runtime}
+      data:
+        m_guid: 959254df-64e2-4060-a2d1-50877c416e56
+        m_position:
+          serializedVersion: 2
+          x: 300
+          y: 320
+          width: 250
+          height: 170
+        typeName: 
+        logMessage: 'Everything Showcase started: The Glass Moon Protocol.'
+    - rid: 1574623326257545218
+      type: {class: DebugValue, ns: NovelGraph, asm: NovelGraph.Runtime}
+      data:
+        m_guid: 6cf052df-6eed-4e62-83b0-6de12f69eda1
+        m_position:
+          serializedVersion: 2
+          x: 560
+          y: 320
+          width: 250
+          height: 170
+        typeName: 
+        value: 404
+    - rid: 1574623326257545219
+      type: {class: DialogueNode, ns: NovelGraph, asm: NovelGraph.Runtime}
+      data:
+        m_guid: c8e81ab6-5f80-4d01-9a4c-729a473aa827
+        m_position:
+          serializedVersion: 2
+          x: 820
+          y: 320
+          width: 250
+          height: 170
+        typeName: 
+        speakerMode: 1
+        character: {fileID: 0}
+        speaker: 
+        dialogue: Moonbase Vesper, 03:17. The artificial moon above the colony has
+          begun answering questions nobody asked.
+        playLetterSounds: 0
+        charactersPerSecond: 42
+        showCharacter: 0
+        expression: 
+        characterPosition: 2
+        characterTransitionDuration: 0.2
+        speakingMotion: 0
+        motionIntensity: 1
+        focusSpeaker: 0
+    - rid: 1574623326257545220
+      type: {class: ShowCharacterNode, ns: NovelGraph, asm: NovelGraph.Runtime}
+      data:
+        m_guid: fec2ca3d-0b72-4a86-ab36-aec76aa398a7
+        m_position:
+          serializedVersion: 2
+          x: 1100
+          y: 220
+          width: 250
+          height: 170
+        typeName: 
+        character: {fileID: 11400000, guid: d71ae1e2a0b4d434ab60c4d29956fa3d, type: 2}
+        expression: neutral
+        stagePosition: 1
+        transitionDuration: 0.45
+        scale: 1
+        flipX: 0
+    - rid: 1574623326257545221
+      type: {class: ShowCharacterNode, ns: NovelGraph, asm: NovelGraph.Runtime}
+      data:
+        m_guid: 6cfed44a-e91f-4056-aa7f-e1a8eaf4e8e7
+        m_position:
+          serializedVersion: 2
+          x: 1100
+          y: 420
+          width: 250
+          height: 170
+        typeName: 
+        character: {fileID: 11400000, guid: d3453235d052d484bb46c776620199e9, type: 2}
+        expression: neutral
+        stagePosition: 3
+        transitionDuration: 0.45
+        scale: 1
+        flipX: 1
+    - rid: 1574623326257545222
+      type: {class: FocusCharacterNode, ns: NovelGraph, asm: NovelGraph.Runtime}
+      data:
+        m_guid: 11de703c-e406-46a8-82e1-2bd42c34933d
+        m_position:
+          serializedVersion: 2
+          x: 1380
+          y: 320
+          width: 250
+          height: 170
+        typeName: 
+        character: {fileID: 11400000, guid: d71ae1e2a0b4d434ab60c4d29956fa3d, type: 2}
+        duration: 0.2
+    - rid: 1574623326257545223
+      type: {class: DialogueNode, ns: NovelGraph, asm: NovelGraph.Runtime}
+      data:
+        m_guid: 9f8b56e7-3cd2-472b-80ab-d6ea636ccc18
+        m_position:
+          serializedVersion: 2
+          x: 1660
+          y: 320
+          width: 250
+          height: 170
+        typeName: 
+        speakerMode: 2
+        character: {fileID: 11400000, guid: d71ae1e2a0b4d434ab60c4d29956fa3d, type: 2}
+        speaker: 
+        dialogue: Orin, the lunar reactor is singing through every emergency channel.
+          Tell me that is your diagnostic.
+        playLetterSounds: 1
+        charactersPerSecond: 34
+        showCharacter: 1
+        expression: neutral
+        characterPosition: 1
+        characterTransitionDuration: 0.3
+        speakingMotion: 1
+        motionIntensity: 1
+        focusSpeaker: 1
+    - rid: 1574623326257545224
+      type: {class: SetCharacterExpressionNode, ns: NovelGraph, asm: NovelGraph.Runtime}
+      data:
+        m_guid: fea81585-1836-4f6c-9271-a8011f023249
+        m_position:
+          serializedVersion: 2
+          x: 1940
+          y: 260
+          width: 250
+          height: 170
+        typeName: 
+        character: {fileID: 11400000, guid: d3453235d052d484bb46c776620199e9, type: 2}
+        expression: shocked
+    - rid: 1574623326257545225
+      type: {class: AnimateCharacterNode, ns: NovelGraph, asm: NovelGraph.Runtime}
+      data:
+        m_guid: 7f40829d-a274-409f-ab5d-de4739a5003a
+        m_position:
+          serializedVersion: 2
+          x: 1940
+          y: 460
+          width: 250
+          height: 170
+        typeName: 
+        character: {fileID: 11400000, guid: d3453235d052d484bb46c776620199e9, type: 2}
+        motion: 2
+        duration: 0.9
+        intensity: 1.25
+        loop: 0
+    - rid: 1574623326257545226
+      type: {class: DialogueNode, ns: NovelGraph, asm: NovelGraph.Runtime}
+      data:
+        m_guid: ef447e90-7fc9-4bda-998e-1dafbde338d3
+        m_position:
+          serializedVersion: 2
+          x: 2220
+          y: 320
+          width: 250
+          height: 170
+        typeName: 
+        speakerMode: 2
+        character: {fileID: 11400000, guid: d3453235d052d484bb46c776620199e9, type: 2}
+        speaker: 
+        dialogue: That is not a diagnostic. The signal just used my childhood access
+          phrase.
+        playLetterSounds: 1
+        charactersPerSecond: 29
+        showCharacter: 1
+        expression: shocked
+        characterPosition: 3
+        characterTransitionDuration: 0.3
+        speakingMotion: 3
+        motionIntensity: 1
+        focusSpeaker: 1
+    - rid: 1574623326257545227
+      type: {class: MoveCharacterNode, ns: NovelGraph, asm: NovelGraph.Runtime}
+      data:
+        m_guid: 64018f0a-de9f-4bce-a3dc-66917faf01b3
+        m_position:
+          serializedVersion: 2
+          x: 2500
+          y: 220
+          width: 250
+          height: 170
+        typeName: 
+        character: {fileID: 11400000, guid: d71ae1e2a0b4d434ab60c4d29956fa3d, type: 2}
+        stagePosition: 2
+        duration: 0.5
+    - rid: 1574623326257545228
+      type: {class: SetCharacterExpressionNode, ns: NovelGraph, asm: NovelGraph.Runtime}
+      data:
+        m_guid: ca53d33e-ef68-4e17-9bde-e190bc980e92
+        m_position:
+          serializedVersion: 2
+          x: 2500
+          y: 420
+          width: 250
+          height: 170
+        typeName: 
+        character: {fileID: 11400000, guid: d71ae1e2a0b4d434ab60c4d29956fa3d, type: 2}
+        expression: determined
+    - rid: 1574623326257545229
+      type: {class: AnimateCharacterNode, ns: NovelGraph, asm: NovelGraph.Runtime}
+      data:
+        m_guid: eb5b047d-8176-460c-b5ae-d47e1b8cdc2b
+        m_position:
+          serializedVersion: 2
+          x: 2780
+          y: 220
+          width: 250
+          height: 170
+        typeName: 
+        character: {fileID: 11400000, guid: d71ae1e2a0b4d434ab60c4d29956fa3d, type: 2}
+        motion: 5
+        duration: 0.7
+        intensity: 0.55
+        loop: 0
+    - rid: 1574623326257545230
+      type: {class: DialogueNode, ns: NovelGraph, asm: NovelGraph.Runtime}
+      data:
+        m_guid: 32b74155-37fa-4365-979f-4873fc00903a
+        m_position:
+          serializedVersion: 2
+          x: 3060
+          y: 320
+          width: 250
+          height: 170
+        typeName: 
+        speakerMode: 2
+        character: {fileID: 11400000, guid: d71ae1e2a0b4d434ab60c4d29956fa3d, type: 2}
+        speaker: 
+        dialogue: Then we stop guessing. Four systems, four risks, and about one
+          minute before the glass moon opens.
+        playLetterSounds: 1
+        charactersPerSecond: 36
+        showCharacter: 1
+        expression: determined
+        characterPosition: 2
+        characterTransitionDuration: 0.3
+        speakingMotion: 4
+        motionIntensity: 1
+        focusSpeaker: 1
+    - rid: 1574623326257545231
+      type: {class: CallFunctionNode, ns: NovelGraph, asm: NovelGraph.Runtime}
+      data:
+        m_guid: 433ae7ad-5081-437d-8708-d7d06d22c4e9
+        m_position:
+          serializedVersion: 2
+          x: 3340
+          y: 320
+          width: 250
+          height: 170
+        typeName: 
+        functionId: activate_station_alarm
+    - rid: 1574623326257545232
+      type: {class: MultiChoiceNode, ns: NovelGraph, asm: NovelGraph.Runtime}
+      data:
+        m_guid: b333f294-4ed4-414f-865d-5a9664789817
+        m_position:
+          serializedVersion: 2
+          x: 3620
+          y: 320
+          width: 250
+          height: 170
+        typeName: 
+        prompt: Choose the Glass Moon Protocol. Save here, then replay every route
+          to test the complete showcase.
+        choiceA: Stabilize the lunar reactor
+        choiceB: Decode and answer the impossible signal
+        choiceC: Evacuate in the last escape pod
+        choiceD: Touch the anomaly before it opens
+        stateKey: glass_moon_route
+    - rid: 1574623326257545233
+      type: {class: FocusCharacterNode, ns: NovelGraph, asm: NovelGraph.Runtime}
+      data:
+        m_guid: e27f63ca-6c9f-4e11-b6ff-8aefa670b20e
+        m_position:
+          serializedVersion: 2
+          x: 3960
+          y: -720
+          width: 250
+          height: 170
+        typeName: 
+        character: {fileID: 11400000, guid: d71ae1e2a0b4d434ab60c4d29956fa3d, type: 2}
+        duration: 0.15
+    - rid: 1574623326257545234
+      type: {class: SetCharacterExpressionNode, ns: NovelGraph, asm: NovelGraph.Runtime}
+      data:
+        m_guid: 00d11912-f487-48c8-86d1-dddf6c2aee6a
+        m_position:
+          serializedVersion: 2
+          x: 4240
+          y: -720
+          width: 250
+          height: 170
+        typeName: 
+        character: {fileID: 11400000, guid: d71ae1e2a0b4d434ab60c4d29956fa3d, type: 2}
+        expression: determined
+    - rid: 1574623326257545235
+      type: {class: AnimateCharacterNode, ns: NovelGraph, asm: NovelGraph.Runtime}
+      data:
+        m_guid: aca6166c-1db5-4332-be28-69e208ced828
+        m_position:
+          serializedVersion: 2
+          x: 4520
+          y: -720
+          width: 250
+          height: 170
+        typeName: 
+        character: {fileID: 11400000, guid: d71ae1e2a0b4d434ab60c4d29956fa3d, type: 2}
+        motion: 6
+        duration: 1.2
+        intensity: 1.35
+        loop: 0
+    - rid: 1574623326257545236
+      type: {class: CallFunctionNode, ns: NovelGraph, asm: NovelGraph.Runtime}
+      data:
+        m_guid: 6e3b0ac6-c0cb-4773-9325-da393a9ca90b
+        m_position:
+          serializedVersion: 2
+          x: 4800
+          y: -720
+          width: 250
+          height: 170
+        typeName: 
+        functionId: stabilize_moon_reactor
+    - rid: 1574623326257545237
+      type: {class: SetIntNode, ns: NovelGraph, asm: NovelGraph.Runtime}
+      data:
+        m_guid: ff2e5e82-5f98-4a13-9399-8ebaa47913e8
+        m_position:
+          serializedVersion: 2
+          x: 5080
+          y: -720
+          width: 250
+          height: 170
+        typeName: 
+        key: reactor_stable
+        value: 1
+    - rid: 1574623326257545238
+      type: {class: IntConditionNode, ns: NovelGraph, asm: NovelGraph.Runtime}
+      data:
+        m_guid: ce2bf549-e849-4619-81e8-33769dbb38d6
+        m_position:
+          serializedVersion: 2
+          x: 5360
+          y: -720
+          width: 250
+          height: 170
+        typeName: 
+        key: reactor_stable
+        expectedValue: 1
+    - rid: 1574623326257545239
+      type: {class: SignalNode, ns: NovelGraph, asm: NovelGraph.Runtime}
+      data:
+        m_guid: fa517caa-2d4c-4eed-9bf3-e3ea247e0c50
+        m_position:
+          serializedVersion: 2
+          x: 5640
+          y: -800
+          width: 250
+          height: 170
+        typeName: 
+        signal: reactor_stable
+    - rid: 1574623326257545240
+      type: {class: DialogueNode, ns: NovelGraph, asm: NovelGraph.Runtime}
+      data:
+        m_guid: 647d0309-4a07-4705-80a8-cfca4a083c37
+        m_position:
+          serializedVersion: 2
+          x: 5920
+          y: -800
+          width: 250
+          height: 170
+        typeName: 
+        speakerMode: 2
+        character: {fileID: 11400000, guid: d71ae1e2a0b4d434ab60c4d29956fa3d, type: 2}
+        speaker: 
+        dialogue: Containment is holding. The moon is still singing, but now it has
+          to breathe on our rhythm.
+        playLetterSounds: 1
+        charactersPerSecond: 37
+        showCharacter: 1
+        expression: determined
+        characterPosition: 2
+        characterTransitionDuration: 0.3
+        speakingMotion: 6
+        motionIntensity: 1
+        focusSpeaker: 1
+    - rid: 1574623326257545241
+      type: {class: HideCharacterNode, ns: NovelGraph, asm: NovelGraph.Runtime}
+      data:
+        m_guid: 4cacddf2-504a-4384-af86-f8ee8a2740e8
+        m_position:
+          serializedVersion: 2
+          x: 6200
+          y: -800
+          width: 250
+          height: 170
+        typeName: 
+        character: {fileID: 11400000, guid: d3453235d052d484bb46c776620199e9, type: 2}
+        duration: 0.4
+    - rid: 1574623326257545242
+      type: {class: EndNode, ns: NovelGraph, asm: NovelGraph.Runtime}
+      data:
+        m_guid: 14052cf8-d3c5-4d6e-9e0a-4a1060e78adb
+        m_position:
+          serializedVersion: 2
+          x: 6480
+          y: -800
+          width: 250
+          height: 170
+        typeName: 
+    - rid: 1574623326257545243
+      type: {class: DialogueNode, ns: NovelGraph, asm: NovelGraph.Runtime}
+      data:
+        m_guid: 1fadce16-3bdc-4a5e-bdd5-15f645605de1
+        m_position:
+          serializedVersion: 2
+          x: 5640
+          y: -600
+          width: 250
+          height: 170
+        typeName: 
+        speakerMode: 1
+        character: {fileID: 0}
+        speaker: 
+        dialogue: The diagnostic says the reactor is unstable. This branch exists
+          to verify the Not Equal condition output.
+        playLetterSounds: 0
+        charactersPerSecond: 42
+        showCharacter: 0
+        expression: 
+        characterPosition: 2
+        characterTransitionDuration: 0.2
+        speakingMotion: 0
+        motionIntensity: 1
+        focusSpeaker: 0
+    - rid: 1574623326257545244
+      type: {class: EndNode, ns: NovelGraph, asm: NovelGraph.Runtime}
+      data:
+        m_guid: 093c2e4f-87b7-4d58-ab57-28a39d661604
+        m_position:
+          serializedVersion: 2
+          x: 5920
+          y: -600
+          width: 250
+          height: 170
+        typeName: 
+    - rid: 1574623326257545245
+      type: {class: MoveCharacterNode, ns: NovelGraph, asm: NovelGraph.Runtime}
+      data:
+        m_guid: 729a8c8a-6d51-443e-a745-2263b9e228a1
+        m_position:
+          serializedVersion: 2
+          x: 3960
+          y: -160
+          width: 250
+          height: 170
+        typeName: 
+        character: {fileID: 11400000, guid: d3453235d052d484bb46c776620199e9, type: 2}
+        stagePosition: 2
+        duration: 0.55
+    - rid: 1574623326257545246
+      type: {class: SetCharacterExpressionNode, ns: NovelGraph, asm: NovelGraph.Runtime}
+      data:
+        m_guid: cc78d7b0-f3bc-4fe2-9614-10531f51a221
+        m_position:
+          serializedVersion: 2
+          x: 4240
+          y: -160
+          width: 250
+          height: 170
+        typeName: 
+        character: {fileID: 11400000, guid: d3453235d052d484bb46c776620199e9, type: 2}
+        expression: suspicious
+    - rid: 1574623326257545247
+      type: {class: AnimateCharacterNode, ns: NovelGraph, asm: NovelGraph.Runtime}
+      data:
+        m_guid: 89d99aca-c9c4-471d-b59d-d72f869509a9
+        m_position:
+          serializedVersion: 2
+          x: 4520
+          y: -160
+          width: 250
+          height: 170
+        typeName: 
+        character: {fileID: 11400000, guid: d3453235d052d484bb46c776620199e9, type: 2}
+        motion: 4
+        duration: 0.9
+        intensity: 0.7
+        loop: 0
+    - rid: 1574623326257545248
+      type: {class: DialogueNode, ns: NovelGraph, asm: NovelGraph.Runtime}
+      data:
+        m_guid: d8f7a483-d21f-44b0-9722-09c00e6edc7a
+        m_position:
+          serializedVersion: 2
+          x: 4800
+          y: -160
+          width: 250
+          height: 170
+        typeName: 
+        speakerMode: 2
+        character: {fileID: 11400000, guid: d3453235d052d484bb46c776620199e9, type: 2}
+        speaker: 
+        dialogue: 'There. Beneath the reactor noise: coordinates, a heartbeat, and
+          a request to be remembered.'
+        playLetterSounds: 1
+        charactersPerSecond: 31
+        showCharacter: 1
+        expression: suspicious
+        characterPosition: 2
+        characterTransitionDuration: 0.3
+        speakingMotion: 1
+        motionIntensity: 1
+        focusSpeaker: 1
+    - rid: 1574623326257545249
+      type: {class: TwoChoiceNode, ns: NovelGraph, asm: NovelGraph.Runtime}
+      data:
+        m_guid: dce22d7e-b87a-48d0-b4e1-2b8456c7b7ad
+        m_position:
+          serializedVersion: 2
+          x: 5080
+          y: -160
+          width: 250
+          height: 170
+        typeName: 
+        prompt: The signal addresses you by name. How do you answer?
+        firstChoice: 'Answer: We remember you'
+        firstSignal: signal_answered
+        firstValue: 1
+        secondChoice: Jam the transmission
+        secondSignal: signal_jammed
+        secondValue: 0
+        stateKey: signal_reply
+    - rid: 1574623326257545250
+      type: {class: IntConditionNode, ns: NovelGraph, asm: NovelGraph.Runtime}
+      data:
+        m_guid: f5e0b5c5-c221-4306-9cbb-d735b43a5cd8
+        m_position:
+          serializedVersion: 2
+          x: 5360
+          y: -260
+          width: 250
+          height: 170
+        typeName: 
+        key: signal_reply
+        expectedValue: 1
+    - rid: 1574623326257545251
+      type: {class: IntConditionNode, ns: NovelGraph, asm: NovelGraph.Runtime}
+      data:
+        m_guid: 04a12c42-d4f2-439f-b116-646bd79906ee
+        m_position:
+          serializedVersion: 2
+          x: 5360
+          y: -40
+          width: 250
+          height: 170
+        typeName: 
+        key: signal_reply
+        expectedValue: 1
+    - rid: 1574623326257545252
+      type: {class: CallFunctionNode, ns: NovelGraph, asm: NovelGraph.Runtime}
+      data:
+        m_guid: df75b047-3ba1-4195-b67d-0d2321ccc651
+        m_position:
+          serializedVersion: 2
+          x: 5640
+          y: -260
+          width: 250
+          height: 170
+        typeName: 
+        functionId: open_anomaly_gate
+    - rid: 1574623326257545253
+      type: {class: DialogueNode, ns: NovelGraph, asm: NovelGraph.Runtime}
+      data:
+        m_guid: 210620d7-d037-4cbf-8250-814a8558733d
+        m_position:
+          serializedVersion: 2
+          x: 5920
+          y: -260
+          width: 250
+          height: 170
+        typeName: 
+        speakerMode: 0
+        character: {fileID: 0}
+        speaker: THE CHORUS
+        dialogue: MEMORY ACCEPTED. BORROWED MOON RETURNING TO ORIGINAL ORBIT.
+        playLetterSounds: 0
+        charactersPerSecond: 25
+        showCharacter: 0
+        expression: 
+        characterPosition: 2
+        characterTransitionDuration: 0.2
+        speakingMotion: 0
+        motionIntensity: 1
+        focusSpeaker: 0
+    - rid: 1574623326257545254
+      type: {class: EndNode, ns: NovelGraph, asm: NovelGraph.Runtime}
+      data:
+        m_guid: d27bedc1-d124-4d83-aa46-9a860fe34735
+        m_position:
+          serializedVersion: 2
+          x: 6200
+          y: -260
+          width: 250
+          height: 170
+        typeName: 
+    - rid: 1574623326257545255
+      type: {class: CallFunctionNode, ns: NovelGraph, asm: NovelGraph.Runtime}
+      data:
+        m_guid: 63154ec8-1ab7-4e47-b678-f8079a40bbc5
+        m_position:
+          serializedVersion: 2
+          x: 5640
+          y: -40
+          width: 250
+          height: 170
+        typeName: 
+        functionId: trigger_station_blackout
+    - rid: 1574623326257545256
+      type: {class: SetCharacterExpressionNode, ns: NovelGraph, asm: NovelGraph.Runtime}
+      data:
+        m_guid: c346e92e-0d2a-47d4-97bc-23785b51a97b
+        m_position:
+          serializedVersion: 2
+          x: 5920
+          y: -40
+          width: 250
+          height: 170
+        typeName: 
+        character: {fileID: 11400000, guid: d71ae1e2a0b4d434ab60c4d29956fa3d, type: 2}
+        expression: shocked
+    - rid: 1574623326257545257
+      type: {class: AnimateCharacterNode, ns: NovelGraph, asm: NovelGraph.Runtime}
+      data:
+        m_guid: cd757f30-02b8-405a-ab8d-ba608f8e7173
+        m_position:
+          serializedVersion: 2
+          x: 6200
+          y: -40
+          width: 250
+          height: 170
+        typeName: 
+        character: {fileID: 11400000, guid: d71ae1e2a0b4d434ab60c4d29956fa3d, type: 2}
+        motion: 3
+        duration: 1.2
+        intensity: 1.4
+        loop: 0
+    - rid: 1574623326257545258
+      type: {class: DialogueNode, ns: NovelGraph, asm: NovelGraph.Runtime}
+      data:
+        m_guid: cb82a7cf-cc42-4bc8-bdd5-33e9f87cdd0d
+        m_position:
+          serializedVersion: 2
+          x: 6480
+          y: -40
+          width: 250
+          height: 170
+        typeName: 
+        speakerMode: 1
+        character: {fileID: 0}
+        speaker: 
+        dialogue: The transmission dies. Every light follows it, leaving two silhouettes
+          beneath a perfectly silent moon.
+        playLetterSounds: 0
+        charactersPerSecond: 42
+        showCharacter: 0
+        expression: 
+        characterPosition: 2
+        characterTransitionDuration: 0.2
+        speakingMotion: 0
+        motionIntensity: 1
+        focusSpeaker: 0
+    - rid: 1574623326257545259
+      type: {class: EndNode, ns: NovelGraph, asm: NovelGraph.Runtime}
+      data:
+        m_guid: ad9fefd3-a232-4969-8592-0f8f70b710df
+        m_position:
+          serializedVersion: 2
+          x: 6760
+          y: -40
+          width: 250
+          height: 170
+        typeName: 
+    - rid: 1574623326257545260
+      type: {class: EndNode, ns: NovelGraph, asm: NovelGraph.Runtime}
+      data:
+        m_guid: 432428c3-b6c8-4a13-b11b-2f26a05ecb7b
+        m_position:
+          serializedVersion: 2
+          x: 5640
+          y: -420
+          width: 250
+          height: 170
+        typeName: 
+    - rid: 1574623326257545261
+      type: {class: EndNode, ns: NovelGraph, asm: NovelGraph.Runtime}
+      data:
+        m_guid: 380767bc-5b77-429f-a310-8f43e120bb05
+        m_position:
+          serializedVersion: 2
+          x: 5640
+          y: 140
+          width: 250
+          height: 170
+        typeName: 
+    - rid: 1574623326257545262
+      type: {class: FocusCharacterNode, ns: NovelGraph, asm: NovelGraph.Runtime}
+      data:
+        m_guid: 9e2a079e-677a-4cb8-9c3b-bdcdfff1ea1c
+        m_position:
+          serializedVersion: 2
+          x: 3960
+          y: 380
+          width: 250
+          height: 170
+        typeName: 
+        character: {fileID: 11400000, guid: d3453235d052d484bb46c776620199e9, type: 2}
+        duration: 0.15
+    - rid: 1574623326257545263
+      type: {class: MoveCharacterNode, ns: NovelGraph, asm: NovelGraph.Runtime}
+      data:
+        m_guid: 2e095bf7-11b2-4335-91f0-184eb61efaa6
+        m_position:
+          serializedVersion: 2
+          x: 4240
+          y: 300
+          width: 250
+          height: 170
+        typeName: 
+        character: {fileID: 11400000, guid: d71ae1e2a0b4d434ab60c4d29956fa3d, type: 2}
+        stagePosition: 0
+        duration: 0.55
+    - rid: 1574623326257545264
+      type: {class: MoveCharacterNode, ns: NovelGraph, asm: NovelGraph.Runtime}
+      data:
+        m_guid: 66cb45b0-bcb9-43f2-986c-347029adf16e
+        m_position:
+          serializedVersion: 2
+          x: 4240
+          y: 480
+          width: 250
+          height: 170
+        typeName: 
+        character: {fileID: 11400000, guid: d3453235d052d484bb46c776620199e9, type: 2}
+        stagePosition: 4
+        duration: 0.55
+    - rid: 1574623326257545265
+      type: {class: AnimateCharacterNode, ns: NovelGraph, asm: NovelGraph.Runtime}
+      data:
+        m_guid: 20791a49-3a49-40b6-92a9-918294aa2010
+        m_position:
+          serializedVersion: 2
+          x: 4520
+          y: 300
+          width: 250
+          height: 170
+        typeName: 
+        character: {fileID: 11400000, guid: d71ae1e2a0b4d434ab60c4d29956fa3d, type: 2}
+        motion: 5
+        duration: 0.8
+        intensity: 0.7
+        loop: 0
+    - rid: 1574623326257545266
+      type: {class: AnimateCharacterNode, ns: NovelGraph, asm: NovelGraph.Runtime}
+      data:
+        m_guid: 3ed748cb-8b48-451e-857b-ca0b241393f3
+        m_position:
+          serializedVersion: 2
+          x: 4520
+          y: 480
+          width: 250
+          height: 170
+        typeName: 
+        character: {fileID: 11400000, guid: d3453235d052d484bb46c776620199e9, type: 2}
+        motion: 4
+        duration: 1.1
+        intensity: 0.8
+        loop: 0
+    - rid: 1574623326257545267
+      type: {class: DialogueNode, ns: NovelGraph, asm: NovelGraph.Runtime}
+      data:
+        m_guid: ce8e0616-0c34-4f92-baf1-b9ac40982663
+        m_position:
+          serializedVersion: 2
+          x: 4800
+          y: 380
+          width: 250
+          height: 170
+        typeName: 
+        speakerMode: 2
+        character: {fileID: 11400000, guid: d3453235d052d484bb46c776620199e9, type: 2}
+        speaker: 
+        dialogue: One seat. You take it. I can keep the docking clamps open from
+          here.
+        playLetterSounds: 0
+        charactersPerSecond: 27
+        showCharacter: 1
+        expression: neutral
+        characterPosition: 4
+        characterTransitionDuration: 0.3
+        speakingMotion: 1
+        motionIntensity: 1
+        focusSpeaker: 1
+    - rid: 1574623326257545268
+      type: {class: HideCharacterNode, ns: NovelGraph, asm: NovelGraph.Runtime}
+      data:
+        m_guid: 66f23fa8-f48b-4f55-b8e5-f458b399cc70
+        m_position:
+          serializedVersion: 2
+          x: 5080
+          y: 300
+          width: 250
+          height: 170
+        typeName: 
+        character: {fileID: 11400000, guid: d71ae1e2a0b4d434ab60c4d29956fa3d, type: 2}
+        duration: 0.55
+    - rid: 1574623326257545269
+      type: {class: SignalNode, ns: NovelGraph, asm: NovelGraph.Runtime}
+      data:
+        m_guid: f4c98823-3dc3-4efa-af5f-daa6887efd0b
+        m_position:
+          serializedVersion: 2
+          x: 5080
+          y: 480
+          width: 250
+          height: 170
+        typeName: 
+        signal: evacuation_started
+    - rid: 1574623326257545270
+      type: {class: CallFunctionNode, ns: NovelGraph, asm: NovelGraph.Runtime}
+      data:
+        m_guid: a634500c-e5cf-4f39-b5a9-91274dcbe6aa
+        m_position:
+          serializedVersion: 2
+          x: 5360
+          y: 380
+          width: 250
+          height: 170
+        typeName: 
+        functionId: launch_escape_pod
+    - rid: 1574623326257545271
+      type: {class: ClearCharactersNode, ns: NovelGraph, asm: NovelGraph.Runtime}
+      data:
+        m_guid: 5ba5b2aa-ea5e-4e11-9846-1a48a1d13391
+        m_position:
+          serializedVersion: 2
+          x: 5640
+          y: 380
+          width: 250
+          height: 170
+        typeName: 
+        duration: 0.7
+    - rid: 1574623326257545272
+      type: {class: DialogueNode, ns: NovelGraph, asm: NovelGraph.Runtime}
+      data:
+        m_guid: 44772af9-92ca-4f03-b00e-0673ddd0daee
+        m_position:
+          serializedVersion: 2
+          x: 5920
+          y: 380
+          width: 250
+          height: 170
+        typeName: 
+        speakerMode: 1
+        character: {fileID: 0}
+        speaker: 
+        dialogue: The pod falls toward the colony. In its small rear window, Orin
+          becomes a violet point against the opening moon.
+        playLetterSounds: 0
+        charactersPerSecond: 42
+        showCharacter: 0
+        expression: 
+        characterPosition: 2
+        characterTransitionDuration: 0.2
+        speakingMotion: 0
+        motionIntensity: 1
+        focusSpeaker: 0
+    - rid: 1574623326257545273
+      type: {class: EndNode, ns: NovelGraph, asm: NovelGraph.Runtime}
+      data:
+        m_guid: 5ecb4518-dca2-4e62-8e43-89a50615c850
+        m_position:
+          serializedVersion: 2
+          x: 6200
+          y: 380
+          width: 250
+          height: 170
+        typeName: 
+    - rid: 1574623326257545274
+      type: {class: SetCharacterExpressionNode, ns: NovelGraph, asm: NovelGraph.Runtime}
+      data:
+        m_guid: ae5890ce-10a6-4c4a-a85d-16be438bd576
+        m_position:
+          serializedVersion: 2
+          x: 3960
+          y: 820
+          width: 250
+          height: 170
+        typeName: 
+        character: {fileID: 11400000, guid: d71ae1e2a0b4d434ab60c4d29956fa3d, type: 2}
+        expression: shocked
+    - rid: 1574623326257545275
+      type: {class: SetCharacterExpressionNode, ns: NovelGraph, asm: NovelGraph.Runtime}
+      data:
+        m_guid: 51037c31-77bc-441a-bb82-a18aa16b6e87
+        m_position:
+          serializedVersion: 2
+          x: 3960
+          y: 1020
+          width: 250
+          height: 170
+        typeName: 
+        character: {fileID: 11400000, guid: d3453235d052d484bb46c776620199e9, type: 2}
+        expression: shocked
+    - rid: 1574623326257545276
+      type: {class: AnimateCharacterNode, ns: NovelGraph, asm: NovelGraph.Runtime}
+      data:
+        m_guid: 3bd0bddc-cc04-4e26-9f7a-c8f5257787cf
+        m_position:
+          serializedVersion: 2
+          x: 4240
+          y: 820
+          width: 250
+          height: 170
+        typeName: 
+        character: {fileID: 11400000, guid: d71ae1e2a0b4d434ab60c4d29956fa3d, type: 2}
+        motion: 6
+        duration: 0
+        intensity: 1.6
+        loop: 1
+    - rid: 1574623326257545277
+      type: {class: AnimateCharacterNode, ns: NovelGraph, asm: NovelGraph.Runtime}
+      data:
+        m_guid: 77885119-c5c7-4811-934d-c82e35073406
+        m_position:
+          serializedVersion: 2
+          x: 4240
+          y: 1020
+          width: 250
+          height: 170
+        typeName: 
+        character: {fileID: 11400000, guid: d3453235d052d484bb46c776620199e9, type: 2}
+        motion: 2
+        duration: 1.5
+        intensity: 1.4
+        loop: 0
+    - rid: 1574623326257545278
+      type: {class: FocusCharacterNode, ns: NovelGraph, asm: NovelGraph.Runtime}
+      data:
+        m_guid: 6d123815-9e76-4cf4-b73e-e04a032bc3a0
+        m_position:
+          serializedVersion: 2
+          x: 4520
+          y: 920
+          width: 250
+          height: 170
+        typeName: 
+        character: {fileID: 0}
+        duration: 0.2
+    - rid: 1574623326257545279
+      type: {class: SignalNode, ns: NovelGraph, asm: NovelGraph.Runtime}
+      data:
+        m_guid: 3279dfb9-34a4-4a98-b5ba-e0d607533b38
+        m_position:
+          serializedVersion: 2
+          x: 4800
+          y: 920
+          width: 250
+          height: 170
+        typeName: 
+        signal: anomaly_touched
+    - rid: 1574623326257545280
+      type: {class: DialogueNode, ns: NovelGraph, asm: NovelGraph.Runtime}
+      data:
+        m_guid: d0589439-e937-4f1c-b566-3ecfc269faea
+        m_position:
+          serializedVersion: 2
+          x: 5080
+          y: 920
+          width: 250
+          height: 170
+        typeName: 
+        speakerMode: 0
+        character: {fileID: 0}
+        speaker: THE GLASS MOON
+        dialogue: CONTACT CONFIRMED. TWO OBSERVERS. ONE MEMORY. OPENING THE DOOR
+          BETWEEN.
+        playLetterSounds: 0
+        charactersPerSecond: 25
+        showCharacter: 0
+        expression: 
+        characterPosition: 2
+        characterTransitionDuration: 0.2
+        speakingMotion: 0
+        motionIntensity: 1
+        focusSpeaker: 0
+    - rid: 1574623326257545281
+      type: {class: CallFunctionNode, ns: NovelGraph, asm: NovelGraph.Runtime}
+      data:
+        m_guid: efcd5223-7d46-4816-b42e-684b8aa54d85
+        m_position:
+          serializedVersion: 2
+          x: 5360
+          y: 920
+          width: 250
+          height: 170
+        typeName: 
+        functionId: trigger_station_blackout
+    - rid: 1574623326257545282
+      type: {class: ClearCharactersNode, ns: NovelGraph, asm: NovelGraph.Runtime}
+      data:
+        m_guid: e9eba7ba-8d72-4f46-b8e7-f38454e7f611
+        m_position:
+          serializedVersion: 2
+          x: 5640
+          y: 920
+          width: 250
+          height: 170
+        typeName: 
+        duration: 1.1
+    - rid: 1574623326257545283
+      type: {class: DialogueNode, ns: NovelGraph, asm: NovelGraph.Runtime}
+      data:
+        m_guid: 9d249516-18bb-4cfb-8875-9b5e6cbea96a
+        m_position:
+          serializedVersion: 2
+          x: 5920
+          y: 920
+          width: 250
+          height: 170
+        typeName: 
+        speakerMode: 1
+        character: {fileID: 0}
+        speaker: 
+        dialogue: For one impossible second, every choice they did not make stands
+          beside them in the dark.
+        playLetterSounds: 0
+        charactersPerSecond: 42
+        showCharacter: 0
+        expression: 
+        characterPosition: 2
+        characterTransitionDuration: 0.2
+        speakingMotion: 0
+        motionIntensity: 1
+        focusSpeaker: 0
+    - rid: 1574623326257545284
+      type: {class: EndNode, ns: NovelGraph, asm: NovelGraph.Runtime}
+      data:
+        m_guid: 2c0db6fa-dc9d-4082-927f-4fd0f82f2340
+        m_position:
+          serializedVersion: 2
+          x: 6200
+          y: 920
+          width: 250
+          height: 170
+        typeName: 

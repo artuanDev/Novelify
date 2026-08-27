@@ -283,7 +283,14 @@ namespace NovelGraph.Editor
                 if (previousScene.IsValid()) SceneManager.SetActiveScene(previousScene);
                 EditorSceneManager.CloseScene(scene, true);
             }
-            EditorBuildSettings.scenes = new[] { new EditorBuildSettingsScene(ScenePath, true) };
+            const string showcaseScene = SampleRoot + "/Scenes/EverythingShowcase.unity";
+            EditorBuildSettings.scenes = AssetDatabase.LoadAssetAtPath<SceneAsset>(showcaseScene) != null
+                ? new[]
+                {
+                    new EditorBuildSettingsScene(ScenePath, true),
+                    new EditorBuildSettingsScene(showcaseScene, true)
+                }
+                : new[] { new EditorBuildSettingsScene(ScenePath, true) };
         }
 
         private static void BindFunction(NovelGraphPlayer player, string id, UnityAction callback)
