@@ -35,6 +35,9 @@ namespace NovelGraph
         public string Text { get; }
         public string StateKey { get; }
         public IReadOnlyList<NovelChoiceOption> Choices { get; }
+        public NovelCharacter Character { get; }
+        public bool PlayLetterSounds { get; }
+        public float CharactersPerSecond { get; }
 
         private NovelNodeResult(
             NovelNodeResultType type,
@@ -42,7 +45,10 @@ namespace NovelGraph
             string speaker = "",
             string text = "",
             string stateKey = "",
-            IReadOnlyList<NovelChoiceOption> choices = null)
+            IReadOnlyList<NovelChoiceOption> choices = null,
+            NovelCharacter character = null,
+            bool playLetterSounds = false,
+            float charactersPerSecond = 36f)
         {
             Type = type;
             NextNodeId = nextNodeId ?? string.Empty;
@@ -50,13 +56,29 @@ namespace NovelGraph
             Text = text ?? string.Empty;
             StateKey = stateKey ?? string.Empty;
             Choices = choices ?? Array.Empty<NovelChoiceOption>();
+            Character = character;
+            PlayLetterSounds = playLetterSounds;
+            CharactersPerSecond = charactersPerSecond;
         }
 
         public static NovelNodeResult Continue(string nextNodeId) =>
             new NovelNodeResult(NovelNodeResultType.Continue, nextNodeId);
 
-        public static NovelNodeResult Dialogue(string speaker, string text, string nextNodeId) =>
-            new NovelNodeResult(NovelNodeResultType.Dialogue, nextNodeId, speaker, text);
+        public static NovelNodeResult Dialogue(
+            string speaker,
+            string text,
+            string nextNodeId,
+            NovelCharacter character = null,
+            bool playLetterSounds = false,
+            float charactersPerSecond = 36f) =>
+            new NovelNodeResult(
+                NovelNodeResultType.Dialogue,
+                nextNodeId,
+                speaker,
+                text,
+                character: character,
+                playLetterSounds: playLetterSounds,
+                charactersPerSecond: charactersPerSecond);
 
         public static NovelNodeResult Choice(string prompt, string stateKey, IReadOnlyList<NovelChoiceOption> choices) =>
             new NovelNodeResult(NovelNodeResultType.Choice, text: prompt, stateKey: stateKey, choices: choices);

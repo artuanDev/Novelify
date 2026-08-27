@@ -11,63 +11,145 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ca3c65bee3324924abeef5501a79b74b, type: 3}
   m_Name: TheLastBeacon
-  m_EditorClassIdentifier:
+  m_EditorClassIdentifier: 
   m_nodes:
-  - rid: 1001
-  - rid: 1002
-  - rid: 1003
-  - rid: 1004
-  - rid: 1005
-  - rid: 1006
-  - rid: 1007
-  - rid: 1008
+  - rid: 1574623318951592008
+  - rid: 1574623318951592009
+  - rid: 1574623318951592010
+  - rid: 1574623318951592011
+  - rid: 1574623318951592012
+  - rid: 1574623318951592013
+  - rid: 1574623318951592014
+  - rid: 1574623318951592015
+  - rid: 1574623318951592016
+  - rid: 1574623318951592017
+  - rid: 1574623318951592018
+  - rid: 1574623318951592019
   m_connections:
-  - inputPort: {nodeId: sample-opening, portIndex: 1}
-    outputPort: {nodeId: sample-start, portIndex: 0}
-  - inputPort: {nodeId: sample-mira, portIndex: 1}
-    outputPort: {nodeId: sample-opening, portIndex: 0}
-  - inputPort: {nodeId: sample-choice, portIndex: 2}
-    outputPort: {nodeId: sample-mira, portIndex: 0}
-  - inputPort: {nodeId: sample-trusted, portIndex: 1}
-    outputPort: {nodeId: sample-choice, portIndex: 0}
-  - inputPort: {nodeId: sample-refused, portIndex: 1}
-    outputPort: {nodeId: sample-choice, portIndex: 1}
-  - inputPort: {nodeId: sample-trusted-end, portIndex: 0}
-    outputPort: {nodeId: sample-trusted, portIndex: 0}
-  - inputPort: {nodeId: sample-refused-end, portIndex: 0}
-    outputPort: {nodeId: sample-refused, portIndex: 0}
+  - inputPort:
+      nodeId: ff5b143b-3e3a-43f8-8253-f5b1f3b89080
+      portIndex: 1
+    outputPort:
+      nodeId: be3b15b2-104b-4c2a-a7bf-91c08ac1c505
+      portIndex: 0
+  - inputPort:
+      nodeId: 1b4b5a40-dc00-4de7-bc98-1946e51741f8
+      portIndex: 1
+    outputPort:
+      nodeId: ff5b143b-3e3a-43f8-8253-f5b1f3b89080
+      portIndex: 0
+  - inputPort:
+      nodeId: 1e38364b-cd92-4824-93d2-d879129f43b8
+      portIndex: 2
+    outputPort:
+      nodeId: 1b4b5a40-dc00-4de7-bc98-1946e51741f8
+      portIndex: 0
+  - inputPort:
+      nodeId: c8201b34-4642-4144-9ae6-e6ae98a22e49
+      portIndex: 1
+    outputPort:
+      nodeId: 1e38364b-cd92-4824-93d2-d879129f43b8
+      portIndex: 0
+  - inputPort:
+      nodeId: db486016-6123-46db-8db5-afdfe4a1bf7c
+      portIndex: 1
+    outputPort:
+      nodeId: 1e38364b-cd92-4824-93d2-d879129f43b8
+      portIndex: 1
+  - inputPort:
+      nodeId: 09a16d5d-ab47-4888-bbaf-0bb06464c5e3
+      portIndex: 2
+    outputPort:
+      nodeId: c8201b34-4642-4144-9ae6-e6ae98a22e49
+      portIndex: 0
+  - inputPort:
+      nodeId: acf828ab-0327-4c74-8478-08372a9d9161
+      portIndex: 1
+    outputPort:
+      nodeId: 09a16d5d-ab47-4888-bbaf-0bb06464c5e3
+      portIndex: 0
+  - inputPort:
+      nodeId: 4c2421c7-91ad-4832-9634-d668cba847b8
+      portIndex: 1
+    outputPort:
+      nodeId: 09a16d5d-ab47-4888-bbaf-0bb06464c5e3
+      portIndex: 1
+  - inputPort:
+      nodeId: f0b74d1a-684b-4c60-9eac-b663190bde33
+      portIndex: 0
+    outputPort:
+      nodeId: acf828ab-0327-4c74-8478-08372a9d9161
+      portIndex: 0
+  - inputPort:
+      nodeId: 499bd99f-4e81-4de8-a9eb-828a5883cdb4
+      portIndex: 0
+    outputPort:
+      nodeId: 4c2421c7-91ad-4832-9634-d668cba847b8
+      portIndex: 0
+  - inputPort:
+      nodeId: 0fbd8e1f-0627-4fdd-ab61-f68248056d5f
+      portIndex: 0
+    outputPort:
+      nodeId: db486016-6123-46db-8db5-afdfe4a1bf7c
+      portIndex: 0
   gameObject: {fileID: 0}
   references:
     version: 2
     RefIds:
-    - rid: 1001
+    - rid: 1574623318951592008
       type: {class: StartNode, ns: NovelGraph, asm: NovelGraph.Runtime}
       data:
-        m_guid: sample-start
-        m_position: {x: 40, y: 280, width: 240, height: 160}
-        typeName: NovelGraph.StartNode, NovelGraph.Runtime
-    - rid: 1002
+        m_guid: be3b15b2-104b-4c2a-a7bf-91c08ac1c505
+        m_position:
+          serializedVersion: 2
+          x: -373
+          y: 278
+          width: 198
+          height: 77
+        typeName: NovelGraph.StartNode, NovelGraph.Runtime, Version=0.0.0.0, Culture=neutral,
+          PublicKeyToken=null
+    - rid: 1574623318951592009
       type: {class: DialogueNode, ns: NovelGraph, asm: NovelGraph.Runtime}
       data:
-        m_guid: sample-opening
-        m_position: {x: 280, y: 280, width: 240, height: 160}
-        typeName: NovelGraph.DialogueNode, NovelGraph.Runtime
+        m_guid: ff5b143b-3e3a-43f8-8253-f5b1f3b89080
+        m_position:
+          serializedVersion: 2
+          x: -133
+          y: 278
+          width: 439
+          height: 163
+        typeName: NovelGraph.DialogueNode, NovelGraph.Runtime, Version=0.0.0.0, Culture=neutral,
+          PublicKeyToken=null
         speaker: Narrator
-        dialogue: At the edge of a drowned city, the last beacon wakes for one final night.
-    - rid: 1003
+        dialogue: At the edge of a drowned city, the last beacon wakes for one final
+          night.
+    - rid: 1574623318951592010
       type: {class: DialogueNode, ns: NovelGraph, asm: NovelGraph.Runtime}
       data:
-        m_guid: sample-mira
-        m_position: {x: 540, y: 280, width: 240, height: 160}
-        typeName: NovelGraph.DialogueNode, NovelGraph.Runtime
+        m_guid: 1b4b5a40-dc00-4de7-bc98-1946e51741f8
+        m_position:
+          serializedVersion: 2
+          x: 127
+          y: 278
+          width: 524
+          height: 163
+        typeName: NovelGraph.DialogueNode, NovelGraph.Runtime, Version=0.0.0.0, Culture=neutral,
+          PublicKeyToken=null
         speaker: Mira
-        dialogue: The tide has covered the lower road. Give me the battery and I can still reach the tower.
-    - rid: 1004
+        dialogue: The tide has covered the lower road. Give me the battery and I
+          can still reach the tower.
+    - rid: 1574623318951592011
       type: {class: TwoChoiceNode, ns: NovelGraph, asm: NovelGraph.Runtime}
       data:
-        m_guid: sample-choice
-        m_position: {x: 810, y: 280, width: 240, height: 160}
-        typeName: NovelGraph.TwoChoiceNode, NovelGraph.Runtime
+        m_guid: 1e38364b-cd92-4824-93d2-d879129f43b8
+        m_position:
+          serializedVersion: 2
+          x: 397
+          y: 278
+          width: 325
+          height: 289
+        typeName: NovelGraph.TwoChoiceNode, NovelGraph.Runtime, Version=0.0.0.0,
+          Culture=neutral, PublicKeyToken=null
         prompt: Mira holds out her hand. What do you do?
         firstChoice: Trust Mira with the battery
         firstSignal: mira_trusted
@@ -76,31 +158,120 @@ MonoBehaviour:
         secondSignal: mira_refused
         secondValue: 0
         stateKey: trusted_mira
-    - rid: 1005
+    - rid: 1574623318951592012
       type: {class: DialogueNode, ns: NovelGraph, asm: NovelGraph.Runtime}
       data:
-        m_guid: sample-trusted
-        m_position: {x: 1110, y: 100, width: 240, height: 160}
-        typeName: NovelGraph.DialogueNode, NovelGraph.Runtime
+        m_guid: c8201b34-4642-4144-9ae6-e6ae98a22e49
+        m_position:
+          serializedVersion: 2
+          x: 840
+          y: 97
+          width: 479
+          height: 163
+        typeName: NovelGraph.DialogueNode, NovelGraph.Runtime, Version=0.0.0.0, Culture=neutral,
+          PublicKeyToken=null
         speaker: Mira
-        dialogue: Good. Then this is our light. Stay close and keep above the flood marks.
-    - rid: 1006
-      type: {class: EndNode, ns: NovelGraph, asm: NovelGraph.Runtime}
+        dialogue: Good. Then this is our light, not mine. Stay close and keep above
+          the flood marks.
+    - rid: 1574623318951592013
+      type: {class: TwoChoiceNode, ns: NovelGraph, asm: NovelGraph.Runtime}
       data:
-        m_guid: sample-trusted-end
-        m_position: {x: 1400, y: 100, width: 240, height: 160}
-        typeName: NovelGraph.EndNode, NovelGraph.Runtime
-    - rid: 1007
+        m_guid: 09a16d5d-ab47-4888-bbaf-0bb06464c5e3
+        m_position:
+          serializedVersion: 2
+          x: 1110
+          y: 97
+          width: 483
+          height: 289
+        typeName: NovelGraph.TwoChoiceNode, NovelGraph.Runtime, Version=0.0.0.0,
+          Culture=neutral, PublicKeyToken=null
+        prompt: 'At the tower, the storm is almost overhead. When should Mira ignite
+          the beacon? '
+        firstChoice: Light it now, before the storm breaks
+        firstSignal: beacon_lit
+        firstValue: 1
+        secondChoice: Wait for a ship to answer the radio
+        secondSignal: beacon_waited
+        secondValue: 0
+        stateKey: beacon_lit_early
+    - rid: 1574623318951592014
       type: {class: DialogueNode, ns: NovelGraph, asm: NovelGraph.Runtime}
       data:
-        m_guid: sample-refused
-        m_position: {x: 1110, y: 500, width: 240, height: 160}
-        typeName: NovelGraph.DialogueNode, NovelGraph.Runtime
+        m_guid: acf828ab-0327-4c74-8478-08372a9d9161
+        m_position:
+          serializedVersion: 2
+          x: 1568
+          y: -143
+          width: 547
+          height: 163
+        typeName: NovelGraph.DialogueNode, NovelGraph.Runtime, Version=0.0.0.0, Culture=neutral,
+          PublicKeyToken=null
         speaker: Narrator
-        dialogue: Mira lowers her hand. By dawn the tower is dark, and the battery is still heavy in your coat.
-    - rid: 1008
+        dialogue: Amber light rolls across the black water. Far beyond the rain,
+          three ships answer in sequence.
+    - rid: 1574623318951592015
       type: {class: EndNode, ns: NovelGraph, asm: NovelGraph.Runtime}
       data:
-        m_guid: sample-refused-end
-        m_position: {x: 1400, y: 500, width: 240, height: 160}
-        typeName: NovelGraph.EndNode, NovelGraph.Runtime
+        m_guid: f0b74d1a-684b-4c60-9eac-b663190bde33
+        m_position:
+          serializedVersion: 2
+          x: 2232
+          y: 97
+          width: 71
+          height: 77
+        typeName: NovelGraph.EndNode, NovelGraph.Runtime, Version=0.0.0.0, Culture=neutral,
+          PublicKeyToken=null
+    - rid: 1574623318951592016
+      type: {class: DialogueNode, ns: NovelGraph, asm: NovelGraph.Runtime}
+      data:
+        m_guid: 4c2421c7-91ad-4832-9634-d668cba847b8
+        m_position:
+          serializedVersion: 2
+          x: 1752
+          y: 414
+          width: 590
+          height: 163
+        typeName: NovelGraph.DialogueNode, NovelGraph.Runtime, Version=0.0.0.0, Culture=neutral,
+          PublicKeyToken=null
+        speaker: Mira
+        dialogue: A voice finally cracks through the radio. We light the beacon together,
+          exactly when they need it.
+    - rid: 1574623318951592017
+      type: {class: EndNode, ns: NovelGraph, asm: NovelGraph.Runtime}
+      data:
+        m_guid: 499bd99f-4e81-4de8-a9eb-828a5883cdb4
+        m_position:
+          serializedVersion: 2
+          x: 2232
+          y: 174
+          width: 71
+          height: 77
+        typeName: NovelGraph.EndNode, NovelGraph.Runtime, Version=0.0.0.0, Culture=neutral,
+          PublicKeyToken=null
+    - rid: 1574623318951592018
+      type: {class: DialogueNode, ns: NovelGraph, asm: NovelGraph.Runtime}
+      data:
+        m_guid: db486016-6123-46db-8db5-afdfe4a1bf7c
+        m_position:
+          serializedVersion: 2
+          x: 954
+          y: 695
+          width: 547
+          height: 163
+        typeName: NovelGraph.DialogueNode, NovelGraph.Runtime, Version=0.0.0.0, Culture=neutral,
+          PublicKeyToken=null
+        speaker: Narrator
+        dialogue: Mira lowers her hand. By dawn the tower is dark, and the battery
+          is still heavy in your coat.
+    - rid: 1574623318951592019
+      type: {class: EndNode, ns: NovelGraph, asm: NovelGraph.Runtime}
+      data:
+        m_guid: 0fbd8e1f-0627-4fdd-ab61-f68248056d5f
+        m_position:
+          serializedVersion: 2
+          x: 1717
+          y: 743
+          width: 71
+          height: 77
+        typeName: NovelGraph.EndNode, NovelGraph.Runtime, Version=0.0.0.0, Culture=neutral,
+          PublicKeyToken=null

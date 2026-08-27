@@ -14,6 +14,7 @@ namespace NovelGraph
         private bool m_hasChoiceEvent;
         private bool m_hasDialogueBox;
         private int m_numberOfOutputs;
+        private string m_description;
 
         public string title => m_nodeTitle;
         public string menuItem => m_menuItem;
@@ -25,12 +26,13 @@ namespace NovelGraph
         public bool hasDialogueBox => m_hasDialogueBox;
 
         public int numberOfOutputs => m_numberOfOutputs;
+        public string description => string.IsNullOrWhiteSpace(m_description) ? m_nodeTitle : m_description;
 
         public NodeInfoAttribute(string title, string menuItem = "",
             bool hasFlowInputs = true, bool hasFlowOutputs = true,
             bool hasVariablePorts = false, bool hasOutputValues = false,
             bool hasChoiceEvent = false, bool hasDialogueBox = false, 
-            int numberOfPorts = 1)
+            int numberOfPorts = 1, string description = "")
         {
             m_nodeTitle = title;
             m_menuItem = menuItem;
@@ -41,6 +43,7 @@ namespace NovelGraph
             m_hasChoiceEvent = hasChoiceEvent;
             m_hasDialogueBox = hasDialogueBox;
             m_numberOfOutputs = numberOfPorts;
+            m_description = description;
         }
     }
 }

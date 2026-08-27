@@ -1,6 +1,6 @@
 # Novelify
 
-Novelify is a node-based narrative runtime and editor for Unity 6. It supports pausable dialogue, player decisions, persistent integer state, conditional branches, named gameplay events, endings, and local save/load.
+Novelify is a node-based narrative runtime and editor for Unity 6. It supports typed character dialogue with per-letter voices, narration, player decisions, persistent state, conditional branches, signals, bound scene functions, endings, and local save/load.
 
 ## Requirements
 
@@ -10,12 +10,12 @@ Novelify is a node-based narrative runtime and editor for Unity 6. It supports p
 ## Try the sample
 
 1. Let Unity finish importing the project.
-2. Select **Tools > Novelify > Create or Refresh Sample Story** if the sample scene is not present.
+2. Select **Tools > Novelify > Create or Refresh Sample Story** to generate the latest sample, characters, graph, and bindings.
 3. Open `Assets/Novelify/Samples/Scenes/DecisionEventsSample.unity`.
 4. Enter Play Mode.
-5. Use **Continue**, click a decision, or press `Space`, `Enter`, `1`, or `2`.
+5. Use **Continue**, click a decision, or press `Space`, `Enter`, or `1` through `4`.
 
-The sample, **The Last Beacon**, raises events after each decision. `NovelGraphSampleEventReceiver` reacts by changing the interface accent and writing the event to the Console. The player also shows a short `Event: event_name` notice.
+The expanded **The Last Beacon** sample has narrator and character lines, two distinct synthesized voices, optional silent dialogue, two- and four-way choices, state and conditions, signals, three scene-function bindings, and multiple endings. `NovelGraphSampleEventReceiver` changes the interface accent and logs each gameplay reaction.
 
 ## Author a story
 
@@ -30,15 +30,37 @@ Node behavior:
 
 | Node | Purpose |
 | --- | --- |
-| Dialogue | Shows a speaker and line, then waits for Continue. |
+| Dialogue | Shows narration, a Character asset, or a custom speaker with optional typed letter audio. |
 | Two Choices | Shows two decisions, stores the selected integer, raises its signal, and follows that output. |
 | Four Choices | Shows four decisions and stores the selected zero-based index. |
 | Set Integer | Stores a named integer immediately. |
 | Integer Condition | Uses **Equal** or **Not Equal** according to current state. |
 | Raise Signal | Sends a named event to gameplay code. |
+| Call Function | Invokes a matching `UnityEvent` function binding on the active player. |
 | End | Completes the story and invokes the completion event. |
 
 State keys and signal names are case-sensitive. Use stable, code-friendly names such as `trusted_mira` and `beacon_lit` because saves and gameplay listeners depend on them.
+
+## Characters and voices
+
+1. Choose **Create > Novelify > Character**.
+2. Set the displayed name, optional letter sound clip, fallback tone frequency, volume, pitch variation, and name color.
+3. On a Dialogue node, select **Character** as the speaker mode and assign the asset.
+4. Enable **Play Letter Sounds** for voiced typing or disable it for a silent line.
+5. Adjust **Characters Per Second** per line.
+
+Narrator lines never play a character voice. When a Character has no audio clip, Novelify generates a short tone using that character's configured frequency. Pressing Continue while a line is typing reveals the whole line; pressing it again advances.
+
+## Call scene functions
+
+Graph assets cannot safely reference objects from a Unity scene. Novelify therefore uses stable string IDs:
+
+1. Add an entry under **Novel Graph Player > Function Bindings**.
+2. Give it an ID such as `open_harbor_gates`.
+3. Add a callback, drag in a scene object, and select its public function.
+4. Add **Events > Call Function** to the graph and enter the exact same ID.
+
+When that node executes, the player's serialized `UnityEvent` invokes the selected object function and graph execution continues. A missing ID produces a visible notice and Console warning instead of stopping the story.
 
 ## React to decisions
 
@@ -71,11 +93,11 @@ The runner is also available through `player.Runner`. Read decision state with `
 
 The included UI exposes **Save**, **Load**, and **Restart**. Saves use `PlayerPrefs` and include the current node ID plus all integer state. Changing node IDs by recreating nodes can invalidate an old save, so treat published graph assets as content with migration requirements.
 
-For production, replace the player UI or persistence without replacing the graph runtime: `NovelGraphRunner` is a plain C# class and emits `PresentationChanged`, `SignalRaised`, `Completed`, and `Faulted` events.
+For production, replace the player UI or persistence without replacing the graph runtime: `NovelGraphRunner` is a plain C# class and emits `PresentationChanged`, `SignalRaised`, `FunctionRequested`, `Completed`, and `Faulted` events.
 
 ## Tests
 
-Open **Window > General > Test Runner**, select **EditMode**, and run `NovelGraph.Tests.Editor`. The tests cover dialogue pauses, choice branches and signals, integer conditions, and save restoration.
+Open **Window > General > Test Runner**, select **EditMode**, and run `NovelGraph.Tests.Editor`. The tests cover dialogue pauses, character voice metadata, choice branches and signals, function requests, integer conditions, save restoration, and mandatory tooltip coverage.
 
 ## Repository
 

@@ -4,31 +4,31 @@ namespace NovelGraph
 {
     [System.Serializable]
     [NodeInfo("Two Choice", "Story/Choice/Two Choices", true, true,
-        false, false, true, true, 2)]
+        false, false, true, true, 2, "Shows two decisions, stores the selected value, raises its signal, and follows its output.")]
     public class TwoChoiceNode : NovelGraphNode
     {
-        [ExposedProperty, TextArea(2, 5)]
+        [ExposedProperty, TextArea(2, 5), Tooltip("Question or situation displayed above the decisions.")]
         public string prompt;
 
-        [ExposedProperty]
+        [ExposedProperty, Tooltip("Text displayed for Choice A.")]
         public string firstChoice = "Choice A";
 
-        [ExposedProperty]
+        [ExposedProperty, Tooltip("Signal raised immediately when Choice A is selected. Leave empty for none.")]
         public string firstSignal;
 
-        [ExposedProperty]
+        [ExposedProperty, Tooltip("Integer stored when Choice A is selected.")]
         public int firstValue = 1;
 
-        [ExposedProperty]
+        [ExposedProperty, Tooltip("Text displayed for Choice B.")]
         public string secondChoice = "Choice B";
 
-        [ExposedProperty]
+        [ExposedProperty, Tooltip("Signal raised immediately when Choice B is selected. Leave empty for none.")]
         public string secondSignal;
 
-        [ExposedProperty]
+        [ExposedProperty, Tooltip("Integer stored when Choice B is selected.")]
         public int secondValue;
 
-        [ExposedProperty]
+        [ExposedProperty, Tooltip("State key that receives the selected choice value.")]
         public string stateKey = "last_choice";
 
         public override NovelNodeResult Execute(NovelGraphContext context)

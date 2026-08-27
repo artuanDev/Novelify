@@ -29,6 +29,7 @@ namespace NovelGraph
 
         public event Action<NovelNodeResult> PresentationChanged;
         public event Action<string> SignalRaised;
+        public event Action<string> FunctionRequested;
         public event Action Completed;
         public event Action<string> Faulted;
 
@@ -42,7 +43,7 @@ namespace NovelGraph
 
             m_graph = graph;
             m_graph.Init(owner);
-            m_context = new NovelGraphContext(graph, State, owner, RaiseSignal);
+            m_context = new NovelGraphContext(graph, State, owner, RaiseSignal, RequestFunction);
             State.Clear();
 
             NovelGraphNode start = graph.GetStartNode();
@@ -124,7 +125,7 @@ namespace NovelGraph
             }
 
             State.Load(data.state);
-            m_context = new NovelGraphContext(graph, State, owner, RaiseSignal);
+            m_context = new NovelGraphContext(graph, State, owner, RaiseSignal, RequestFunction);
             m_currentNodeId = data.nodeId;
             Status = NovelGraphRunnerStatus.Running;
             Pump();
@@ -198,6 +199,14 @@ namespace NovelGraph
             if (!string.IsNullOrWhiteSpace(signal))
             {
                 SignalRaised?.Invoke(signal);
+            }
+        }
+
+        private void RequestFunction(string functionId)
+        {
+            if (!string.IsNullOrWhiteSpace(functionId))
+            {
+                FunctionRequested?.Invoke(functionId);
             }
         }
 

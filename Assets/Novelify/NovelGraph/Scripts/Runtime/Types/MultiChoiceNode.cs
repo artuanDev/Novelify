@@ -3,17 +3,18 @@ using UnityEngine;
 namespace NovelGraph
 {
     [System.Serializable]
-    [NodeInfo("Four Choice", "Story/Choice/Four Choices", true, true, false, false, true, true, 4)]
+    [NodeInfo("Four Choice", "Story/Choice/Four Choices", true, true, false, false, true, true, 4,
+        "Shows four decisions, stores the selected zero-based index, and follows its output.")]
     public class MultiChoiceNode : NovelGraphNode
     {
-        [ExposedProperty, TextArea(2, 5)]
+        [ExposedProperty, TextArea(2, 5), Tooltip("Question or situation displayed above the four decisions.")]
         public string prompt;
 
-        [ExposedProperty] public string choiceA = "Choice A";
-        [ExposedProperty] public string choiceB = "Choice B";
-        [ExposedProperty] public string choiceC = "Choice C";
-        [ExposedProperty] public string choiceD = "Choice D";
-        [ExposedProperty] public string stateKey = "last_choice";
+        [ExposedProperty, Tooltip("Text displayed for the Choice A output.")] public string choiceA = "Choice A";
+        [ExposedProperty, Tooltip("Text displayed for the Choice B output.")] public string choiceB = "Choice B";
+        [ExposedProperty, Tooltip("Text displayed for the Choice C output.")] public string choiceC = "Choice C";
+        [ExposedProperty, Tooltip("Text displayed for the Choice D output.")] public string choiceD = "Choice D";
+        [ExposedProperty, Tooltip("State key receiving 0 for A, 1 for B, 2 for C, or 3 for D.")] public string stateKey = "last_choice";
 
         public override NovelNodeResult Execute(NovelGraphContext context)
         {

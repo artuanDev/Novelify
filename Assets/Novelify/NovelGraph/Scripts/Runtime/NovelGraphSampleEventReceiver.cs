@@ -35,5 +35,23 @@ namespace NovelGraph
 
             Debug.Log($"Sample gameplay event received: {signal}", this);
         }
+
+        public void IntensifyStorm()
+        {
+            m_player.SetAccentColor(new Color(0.32f, 0.48f, 0.78f, 1f));
+            Debug.Log("Bound function called: the storm intensity increased.", this);
+        }
+
+        public void OpenHarborGates()
+        {
+            m_player.SetAccentColor(new Color(0.16f, 0.7f, 0.42f, 1f));
+            Debug.Log("Bound function called: the harbor gates opened.", this);
+        }
+
+        public void CutTowerPower()
+        {
+            m_player.SetAccentColor(new Color(0.72f, 0.18f, 0.18f, 1f));
+            Debug.Log("Bound function called: tower power was cut.", this);
+        }
     }
 }

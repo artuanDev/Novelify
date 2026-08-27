@@ -3,10 +3,11 @@ using UnityEngine;
 namespace NovelGraph
 {
     [System.Serializable]
-    [NodeInfo("Debug Log Value", "Debug/Debug Log Value", true, true, true, false)]
+    [NodeInfo("Debug Log Value", "Debug/Debug Log Value", true, true, true, false,
+        description: "Copies and logs an integer for graph debugging.")]
     public class DebugValue : NovelGraphNode
     {
-        [ExposedProperty]
+        [ExposedProperty, Tooltip("Integer copied to Final Value and written to the Console.")]
         public int value;
 
         private int m_finalValue;

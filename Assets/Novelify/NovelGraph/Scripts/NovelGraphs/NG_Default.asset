@@ -16,6 +16,8 @@ MonoBehaviour:
   - rid: 1574623295772295169
   - rid: 1574623295772295246
   - rid: 1574623295772295248
+  - rid: 1574623318951592020
+  - rid: 1574623318951592021
   m_connections:
   - inputPort:
       nodeId: 230ab765-ce6e-4eda-9bf0-6dd4f84fee71
@@ -76,10 +78,48 @@ MonoBehaviour:
         m_guid: 99a8b16e-5ae1-4e46-a4ac-d494d6ff0bec
         m_position:
           serializedVersion: 2
-          x: 938
-          y: 313
-          width: 211
-          height: 117
+          x: 910
+          y: 215
+          width: 215
+          height: 291
         typeName: NovelGraph.MultiChoiceNode, NovelGraph.Runtime, Version=0.0.0.0,
           Culture=neutral, PublicKeyToken=null
-        dialogue: 
+        prompt: 
+        choiceA: Choice A
+        choiceB: Choice B
+        choiceC: Choice C
+        choiceD: Choice D
+        stateKey: last_choice
+    - rid: 1574623318951592020
+      type: {class: SignalNode, ns: NovelGraph, asm: NovelGraph.Runtime}
+      data:
+        m_guid: 5aed7073-20b3-42aa-902b-a9ebf311c56a
+        m_position:
+          serializedVersion: 2
+          x: 729
+          y: 421
+          width: 146
+          height: 95
+        typeName: NovelGraph.SignalNode, NovelGraph.Runtime, Version=0.0.0.0, Culture=neutral,
+          PublicKeyToken=null
+        signal: 
+    - rid: 1574623318951592021
+      type: {class: TwoChoiceNode, ns: NovelGraph, asm: NovelGraph.Runtime}
+      data:
+        m_guid: 7c9742f8-2eac-48ec-9e6f-799d3973445d
+        m_position:
+          serializedVersion: 2
+          x: 1156
+          y: 299
+          width: 215
+          height: 283
+        typeName: NovelGraph.TwoChoiceNode, NovelGraph.Runtime, Version=0.0.0.0,
+          Culture=neutral, PublicKeyToken=null
+        prompt: 
+        firstChoice: Choice A
+        firstSignal: 
+        firstValue: 1
+        secondChoice: Choice B
+        secondSignal: 
+        secondValue: 0
+        stateKey: last_choice

@@ -1,3 +1,6 @@
+using System;
+using System.Linq;
+using System.Reflection;
 using NUnit.Framework;
 using UnityEngine;
 
@@ -17,7 +20,7 @@ namespace NovelGraph.Tests
         [TearDown]
         public void TearDown()
         {
-            Object.DestroyImmediate(m_graph);
+            UnityEngine.Object.DestroyImmediate(m_graph);
         }
 
         [Test]
@@ -109,6 +112,83 @@ namespace NovelGraph.Tests
             Assert.That(restored.Restore(m_graph, save), Is.True);
             Assert.That(restored.State.GetInt("chapter"), Is.EqualTo(3));
             Assert.That(restored.CurrentPresentation.Text, Is.EqualTo("A saved line"));
+        }
+
+        [Test]
+        public void CharacterDialogueCarriesVoicePresentationSettings()
+        {
+            NovelCharacter character = ScriptableObject.CreateInstance<NovelCharacter>();
+            character.Configure("Mira Vale", 520f, Color.cyan);
+            try
+            {
+                StartNode start = Add(new StartNode());
+                DialogueNode dialogue = Add(new DialogueNode
+                {
+                    speakerMode = NovelSpeakerMode.Character,
+                    character = character,
+                    dialogue = "A voiced line",
+                    playLetterSounds = true,
+                    charactersPerSecond = 24f
+                });
+                m_graph.Connect(start, 0, dialogue);
+
+                NovelGraphRunner runner = new NovelGraphRunner();
+                runner.Start(m_graph);
+
+                Assert.That(runner.CurrentPresentation.Speaker, Is.EqualTo("Mira Vale"));
+                Assert.That(runner.CurrentPresentation.Character, Is.SameAs(character));
+                Assert.That(runner.CurrentPresentation.PlayLetterSounds, Is.True);
+                Assert.That(runner.CurrentPresentation.CharactersPerSecond, Is.EqualTo(24f));
+            }
+            finally
+            {
+                UnityEngine.Object.DestroyImmediate(character);
+            }
+        }
+
+        [Test]
+        public void CallFunctionRequestsBindingAndContinues()
+        {
+            StartNode start = Add(new StartNode());
+            CallFunctionNode call = Add(new CallFunctionNode { functionId = "open_harbor_gates" });
+            EndNode end = Add(new EndNode());
+            m_graph.Connect(start, 0, call);
+            m_graph.Connect(call, 0, end);
+
+            string requestedFunction = null;
+            NovelGraphRunner runner = new NovelGraphRunner();
+            runner.FunctionRequested += functionId => requestedFunction = functionId;
+            runner.Start(m_graph);
+
+            Assert.That(requestedFunction, Is.EqualTo("open_harbor_gates"));
+            Assert.That(runner.Status, Is.EqualTo(NovelGraphRunnerStatus.Completed));
+        }
+
+        [Test]
+        public void EveryNodeAndExposedFieldHasTooltipText()
+        {
+            Type[] nodeTypes = typeof(NovelGraphNode).Assembly.GetTypes()
+                .Where(type => type != typeof(NovelGraphNode) &&
+                               !type.IsAbstract &&
+                               typeof(NovelGraphNode).IsAssignableFrom(type))
+                .ToArray();
+
+            foreach (Type nodeType in nodeTypes)
+            {
+                NodeInfoAttribute nodeInfo = nodeType.GetCustomAttribute<NodeInfoAttribute>();
+                Assert.That(nodeInfo, Is.Not.Null, $"{nodeType.Name} is missing NodeInfo.");
+                Assert.That(nodeInfo.description, Is.Not.Empty, $"{nodeType.Name} is missing a node tooltip.");
+
+                FieldInfo[] exposedFields = nodeType.GetFields()
+                    .Where(field => field.GetCustomAttribute<ExposedPropertyAttribute>() != null)
+                    .ToArray();
+                foreach (FieldInfo field in exposedFields)
+                {
+                    TooltipAttribute tooltip = field.GetCustomAttribute<TooltipAttribute>();
+                    Assert.That(tooltip, Is.Not.Null, $"{nodeType.Name}.{field.Name} is missing Tooltip.");
+                    Assert.That(tooltip.tooltip, Is.Not.Empty, $"{nodeType.Name}.{field.Name} has an empty Tooltip.");
+                }
+            }
         }
 
         private T Add<T>(T node) where T : NovelGraphNode

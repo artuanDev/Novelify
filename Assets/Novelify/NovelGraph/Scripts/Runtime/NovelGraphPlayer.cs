@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -6,6 +7,24 @@ namespace NovelGraph
 {
     [Serializable]
     public class NovelSignalEvent : UnityEvent<string> { }
+
+    [Serializable]
+    public class NovelFunctionBinding
+    {
+        [SerializeField, Tooltip("ID used by a Call Function node.")]
+        private string m_id;
+
+        [SerializeField, Tooltip("Scene-object function invoked when a matching Call Function node executes.")]
+        private UnityEvent m_callback = new UnityEvent();
+
+        public string Id => m_id;
+        public UnityEvent Callback => m_callback;
+
+        public NovelFunctionBinding(string id)
+        {
+            m_id = id;
+        }
+    }
 
     public class NovelGraphPlayer : MonoBehaviour
     {
@@ -25,8 +44,14 @@ namespace NovelGraph
         [SerializeField] private NovelSignalEvent m_onSignal = new NovelSignalEvent();
         [SerializeField] private UnityEvent m_onStoryCompleted = new UnityEvent();
 
+        [Header("Function Bindings")]
+        [SerializeField, Tooltip("Named scene-object functions available to Call Function nodes.")]
+        private List<NovelFunctionBinding> m_functionBindings = new List<NovelFunctionBinding>();
+
         private NovelGraphAsset m_graphInstance;
         private NovelGraphRunner m_runner;
+        private AudioSource m_voiceSource;
+        private readonly Dictionary<NovelCharacter, AudioClip> m_generatedVoiceClips = new Dictionary<NovelCharacter, AudioClip>();
         private GUIStyle m_titleStyle;
         private GUIStyle m_speakerStyle;
         private GUIStyle m_dialogueStyle;
@@ -37,9 +62,12 @@ namespace NovelGraph
         private Texture2D m_whiteTexture;
         private string m_statusMessage = string.Empty;
         private float m_statusUntil;
+        private int m_visibleCharacterCount;
+        private float m_typewriterStartedAt;
 
         public NovelGraphRunner Runner => m_runner;
         public NovelSignalEvent OnSignal => m_onSignal;
+        public List<NovelFunctionBinding> FunctionBindings => m_functionBindings;
 
         private void Start()
         {
@@ -56,10 +84,12 @@ namespace NovelGraph
                 return;
             }
 
+            UpdateTypewriter();
+
             if (m_runner.Status == NovelGraphRunnerStatus.WaitingForAdvance &&
                 (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Return)))
             {
-                m_runner.Advance();
+                RevealOrAdvance();
             }
             else if (m_runner.Status == NovelGraphRunnerStatus.WaitingForChoice)
             {
@@ -79,6 +109,10 @@ namespace NovelGraph
             DetachRunner();
             if (m_graphInstance != null) Destroy(m_graphInstance);
             if (m_whiteTexture != null) Destroy(m_whiteTexture);
+            foreach (AudioClip clip in m_generatedVoiceClips.Values)
+            {
+                if (clip != null) Destroy(clip);
+            }
         }
 
         public void SetGraph(NovelGraphAsset graphAsset) => m_graphAsset = graphAsset;
@@ -143,7 +177,9 @@ namespace NovelGraph
 
         private void AttachRunner()
         {
+            m_runner.PresentationChanged += HandlePresentationChanged;
             m_runner.SignalRaised += HandleSignal;
+            m_runner.FunctionRequested += HandleFunctionRequested;
             m_runner.Completed += HandleCompleted;
             m_runner.Faulted += ShowStatus;
         }
@@ -151,9 +187,36 @@ namespace NovelGraph
         private void DetachRunner()
         {
             if (m_runner == null) return;
+            m_runner.PresentationChanged -= HandlePresentationChanged;
             m_runner.SignalRaised -= HandleSignal;
+            m_runner.FunctionRequested -= HandleFunctionRequested;
             m_runner.Completed -= HandleCompleted;
             m_runner.Faulted -= ShowStatus;
+        }
+
+        private void HandlePresentationChanged(NovelNodeResult presentation)
+        {
+            m_visibleCharacterCount = presentation.Type == NovelNodeResultType.Dialogue ? 0 : presentation.Text.Length;
+            m_typewriterStartedAt = Time.unscaledTime;
+            if (presentation.Type == NovelNodeResultType.Dialogue && presentation.PlayLetterSounds)
+            {
+                EnsureVoiceSource();
+            }
+        }
+
+        private void HandleFunctionRequested(string functionId)
+        {
+            NovelFunctionBinding binding = m_functionBindings.Find(item =>
+                item != null && string.Equals(item.Id, functionId, StringComparison.Ordinal));
+            if (binding == null)
+            {
+                Debug.LogWarning($"Novelify function binding '{functionId}' was not found on {name}.", this);
+                ShowStatus($"Missing function: {functionId}");
+                return;
+            }
+
+            binding.Callback.Invoke();
+            ShowStatus($"Function: {functionId}");
         }
 
         private void HandleSignal(string signal)
@@ -172,6 +235,104 @@ namespace NovelGraph
         {
             m_statusMessage = message ?? string.Empty;
             m_statusUntil = Time.unscaledTime + 3f;
+        }
+
+        private bool IsTyping()
+        {
+            return m_runner != null &&
+                   m_runner.Status == NovelGraphRunnerStatus.WaitingForAdvance &&
+                   m_visibleCharacterCount < m_runner.CurrentPresentation.Text.Length;
+        }
+
+        private void RevealOrAdvance()
+        {
+            if (IsTyping())
+            {
+                m_visibleCharacterCount = m_runner.CurrentPresentation.Text.Length;
+                return;
+            }
+
+            m_runner.Advance();
+        }
+
+        private void UpdateTypewriter()
+        {
+            if (m_runner.Status != NovelGraphRunnerStatus.WaitingForAdvance)
+            {
+                return;
+            }
+
+            NovelNodeResult presentation = m_runner.CurrentPresentation;
+            int previousCount = m_visibleCharacterCount;
+            int targetCount = Mathf.Min(
+                presentation.Text.Length,
+                Mathf.FloorToInt((Time.unscaledTime - m_typewriterStartedAt) * presentation.CharactersPerSecond));
+            if (targetCount <= previousCount)
+            {
+                return;
+            }
+
+            m_visibleCharacterCount = targetCount;
+            if (!presentation.PlayLetterSounds || presentation.Character == null)
+            {
+                return;
+            }
+
+            for (int i = previousCount; i < targetCount; i++)
+            {
+                if (char.IsLetterOrDigit(presentation.Text[i]))
+                {
+                    PlayLetterSound(presentation.Character);
+                }
+            }
+        }
+
+        private void EnsureVoiceSource()
+        {
+            if (m_voiceSource != null)
+            {
+                return;
+            }
+
+            m_voiceSource = GetComponent<AudioSource>();
+            if (m_voiceSource == null)
+            {
+                m_voiceSource = gameObject.AddComponent<AudioSource>();
+            }
+
+            m_voiceSource.playOnAwake = false;
+            m_voiceSource.spatialBlend = 0f;
+        }
+
+        private void PlayLetterSound(NovelCharacter character)
+        {
+            EnsureVoiceSource();
+            AudioClip clip = character.LetterSound != null ? character.LetterSound : GetGeneratedVoiceClip(character);
+            m_voiceSource.pitch = 1f + UnityEngine.Random.Range(-character.PitchVariation, character.PitchVariation);
+            m_voiceSource.PlayOneShot(clip, character.VoiceVolume);
+        }
+
+        private AudioClip GetGeneratedVoiceClip(NovelCharacter character)
+        {
+            if (m_generatedVoiceClips.TryGetValue(character, out AudioClip cached))
+            {
+                return cached;
+            }
+
+            const int sampleRate = 44100;
+            int sampleCount = Mathf.RoundToInt(sampleRate * 0.035f);
+            float[] samples = new float[sampleCount];
+            for (int i = 0; i < sampleCount; i++)
+            {
+                float normalizedTime = i / (float)sampleCount;
+                float envelope = 1f - normalizedTime;
+                samples[i] = Mathf.Sin(2f * Mathf.PI * character.SynthesizedFrequency * i / sampleRate) * envelope * 0.35f;
+            }
+
+            AudioClip generated = AudioClip.Create($"{character.name} Letter Voice", sampleCount, 1, sampleRate, false);
+            generated.SetData(samples, 0);
+            m_generatedVoiceClips.Add(character, generated);
+            return generated;
         }
 
         private string GetSaveKey()
@@ -214,6 +375,9 @@ namespace NovelGraph
         private void DrawDialogue(float margin, float contentWidth)
         {
             NovelNodeResult presentation = m_runner.CurrentPresentation;
+            m_speakerStyle.normal.textColor = presentation.Character != null
+                ? presentation.Character.NameColor
+                : m_accentColor;
             float panelHeight = Mathf.Clamp(Screen.height * 0.32f, 210f, 330f);
             Rect panel = new Rect(margin, Screen.height - panelHeight - margin, contentWidth, panelHeight);
             DrawRect(panel, new Color(0.94f, 0.94f, 0.91f, 0.98f));
@@ -227,10 +391,11 @@ namespace NovelGraph
             }
 
             GUI.Label(new Rect(panel.x + inner, panel.y + 68f, panel.width - inner * 2f, panel.height - 132f),
-                presentation.Text, m_dialogueStyle);
+                presentation.Text.Substring(0, Mathf.Clamp(m_visibleCharacterCount, 0, presentation.Text.Length)), m_dialogueStyle);
 
-            if (GUI.Button(new Rect(panel.xMax - 142f, panel.yMax - 54f, 112f, 36f), "CONTINUE", m_utilityButtonStyle))
-                m_runner.Advance();
+            string continueLabel = IsTyping() ? "REVEAL" : "CONTINUE";
+            if (GUI.Button(new Rect(panel.xMax - 142f, panel.yMax - 54f, 112f, 36f), continueLabel, m_utilityButtonStyle))
+                RevealOrAdvance();
         }
 
         private void DrawChoices(float margin, float contentWidth)

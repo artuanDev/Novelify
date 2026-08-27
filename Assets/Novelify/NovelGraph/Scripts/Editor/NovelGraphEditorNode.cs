@@ -38,6 +38,8 @@ namespace NovelGraph.Editor
             NodeInfoAttribute info = typeInfo.GetCustomAttribute<NodeInfoAttribute>();
 
             title = info.title;
+            tooltip = info.description;
+            titleContainer.tooltip = info.description;
 
             m_ports = new List<Port>();
             m_outputPorts = new List<Port>();
@@ -77,11 +79,11 @@ namespace NovelGraph.Editor
 
                 if (info.hasVariablePorts)
                 {
-                    DrawProperty(property.Name);
+                    ApplyFieldTooltip(DrawProperty(property.Name), property);
                 }
                 else
                 {
-                    DrawDialogueBox(property.Name);
+                    ApplyFieldTooltip(DrawDialogueBox(property.Name), property);
                 }
             }
             //Check if node has output variables
@@ -92,12 +94,25 @@ namespace NovelGraph.Editor
                     if (property.GetCustomAttribute<ExposedOutputValue>() is ExposedOutputValue exposedOutputValue)
                     {
                         PropertyField field = DrawProperty(property.Name);
+                        ApplyFieldTooltip(field, property);
                         CreateOutputValuePort(field);
                         //field.RegisterValueChangeCallback(OnFieldChangeCallback);
                     }
                 }
             }
             RefreshExpandedState();
+        }
+
+        private static void ApplyFieldTooltip(PropertyField field, FieldInfo property)
+        {
+            TooltipAttribute tooltipAttribute = property.GetCustomAttribute<TooltipAttribute>();
+            field.tooltip = tooltipAttribute != null
+                ? tooltipAttribute.tooltip
+                : $"Edit {ObjectNames.NicifyVariableName(property.Name)}.";
+            if (field.parent is Port propertyPort)
+            {
+                propertyPort.tooltip = field.tooltip;
+            }
         }
 
         private void FetchSerializedProperty()
@@ -167,7 +182,7 @@ namespace NovelGraph.Editor
             NovelgraphSettings settings = Resources.Load<NovelgraphSettings>("Assets/Novelify/Resources/NovelifySettings");
             m_inputPort = InstantiatePort(Orientation.Horizontal, Direction.Input, Port.Capacity.Single, typeof(PortTypes.FlowPort));
             m_inputPort.portName = "Input";
-            m_inputPort.tooltip = "Flow input";
+            m_inputPort.tooltip = $"Story flow enters {title} here. {tooltip}";
             m_inputPort.portColor = Resources.Load<NovelgraphSettings>("NovelifySettings").inputPortColor;
             m_ports.Add(m_inputPort);
             inputContainer.Add(m_inputPort);
@@ -177,7 +192,7 @@ namespace NovelGraph.Editor
         {
             Port m_outputPort =InstantiatePort(Orientation.Horizontal, Direction.Output, Port.Capacity.Single, typeof(PortTypes.FlowPort));
             m_outputPort.portName = m_graphNode.GetOutputPortName(index);
-            m_outputPort.tooltip = "Flow output";
+            m_outputPort.tooltip = $"Continue through {m_graphNode.GetOutputPortName(index)}.";
             m_outputPort.portColor = Resources.Load<NovelgraphSettings>("NovelifySettings").inputPortColor;
             m_ports.Add(m_outputPort);
             m_outputPorts.Add(m_outputPort);
@@ -208,7 +223,9 @@ namespace NovelGraph.Editor
             //Create variable ports
             Port variablePort = InstantiatePort(Orientation.Horizontal, Direction.Output, Port.Capacity.Single, typeof(PortTypes.VariablePort));
             variablePort.portName = field.name;
-            variablePort.tooltip = "";
+            variablePort.tooltip = string.IsNullOrWhiteSpace(field.tooltip)
+                ? "Outputs this node value."
+                : $"Outputs value: {field.tooltip}";
             m_ports.Add(variablePort);
 
             outputContainer.Add(variablePort);
