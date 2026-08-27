@@ -1,0 +1,42 @@
+NovelGraphView
+{
+    flex-grow: 1;
+}
+#Grid
+{
+    --thick-lines: 0;
+    --spacing: 15;
+    --grid-background-color: rgb(35, 35, 35);
+    --line-color: rgb(32, 32, 32);
+}
+
+#title
+{
+    background-color:rgb(150,100,0);
+}
+
+#StartNode #title
+{
+     background-color:rgb(0,125,125);
+     color:rgb(0,0,0);
+}
+#StartNode #title #title-label
+{
+     font-size: 26px;
+     color: rgb(255,255,255);
+}
+#StartNode #contents #top #output #type
+{
+    color:rgba(0,0,0,1);
+}
+
+#StartNode #contents #top #output
+{
+    background-color:rgba(255,175,90,.9);
+}
+*
+{
+     -unity-text-generator: standard;
+     -unity-font: url("project://database/Assets/Novelify/Fonts/ltnovel/LTNovelty.otf");
+     -unity-font-definition: url("project://database/Assets/Novelify/Fonts/ltnovel/LTNoveltySDF.asset");
+}

@@ -1,0 +1,85 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ca3c65bee3324924abeef5501a79b74b, type: 3}
+  m_Name: NG_Default
+  m_EditorClassIdentifier: 
+  m_nodes:
+  - rid: 1574623295772295169
+  - rid: 1574623295772295246
+  - rid: 1574623295772295248
+  m_connections:
+  - inputPort:
+      nodeId: 230ab765-ce6e-4eda-9bf0-6dd4f84fee71
+      portIndex: 1
+    outputPort:
+      nodeId: 73740d16-46b4-4105-8367-26b44fea8657
+      portIndex: 0
+  - inputPort:
+      nodeId: 7227a809-7ebb-4ef1-8755-701993e9deab
+      portIndex: 1
+    outputPort:
+      nodeId: 73740d16-46b4-4105-8367-26b44fea8657
+      portIndex: 0
+  - inputPort:
+      nodeId: fc34f552-2e31-4dd0-8e39-55bd006199f5
+      portIndex: 2
+    outputPort:
+      nodeId: 7227a809-7ebb-4ef1-8755-701993e9deab
+      portIndex: 0
+  - inputPort:
+      nodeId: 99a8b16e-5ae1-4e46-a4ac-d494d6ff0bec
+      portIndex: 1
+    outputPort:
+      nodeId: 7227a809-7ebb-4ef1-8755-701993e9deab
+      portIndex: 0
+  gameObject: {fileID: 0}
+  references:
+    version: 2
+    RefIds:
+    - rid: 1574623295772295169
+      type: {class: StartNode, ns: NovelGraph, asm: NovelGraph.Runtime}
+      data:
+        m_guid: 73740d16-46b4-4105-8367-26b44fea8657
+        m_position:
+          serializedVersion: 2
+          x: 497
+          y: 313
+          width: 198
+          height: 77
+        typeName: NovelGraph.StartNode, NovelGraph.Runtime, Version=0.0.0.0, Culture=neutral,
+          PublicKeyToken=null
+    - rid: 1574623295772295246
+      type: {class: DebugLogNode, ns: NovelGraph, asm: NovelGraph.Runtime}
+      data:
+        m_guid: 7227a809-7ebb-4ef1-8755-701993e9deab
+        m_position:
+          serializedVersion: 2
+          x: 740
+          y: 313
+          width: 156
+          height: 117
+        typeName: NovelGraph.DebugLogNode, NovelGraph.Runtime, Version=0.0.0.0, Culture=neutral,
+          PublicKeyToken=null
+        logMessage: 
+    - rid: 1574623295772295248
+      type: {class: MultiChoiceNode, ns: NovelGraph, asm: NovelGraph.Runtime}
+      data:
+        m_guid: 99a8b16e-5ae1-4e46-a4ac-d494d6ff0bec
+        m_position:
+          serializedVersion: 2
+          x: 938
+          y: 313
+          width: 211
+          height: 117
+        typeName: NovelGraph.MultiChoiceNode, NovelGraph.Runtime, Version=0.0.0.0,
+          Culture=neutral, PublicKeyToken=null
+        dialogue: 

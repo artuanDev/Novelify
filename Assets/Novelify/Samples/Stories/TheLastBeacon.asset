@@ -1,0 +1,106 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ca3c65bee3324924abeef5501a79b74b, type: 3}
+  m_Name: TheLastBeacon
+  m_EditorClassIdentifier:
+  m_nodes:
+  - rid: 1001
+  - rid: 1002
+  - rid: 1003
+  - rid: 1004
+  - rid: 1005
+  - rid: 1006
+  - rid: 1007
+  - rid: 1008
+  m_connections:
+  - inputPort: {nodeId: sample-opening, portIndex: 1}
+    outputPort: {nodeId: sample-start, portIndex: 0}
+  - inputPort: {nodeId: sample-mira, portIndex: 1}
+    outputPort: {nodeId: sample-opening, portIndex: 0}
+  - inputPort: {nodeId: sample-choice, portIndex: 2}
+    outputPort: {nodeId: sample-mira, portIndex: 0}
+  - inputPort: {nodeId: sample-trusted, portIndex: 1}
+    outputPort: {nodeId: sample-choice, portIndex: 0}
+  - inputPort: {nodeId: sample-refused, portIndex: 1}
+    outputPort: {nodeId: sample-choice, portIndex: 1}
+  - inputPort: {nodeId: sample-trusted-end, portIndex: 0}
+    outputPort: {nodeId: sample-trusted, portIndex: 0}
+  - inputPort: {nodeId: sample-refused-end, portIndex: 0}
+    outputPort: {nodeId: sample-refused, portIndex: 0}
+  gameObject: {fileID: 0}
+  references:
+    version: 2
+    RefIds:
+    - rid: 1001
+      type: {class: StartNode, ns: NovelGraph, asm: NovelGraph.Runtime}
+      data:
+        m_guid: sample-start
+        m_position: {x: 40, y: 280, width: 240, height: 160}
+        typeName: NovelGraph.StartNode, NovelGraph.Runtime
+    - rid: 1002
+      type: {class: DialogueNode, ns: NovelGraph, asm: NovelGraph.Runtime}
+      data:
+        m_guid: sample-opening
+        m_position: {x: 280, y: 280, width: 240, height: 160}
+        typeName: NovelGraph.DialogueNode, NovelGraph.Runtime
+        speaker: Narrator
+        dialogue: At the edge of a drowned city, the last beacon wakes for one final night.
+    - rid: 1003
+      type: {class: DialogueNode, ns: NovelGraph, asm: NovelGraph.Runtime}
+      data:
+        m_guid: sample-mira
+        m_position: {x: 540, y: 280, width: 240, height: 160}
+        typeName: NovelGraph.DialogueNode, NovelGraph.Runtime
+        speaker: Mira
+        dialogue: The tide has covered the lower road. Give me the battery and I can still reach the tower.
+    - rid: 1004
+      type: {class: TwoChoiceNode, ns: NovelGraph, asm: NovelGraph.Runtime}
+      data:
+        m_guid: sample-choice
+        m_position: {x: 810, y: 280, width: 240, height: 160}
+        typeName: NovelGraph.TwoChoiceNode, NovelGraph.Runtime
+        prompt: Mira holds out her hand. What do you do?
+        firstChoice: Trust Mira with the battery
+        firstSignal: mira_trusted
+        firstValue: 1
+        secondChoice: Keep the battery and turn back
+        secondSignal: mira_refused
+        secondValue: 0
+        stateKey: trusted_mira
+    - rid: 1005
+      type: {class: DialogueNode, ns: NovelGraph, asm: NovelGraph.Runtime}
+      data:
+        m_guid: sample-trusted
+        m_position: {x: 1110, y: 100, width: 240, height: 160}
+        typeName: NovelGraph.DialogueNode, NovelGraph.Runtime
+        speaker: Mira
+        dialogue: Good. Then this is our light. Stay close and keep above the flood marks.
+    - rid: 1006
+      type: {class: EndNode, ns: NovelGraph, asm: NovelGraph.Runtime}
+      data:
+        m_guid: sample-trusted-end
+        m_position: {x: 1400, y: 100, width: 240, height: 160}
+        typeName: NovelGraph.EndNode, NovelGraph.Runtime
+    - rid: 1007
+      type: {class: DialogueNode, ns: NovelGraph, asm: NovelGraph.Runtime}
+      data:
+        m_guid: sample-refused
+        m_position: {x: 1110, y: 500, width: 240, height: 160}
+        typeName: NovelGraph.DialogueNode, NovelGraph.Runtime
+        speaker: Narrator
+        dialogue: Mira lowers her hand. By dawn the tower is dark, and the battery is still heavy in your coat.
+    - rid: 1008
+      type: {class: EndNode, ns: NovelGraph, asm: NovelGraph.Runtime}
+      data:
+        m_guid: sample-refused-end
+        m_position: {x: 1400, y: 500, width: 240, height: 160}
+        typeName: NovelGraph.EndNode, NovelGraph.Runtime

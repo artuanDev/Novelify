@@ -1,0 +1,42 @@
+# Unity generated directories
+/[Ll]ibrary/
+/[Tt]emp/
+/[Oo]bj/
+/[Bb]uild/
+/[Bb]uilds/
+/[Ll]ogs/
+/[Uu]ser[Ss]ettings/
+/UIElementsSchema/
+/[Mm]emoryCaptures/
+
+# IDE and generated project files
+/.vs/
+/.vscode/
+/.idea/
+*.csproj
+*.sln
+*.slnx
+*.unityproj
+*.suo
+*.tmp
+*.user
+*.userprefs
+*.pidb
+*.pdb
+*.mdb
+*.opendb
+*.VC.db
+
+# Build products
+*.apk
+*.aab
+*.app
+*.unitypackage
+
+# Unity Version Control local metadata
+/.plastic/
+
+# OS files
+.DS_Store
+Thumbs.db
+Desktop.ini
