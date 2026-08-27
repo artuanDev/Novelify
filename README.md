@@ -39,7 +39,7 @@ Node behavior:
 | Call Function | Invokes a matching `UnityEvent` function binding on the active player. |
 | End | Completes the story and invokes the completion event. |
 
-State keys and signal names are case-sensitive. Use stable, code-friendly names such as `trusted_mira` and `beacon_lit` because saves and gameplay listeners depend on them.
+State keys, signal names, and function IDs are case-sensitive. Use stable, code-friendly names such as `trusted_mira`, `beacon_lit`, and `open_harbor_gates` because saves and gameplay listeners depend on them.
 
 ## Characters and voices
 

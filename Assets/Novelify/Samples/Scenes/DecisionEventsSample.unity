@@ -119,7 +119,7 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1 &569121410
+--- !u!1 &1342909648
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -127,9 +127,9 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 569121413}
-  - component: {fileID: 569121412}
-  - component: {fileID: 569121411}
+  - component: {fileID: 1342909651}
+  - component: {fileID: 1342909650}
+  - component: {fileID: 1342909649}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -137,21 +137,21 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!81 &569121411
+--- !u!81 &1342909649
 AudioListener:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 569121410}
+  m_GameObject: {fileID: 1342909648}
   m_Enabled: 1
---- !u!20 &569121412
+--- !u!20 &1342909650
 Camera:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 569121410}
+  m_GameObject: {fileID: 1342909648}
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
@@ -196,13 +196,13 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
---- !u!4 &569121413
+--- !u!4 &1342909651
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 569121410}
+  m_GameObject: {fileID: 1342909648}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
@@ -211,7 +211,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1918778633
+--- !u!1 &1500996890
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -219,9 +219,9 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 1918778636}
-  - component: {fileID: 1918778635}
-  - component: {fileID: 1918778634}
+  - component: {fileID: 1500996893}
+  - component: {fileID: 1500996892}
+  - component: {fileID: 1500996891}
   m_Layer: 0
   m_Name: Novelify Story Player
   m_TagString: Untagged
@@ -229,29 +229,29 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1918778634
+--- !u!114 &1500996891
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1918778633}
+  m_GameObject: {fileID: 1500996890}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7486ab0d86bbeeb41969d6ab8d785b99, type: 3}
-  m_Name: 
+  m_Name:
   m_EditorClassIdentifier: NovelGraph.Runtime::NovelGraph.NovelGraphSampleEventReceiver
---- !u!114 &1918778635
+--- !u!114 &1500996892
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1918778633}
+  m_GameObject: {fileID: 1500996890}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: dc01d3581b714d0409e4d2175333b5e4, type: 3}
-  m_Name: 
+  m_Name:
   m_EditorClassIdentifier: NovelGraph.Runtime::NovelGraph.NovelGraphPlayer
   m_graphAsset: {fileID: 11400000, guid: 9d1a100d9f8d4f1490d8000000000010, type: 2}
   m_playOnStart: 1
@@ -265,13 +265,62 @@ MonoBehaviour:
   m_onStoryCompleted:
     m_PersistentCalls:
       m_Calls: []
---- !u!4 &1918778636
+  m_functionBindings:
+  - m_id: intensify_storm
+    m_callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1500996891}
+          m_TargetAssemblyTypeName: NovelGraph.NovelGraphSampleEventReceiver, NovelGraph.Runtime
+          m_MethodName: IntensifyStorm
+          m_Mode: 0
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName:
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument:
+            m_BoolArgument: 0
+          m_CallState: 2
+  - m_id: open_harbor_gates
+    m_callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1500996891}
+          m_TargetAssemblyTypeName: NovelGraph.NovelGraphSampleEventReceiver, NovelGraph.Runtime
+          m_MethodName: OpenHarborGates
+          m_Mode: 0
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName:
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument:
+            m_BoolArgument: 0
+          m_CallState: 2
+  - m_id: cut_tower_power
+    m_callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1500996891}
+          m_TargetAssemblyTypeName: NovelGraph.NovelGraphSampleEventReceiver, NovelGraph.Runtime
+          m_MethodName: CutTowerPower
+          m_Mode: 0
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName:
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument:
+            m_BoolArgument: 0
+          m_CallState: 2
+--- !u!4 &1500996893
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1918778633}
+  m_GameObject: {fileID: 1500996890}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
@@ -284,5 +333,5 @@ Transform:
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
-  - {fileID: 569121413}
-  - {fileID: 1918778636}
+  - {fileID: 1342909651}
+  - {fileID: 1500996893}

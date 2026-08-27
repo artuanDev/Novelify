@@ -20,6 +20,8 @@ namespace NovelGraph
         public string Id => m_id;
         public UnityEvent Callback => m_callback;
 
+        public NovelFunctionBinding() { }
+
         public NovelFunctionBinding(string id)
         {
             m_id = id;
