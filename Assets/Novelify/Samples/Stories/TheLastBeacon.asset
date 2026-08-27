@@ -11,7 +11,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ca3c65bee3324924abeef5501a79b74b, type: 3}
   m_Name: TheLastBeacon
-  m_EditorClassIdentifier:
+  m_EditorClassIdentifier: 
   m_nodes:
   - rid: 1574623319563960320
   - rid: 1574623319563960321
@@ -228,25 +228,27 @@ MonoBehaviour:
         m_guid: 9a135f3d-6d57-4f09-a8b5-3122cfdfa4b8
         m_position:
           serializedVersion: 2
-          x: 40
-          y: 340
-          width: 240
-          height: 160
-        typeName:
+          x: -639
+          y: 548
+          width: 198
+          height: 77
+        typeName: NovelGraph.StartNode, NovelGraph.Runtime, Version=0.0.0.0, Culture=neutral,
+          PublicKeyToken=null
     - rid: 1574623319563960321
       type: {class: DialogueNode, ns: NovelGraph, asm: NovelGraph.Runtime}
       data:
         m_guid: 6ed9cb29-f019-42a6-8899-96750108e4a5
         m_position:
           serializedVersion: 2
-          x: 280
-          y: 340
-          width: 240
-          height: 160
-        typeName:
+          x: -399
+          y: 548
+          width: 439
+          height: 238
+        typeName: NovelGraph.DialogueNode, NovelGraph.Runtime, Version=0.0.0.0, Culture=neutral,
+          PublicKeyToken=null
         speakerMode: 1
         character: {fileID: 0}
-        speaker:
+        speaker: 
         dialogue: At the edge of a drowned city, the last beacon wakes for one final
           night.
         playLetterSounds: 0
@@ -257,14 +259,15 @@ MonoBehaviour:
         m_guid: f57b7947-d759-4100-8ea0-a1852f1de660
         m_position:
           serializedVersion: 2
-          x: 560
-          y: 340
-          width: 240
-          height: 160
-        typeName:
+          x: 55
+          y: 548
+          width: 543
+          height: 238
+        typeName: NovelGraph.DialogueNode, NovelGraph.Runtime, Version=0.0.0.0, Culture=neutral,
+          PublicKeyToken=null
         speakerMode: 2
         character: {fileID: 11400000, guid: 6f5170830e0f52d4397753d7da3688fb, type: 2}
-        speaker:
+        speaker: 
         dialogue: The lower road is gone. Give me the battery and I can still reach
           the tower before the storm.
         playLetterSounds: 1
@@ -275,14 +278,15 @@ MonoBehaviour:
         m_guid: 25eb2f4e-7988-4e72-8ace-5a9d02534fe6
         m_position:
           serializedVersion: 2
-          x: 840
-          y: 340
-          width: 240
-          height: 160
-        typeName:
+          x: 598
+          y: 548
+          width: 449
+          height: 238
+        typeName: NovelGraph.DialogueNode, NovelGraph.Runtime, Version=0.0.0.0, Culture=neutral,
+          PublicKeyToken=null
         speakerMode: 2
         character: {fileID: 11400000, guid: bca8cafe64d9d704a8dbc48052ce21b7, type: 2}
-        speaker:
+        speaker: 
         dialogue: Mira, the harbor sensors just failed. Whatever we choose, we choose
           it now.
         playLetterSounds: 1
@@ -293,11 +297,12 @@ MonoBehaviour:
         m_guid: e3fbd887-310d-4697-948f-9b2bf3abc782
         m_position:
           serializedVersion: 2
-          x: 1120
-          y: 340
-          width: 240
-          height: 160
-        typeName:
+          x: 1047
+          y: 548
+          width: 325
+          height: 289
+        typeName: NovelGraph.TwoChoiceNode, NovelGraph.Runtime, Version=0.0.0.0,
+          Culture=neutral, PublicKeyToken=null
         prompt: Mira holds out her hand. What do you do?
         firstChoice: Trust Mira with the battery
         firstSignal: mira_trusted
@@ -316,10 +321,11 @@ MonoBehaviour:
           y: 60
           width: 240
           height: 160
-        typeName:
+        typeName: NovelGraph.DialogueNode, NovelGraph.Runtime, Version=0.0.0.0, Culture=neutral,
+          PublicKeyToken=null
         speakerMode: 2
         character: {fileID: 11400000, guid: 6f5170830e0f52d4397753d7da3688fb, type: 2}
-        speaker:
+        speaker: 
         dialogue: Good. Then this is our light, not mine. Stay close and keep above
           the flood marks.
         playLetterSounds: 1
@@ -334,7 +340,8 @@ MonoBehaviour:
           y: 60
           width: 240
           height: 160
-        typeName:
+        typeName: NovelGraph.CallFunctionNode, NovelGraph.Runtime, Version=0.0.0.0,
+          Culture=neutral, PublicKeyToken=null
         functionId: intensify_storm
     - rid: 1574623319563960327
       type: {class: MultiChoiceNode, ns: NovelGraph, asm: NovelGraph.Runtime}
@@ -346,7 +353,8 @@ MonoBehaviour:
           y: 60
           width: 240
           height: 160
-        typeName:
+        typeName: NovelGraph.MultiChoiceNode, NovelGraph.Runtime, Version=0.0.0.0,
+          Culture=neutral, PublicKeyToken=null
         prompt: Lightning splits the old tower stairs. Choose the plan.
         choiceA: Climb the exposed tower stairs
         choiceB: Cross the flooded seawall
@@ -359,14 +367,15 @@ MonoBehaviour:
         m_guid: 93f9aa4a-d11a-49dd-9bf3-dec37a6cebe4
         m_position:
           serializedVersion: 2
-          x: 2320
-          y: -180
-          width: 240
-          height: 160
-        typeName:
+          x: 2382
+          y: -332
+          width: 423
+          height: 238
+        typeName: NovelGraph.DialogueNode, NovelGraph.Runtime, Version=0.0.0.0, Culture=neutral,
+          PublicKeyToken=null
         speakerMode: 2
         character: {fileID: 11400000, guid: bca8cafe64d9d704a8dbc48052ce21b7, type: 2}
-        speaker:
+        speaker: 
         dialogue: I will hold the cable. Mira, take the battery up and do not look
           down.
         playLetterSounds: 1
@@ -377,11 +386,12 @@ MonoBehaviour:
         m_guid: ed49b3df-5cb8-4fa2-a20e-01e150ad3a2e
         m_position:
           serializedVersion: 2
-          x: 2600
-          y: -180
-          width: 240
-          height: 160
-        typeName:
+          x: 2840
+          y: -332
+          width: 256
+          height: 98
+        typeName: NovelGraph.CallFunctionNode, NovelGraph.Runtime, Version=0.0.0.0,
+          Culture=neutral, PublicKeyToken=null
         functionId: open_harbor_gates
     - rid: 1574623319563960330
       type: {class: DialogueNode, ns: NovelGraph, asm: NovelGraph.Runtime}
@@ -389,14 +399,15 @@ MonoBehaviour:
         m_guid: dee1a515-c7f5-4883-8c9b-858426b72a83
         m_position:
           serializedVersion: 2
-          x: 2880
-          y: -180
-          width: 240
-          height: 160
-        typeName:
+          x: 3136
+          y: -332
+          width: 377
+          height: 238
+        typeName: NovelGraph.DialogueNode, NovelGraph.Runtime, Version=0.0.0.0, Culture=neutral,
+          PublicKeyToken=null
         speakerMode: 2
         character: {fileID: 11400000, guid: 6f5170830e0f52d4397753d7da3688fb, type: 2}
-        speaker:
+        speaker: 
         dialogue: The beacon is alive. Look at the water, Elias. The ships can see
           us.
         playLetterSounds: 1
@@ -407,22 +418,24 @@ MonoBehaviour:
         m_guid: bb5ab1aa-e766-4396-a363-f42983998383
         m_position:
           serializedVersion: 2
-          x: 3160
-          y: -180
-          width: 240
-          height: 160
-        typeName:
+          x: 3550
+          y: -332
+          width: 71
+          height: 77
+        typeName: NovelGraph.EndNode, NovelGraph.Runtime, Version=0.0.0.0, Culture=neutral,
+          PublicKeyToken=null
     - rid: 1574623319563960332
       type: {class: SignalNode, ns: NovelGraph, asm: NovelGraph.Runtime}
       data:
         m_guid: 7183829a-9952-4309-9291-6c50dbbdc83d
         m_position:
           serializedVersion: 2
-          x: 2320
-          y: 40
-          width: 240
-          height: 160
-        typeName:
+          x: 2426
+          y: -19
+          width: 239
+          height: 98
+        typeName: NovelGraph.SignalNode, NovelGraph.Runtime, Version=0.0.0.0, Culture=neutral,
+          PublicKeyToken=null
         signal: seawall_chosen
     - rid: 1574623319563960333
       type: {class: DialogueNode, ns: NovelGraph, asm: NovelGraph.Runtime}
@@ -430,14 +443,15 @@ MonoBehaviour:
         m_guid: 8d4503a8-7a2b-4bd5-94f0-f639627f2659
         m_position:
           serializedVersion: 2
-          x: 2600
-          y: 40
-          width: 240
-          height: 160
-        typeName:
+          x: 2706
+          y: -19
+          width: 628
+          height: 238
+        typeName: NovelGraph.DialogueNode, NovelGraph.Runtime, Version=0.0.0.0, Culture=neutral,
+          PublicKeyToken=null
         speakerMode: 1
         character: {fileID: 0}
-        speaker:
+        speaker: 
         dialogue: They lash themselves together and cross the seawall. At dawn, a
           rescue lamp answers from the eastern pier.
         playLetterSounds: 0
@@ -448,22 +462,24 @@ MonoBehaviour:
         m_guid: 83cbc176-8fe4-4fd8-a9a5-8f5f07a5a207
         m_position:
           serializedVersion: 2
-          x: 2880
-          y: 40
-          width: 240
-          height: 160
-        typeName:
+          x: 3376
+          y: -19
+          width: 71
+          height: 77
+        typeName: NovelGraph.EndNode, NovelGraph.Runtime, Version=0.0.0.0, Culture=neutral,
+          PublicKeyToken=null
     - rid: 1574623319563960335
       type: {class: SetIntNode, ns: NovelGraph, asm: NovelGraph.Runtime}
       data:
         m_guid: 4b274da6-5503-45d0-9e81-c05e26844f21
         m_position:
           serializedVersion: 2
-          x: 2320
-          y: 260
-          width: 240
-          height: 160
-        typeName:
+          x: 2445
+          y: 489
+          width: 229
+          height: 118
+        typeName: NovelGraph.SetIntNode, NovelGraph.Runtime, Version=0.0.0.0, Culture=neutral,
+          PublicKeyToken=null
         key: radio_repaired
         value: 1
     - rid: 1574623319563960336
@@ -472,11 +488,12 @@ MonoBehaviour:
         m_guid: b73305af-6655-4968-9f9f-404672d5bfe7
         m_position:
           serializedVersion: 2
-          x: 2600
-          y: 260
-          width: 240
-          height: 160
-        typeName:
+          x: 2771
+          y: 476
+          width: 229
+          height: 142
+        typeName: NovelGraph.IntConditionNode, NovelGraph.Runtime, Version=0.0.0.0,
+          Culture=neutral, PublicKeyToken=null
         key: radio_repaired
         expectedValue: 1
     - rid: 1574623319563960337
@@ -485,14 +502,15 @@ MonoBehaviour:
         m_guid: 20a25bc2-ca54-415c-b38b-571b364d3431
         m_position:
           serializedVersion: 2
-          x: 2880
-          y: 200
-          width: 240
-          height: 160
-        typeName:
+          x: 3096
+          y: 309
+          width: 489
+          height: 238
+        typeName: NovelGraph.DialogueNode, NovelGraph.Runtime, Version=0.0.0.0, Culture=neutral,
+          PublicKeyToken=null
         speakerMode: 2
         character: {fileID: 11400000, guid: bca8cafe64d9d704a8dbc48052ce21b7, type: 2}
-        speaker:
+        speaker: 
         dialogue: Signal acquired. Three ships are holding beyond the reef and waiting
           for the gates.
         playLetterSounds: 1
@@ -503,11 +521,12 @@ MonoBehaviour:
         m_guid: be3fba9a-e4e1-455a-b415-cebac5937894
         m_position:
           serializedVersion: 2
-          x: 3160
-          y: 200
-          width: 240
-          height: 160
-        typeName:
+          x: 3604
+          y: 309
+          width: 256
+          height: 98
+        typeName: NovelGraph.CallFunctionNode, NovelGraph.Runtime, Version=0.0.0.0,
+          Culture=neutral, PublicKeyToken=null
         functionId: open_harbor_gates
     - rid: 1574623319563960339
       type: {class: DialogueNode, ns: NovelGraph, asm: NovelGraph.Runtime}
@@ -515,14 +534,15 @@ MonoBehaviour:
         m_guid: 6657d3a0-d7e1-4d95-99cb-9f28eb732012
         m_position:
           serializedVersion: 2
-          x: 3440
-          y: 200
-          width: 240
-          height: 160
-        typeName:
+          x: 3881
+          y: 309
+          width: 425
+          height: 238
+        typeName: NovelGraph.DialogueNode, NovelGraph.Runtime, Version=0.0.0.0, Culture=neutral,
+          PublicKeyToken=null
         speakerMode: 1
         character: {fileID: 0}
-        speaker:
+        speaker: 
         dialogue: The harbor gates groan open as the beacon sweeps across the channel.
         playLetterSounds: 0
         charactersPerSecond: 42
@@ -532,25 +552,27 @@ MonoBehaviour:
         m_guid: 7fb11a8b-7f27-4527-a919-155908ed814d
         m_position:
           serializedVersion: 2
-          x: 3720
-          y: 200
-          width: 240
-          height: 160
-        typeName:
+          x: 4348
+          y: 309
+          width: 71
+          height: 77
+        typeName: NovelGraph.EndNode, NovelGraph.Runtime, Version=0.0.0.0, Culture=neutral,
+          PublicKeyToken=null
     - rid: 1574623319563960341
       type: {class: DialogueNode, ns: NovelGraph, asm: NovelGraph.Runtime}
       data:
         m_guid: ac8061a1-9b3c-483e-9360-ca48dc428757
         m_position:
           serializedVersion: 2
-          x: 2880
-          y: 380
-          width: 240
-          height: 160
-        typeName:
+          x: 3106
+          y: 566
+          width: 461
+          height: 238
+        typeName: NovelGraph.DialogueNode, NovelGraph.Runtime, Version=0.0.0.0, Culture=neutral,
+          PublicKeyToken=null
         speakerMode: 1
         character: {fileID: 0}
-        speaker:
+        speaker: 
         dialogue: The radio remains silent. Without a bearing, the ships turn away
           from the reef.
         playLetterSounds: 0
@@ -561,22 +583,24 @@ MonoBehaviour:
         m_guid: a94dbbb1-753e-482d-805a-1c31f2eed958
         m_position:
           serializedVersion: 2
-          x: 3160
-          y: 380
-          width: 240
-          height: 160
-        typeName:
+          x: 3604
+          y: 566
+          width: 71
+          height: 77
+        typeName: NovelGraph.EndNode, NovelGraph.Runtime, Version=0.0.0.0, Culture=neutral,
+          PublicKeyToken=null
     - rid: 1574623319563960343
       type: {class: CallFunctionNode, ns: NovelGraph, asm: NovelGraph.Runtime}
       data:
         m_guid: 7f70638c-f258-4396-8fb0-bd54a7249a4a
         m_position:
           serializedVersion: 2
-          x: 2320
-          y: 500
-          width: 240
-          height: 160
-        typeName:
+          x: 2371
+          y: 938
+          width: 251
+          height: 98
+        typeName: NovelGraph.CallFunctionNode, NovelGraph.Runtime, Version=0.0.0.0,
+          Culture=neutral, PublicKeyToken=null
         functionId: cut_tower_power
     - rid: 1574623319563960344
       type: {class: DialogueNode, ns: NovelGraph, asm: NovelGraph.Runtime}
@@ -584,14 +608,15 @@ MonoBehaviour:
         m_guid: db7c26b0-1a49-4766-a1f0-a1bd446e65f3
         m_position:
           serializedVersion: 2
-          x: 2600
-          y: 500
-          width: 240
-          height: 160
-        typeName:
+          x: 2711
+          y: 938
+          width: 450
+          height: 238
+        typeName: NovelGraph.DialogueNode, NovelGraph.Runtime, Version=0.0.0.0, Culture=neutral,
+          PublicKeyToken=null
         speakerMode: 1
         character: {fileID: 0}
-        speaker:
+        speaker: 
         dialogue: They wait below. The storm passes, but so do the ships that needed
           the light.
         playLetterSounds: 0
@@ -602,25 +627,27 @@ MonoBehaviour:
         m_guid: a02a271a-5e52-42b3-99f3-0ddfeb67b76d
         m_position:
           serializedVersion: 2
-          x: 2880
-          y: 500
-          width: 240
-          height: 160
-        typeName:
+          x: 3265
+          y: 938
+          width: 71
+          height: 77
+        typeName: NovelGraph.EndNode, NovelGraph.Runtime, Version=0.0.0.0, Culture=neutral,
+          PublicKeyToken=null
     - rid: 1574623319563960346
       type: {class: DialogueNode, ns: NovelGraph, asm: NovelGraph.Runtime}
       data:
         m_guid: c8f137ec-4899-49a9-838a-220a00d9602e
         m_position:
           serializedVersion: 2
-          x: 1440
-          y: 720
-          width: 240
-          height: 160
-        typeName:
+          x: 1410
+          y: 1224
+          width: 529
+          height: 238
+        typeName: NovelGraph.DialogueNode, NovelGraph.Runtime, Version=0.0.0.0, Culture=neutral,
+          PublicKeyToken=null
         speakerMode: 1
         character: {fileID: 0}
-        speaker:
+        speaker: 
         dialogue: Mira lowers her hand. The battery is still heavy in your coat when
           the tower power fails.
         playLetterSounds: 0
@@ -631,11 +658,12 @@ MonoBehaviour:
         m_guid: 37eac0f6-3e8c-402f-88a6-cd1e8a06e9ca
         m_position:
           serializedVersion: 2
-          x: 1720
-          y: 720
-          width: 240
-          height: 160
-        typeName:
+          x: 1960
+          y: 1224
+          width: 251
+          height: 98
+        typeName: NovelGraph.CallFunctionNode, NovelGraph.Runtime, Version=0.0.0.0,
+          Culture=neutral, PublicKeyToken=null
         functionId: cut_tower_power
     - rid: 1574623319563960348
       type: {class: DialogueNode, ns: NovelGraph, asm: NovelGraph.Runtime}
@@ -643,14 +671,15 @@ MonoBehaviour:
         m_guid: 2d06b567-1cc7-4e51-a85d-8b61bb511b0a
         m_position:
           serializedVersion: 2
-          x: 2000
-          y: 720
-          width: 240
-          height: 160
-        typeName:
+          x: 2240
+          y: 1224
+          width: 434
+          height: 238
+        typeName: NovelGraph.DialogueNode, NovelGraph.Runtime, Version=0.0.0.0, Culture=neutral,
+          PublicKeyToken=null
         speakerMode: 2
         character: {fileID: 11400000, guid: bca8cafe64d9d704a8dbc48052ce21b7, type: 2}
-        speaker:
+        speaker: 
         dialogue: No beacon, no harbor. We should leave before the lower district
           floods.
         playLetterSounds: 0
@@ -661,8 +690,9 @@ MonoBehaviour:
         m_guid: f8fd9d56-6c8c-4d35-8934-fc95913f002a
         m_position:
           serializedVersion: 2
-          x: 2280
-          y: 720
-          width: 240
-          height: 160
-        typeName:
+          x: 2729
+          y: 1224
+          width: 71
+          height: 77
+        typeName: NovelGraph.EndNode, NovelGraph.Runtime, Version=0.0.0.0, Culture=neutral,
+          PublicKeyToken=null

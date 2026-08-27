@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Mira
   m_EditorClassIdentifier: NovelGraph.Runtime::NovelGraph.NovelCharacter
   m_displayName: Mira Vale
-  m_letterSound: {fileID: 0}
+  m_letterSound: {fileID: 8300000, guid: ccf42eb4a9b24e04b90546b936356cbf, type: 3}
   m_synthesizedFrequency: 520
   m_voiceVolume: 0.2
   m_pitchVariation: 0.08

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Elias
   m_EditorClassIdentifier: NovelGraph.Runtime::NovelGraph.NovelCharacter
   m_displayName: Elias Rook
-  m_letterSound: {fileID: 0}
+  m_letterSound: {fileID: 8300000, guid: 8fa04cc33ab0dad428b89b154f850ab7, type: 3}
   m_synthesizedFrequency: 285
   m_voiceVolume: 0.2
   m_pitchVariation: 0.08
