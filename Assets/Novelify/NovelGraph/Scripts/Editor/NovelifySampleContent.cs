@@ -133,7 +133,12 @@ namespace NovelGraph.Editor
         private static void CreateScene(NovelGraphAsset graph)
         {
             Scene previousScene = SceneManager.GetActiveScene();
-            Scene scene = EditorSceneManager.NewScene(NewSceneSetup.EmptyScene, NewSceneMode.Additive);
+            bool replaceEmptyScene = previousScene.IsValid() &&
+                                     string.IsNullOrEmpty(previousScene.path) &&
+                                     previousScene.rootCount == 0 &&
+                                     !previousScene.isDirty;
+            NewSceneMode mode = replaceEmptyScene ? NewSceneMode.Single : NewSceneMode.Additive;
+            Scene scene = EditorSceneManager.NewScene(NewSceneSetup.EmptyScene, mode);
             SceneManager.SetActiveScene(scene);
             GameObject cameraObject = new GameObject("Main Camera", typeof(Camera), typeof(AudioListener));
             cameraObject.tag = "MainCamera";
@@ -147,8 +152,11 @@ namespace NovelGraph.Editor
             storyObject.AddComponent<NovelGraphSampleEventReceiver>();
 
             EditorSceneManager.SaveScene(scene, ScenePath);
-            if (previousScene.IsValid()) SceneManager.SetActiveScene(previousScene);
-            EditorSceneManager.CloseScene(scene, true);
+            if (!replaceEmptyScene)
+            {
+                if (previousScene.IsValid()) SceneManager.SetActiveScene(previousScene);
+                EditorSceneManager.CloseScene(scene, true);
+            }
             EditorBuildSettings.scenes = new[] { new EditorBuildSettingsScene(ScenePath, true) };
         }
 
