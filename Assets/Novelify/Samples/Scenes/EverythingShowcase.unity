@@ -119,7 +119,7 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1 &265706282
+--- !u!1 &696464180
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -127,9 +127,9 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 265706285}
-  - component: {fileID: 265706284}
-  - component: {fileID: 265706283}
+  - component: {fileID: 696464183}
+  - component: {fileID: 696464182}
+  - component: {fileID: 696464181}
   m_Layer: 0
   m_Name: Glass Moon Showcase Player
   m_TagString: Untagged
@@ -137,25 +137,25 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &265706283
+--- !u!114 &696464181
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 265706282}
+  m_GameObject: {fileID: 696464180}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7486ab0d86bbeeb41969d6ab8d785b99, type: 3}
   m_Name: 
   m_EditorClassIdentifier: NovelGraph.Runtime::NovelGraph.NovelGraphSampleEventReceiver
---- !u!114 &265706284
+--- !u!114 &696464182
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 265706282}
+  m_GameObject: {fileID: 696464180}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: dc01d3581b714d0409e4d2175333b5e4, type: 3}
@@ -178,7 +178,7 @@ MonoBehaviour:
     m_callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 265706283}
+        - m_Target: {fileID: 696464181}
           m_TargetAssemblyTypeName: NovelGraph.NovelGraphSampleEventReceiver, NovelGraph.Runtime
           m_MethodName: ActivateStationAlarm
           m_Mode: 0
@@ -194,7 +194,7 @@ MonoBehaviour:
     m_callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 265706283}
+        - m_Target: {fileID: 696464181}
           m_TargetAssemblyTypeName: NovelGraph.NovelGraphSampleEventReceiver, NovelGraph.Runtime
           m_MethodName: StabilizeMoonReactor
           m_Mode: 0
@@ -210,7 +210,7 @@ MonoBehaviour:
     m_callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 265706283}
+        - m_Target: {fileID: 696464181}
           m_TargetAssemblyTypeName: NovelGraph.NovelGraphSampleEventReceiver, NovelGraph.Runtime
           m_MethodName: OpenAnomalyGate
           m_Mode: 0
@@ -226,7 +226,7 @@ MonoBehaviour:
     m_callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 265706283}
+        - m_Target: {fileID: 696464181}
           m_TargetAssemblyTypeName: NovelGraph.NovelGraphSampleEventReceiver, NovelGraph.Runtime
           m_MethodName: TriggerStationBlackout
           m_Mode: 0
@@ -242,7 +242,7 @@ MonoBehaviour:
     m_callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 265706283}
+        - m_Target: {fileID: 696464181}
           m_TargetAssemblyTypeName: NovelGraph.NovelGraphSampleEventReceiver, NovelGraph.Runtime
           m_MethodName: LaunchEscapePod
           m_Mode: 0
@@ -254,13 +254,13 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
---- !u!4 &265706285
+--- !u!4 &696464183
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 265706282}
+  m_GameObject: {fileID: 696464180}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
@@ -269,7 +269,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1298530345
+--- !u!1 &990640088
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -277,9 +277,9 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 1298530348}
-  - component: {fileID: 1298530347}
-  - component: {fileID: 1298530346}
+  - component: {fileID: 990640091}
+  - component: {fileID: 990640090}
+  - component: {fileID: 990640089}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -287,21 +287,21 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!81 &1298530346
+--- !u!81 &990640089
 AudioListener:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1298530345}
+  m_GameObject: {fileID: 990640088}
   m_Enabled: 1
---- !u!20 &1298530347
+--- !u!20 &990640090
 Camera:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1298530345}
+  m_GameObject: {fileID: 990640088}
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
@@ -346,13 +346,13 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
---- !u!4 &1298530348
+--- !u!4 &990640091
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1298530345}
+  m_GameObject: {fileID: 990640088}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
@@ -365,5 +365,5 @@ Transform:
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
-  - {fileID: 1298530348}
-  - {fileID: 265706285}
+  - {fileID: 990640091}
+  - {fileID: 696464183}

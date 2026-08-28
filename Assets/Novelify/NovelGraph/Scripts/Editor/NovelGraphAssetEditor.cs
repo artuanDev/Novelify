@@ -6,7 +6,7 @@ using System.Collections.Generic;
 
 namespace NovelGraph.Editor
 {
-    [CustomEditor(typeof(NovelGraphAsset))]
+    [CustomEditor(typeof(NovelGraphAsset), true)]
     public class NovelGraphAssetEditor : UnityEditor.Editor
     {
         [OnOpenAsset]
@@ -14,9 +14,9 @@ namespace NovelGraph.Editor
         {
             Object asset = EditorUtility.InstanceIDToObject(instanceId);
 
-            if(asset.GetType() == typeof(NovelGraphAsset))
+            if(asset is NovelGraphAsset graph)
             {
-                NovelGraphEditorWindow.Open((NovelGraphAsset)asset);
+                NovelGraphEditorWindow.Open(graph);
                 return true;
             }
 

@@ -32,10 +32,40 @@ namespace NovelGraph.Editor
         [InitializeOnLoadMethod]
         private static void CreateMissingShowcaseAfterImport()
         {
-            if (AssetDatabase.LoadAssetAtPath<SceneAsset>(ScenePath) == null)
+            if (AssetDatabase.LoadAssetAtPath<SceneAsset>(ScenePath) == null ||
+                NeedsLayeredShowcaseUpgrade())
             {
                 EditorApplication.delayCall += CreateShowcaseContent;
             }
+        }
+
+        private static bool NeedsLayeredShowcaseUpgrade()
+        {
+            NovelCharacter lyra = AssetDatabase.LoadAssetAtPath<NovelCharacter>(LyraPath);
+            NovelCharacter orin = AssetDatabase.LoadAssetAtPath<NovelCharacter>(OrinPath);
+            return NeedsLayeredUpgrade(lyra) || NeedsLayeredUpgrade(orin);
+        }
+
+        private static bool NeedsLayeredUpgrade(NovelCharacter character)
+        {
+            if (character == null || !character.Body.HasVisual ||
+                character.Expressions == null || character.Expressions.Count == 0)
+            {
+                return true;
+            }
+
+            for (int i = 0; i < character.Expressions.Count; i++)
+            {
+                NovelCharacterExpression emotion = character.Expressions[i];
+                if (emotion == null ||
+                    string.Equals(emotion.Id, "talking", StringComparison.OrdinalIgnoreCase) ||
+                    !emotion.Eyes.HasVisual ||
+                    !emotion.Mouth.HasVisual)
+                {
+                    return true;
+                }
+            }
+            return false;
         }
 
         [MenuItem("Tools/Novelify/Create or Refresh Everything Showcase")]

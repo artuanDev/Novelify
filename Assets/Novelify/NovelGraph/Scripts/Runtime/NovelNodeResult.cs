@@ -8,6 +8,7 @@ namespace NovelGraph
         Continue,
         Dialogue,
         Choice,
+        NovelPage,
         Complete
     }
 
@@ -38,6 +39,7 @@ namespace NovelGraph
         public NovelCharacter Character { get; }
         public bool PlayLetterSounds { get; }
         public float CharactersPerSecond { get; }
+        public NovelPageAsset Page { get; }
 
         private NovelNodeResult(
             NovelNodeResultType type,
@@ -48,7 +50,8 @@ namespace NovelGraph
             IReadOnlyList<NovelChoiceOption> choices = null,
             NovelCharacter character = null,
             bool playLetterSounds = false,
-            float charactersPerSecond = 36f)
+            float charactersPerSecond = 36f,
+            NovelPageAsset page = null)
         {
             Type = type;
             NextNodeId = nextNodeId ?? string.Empty;
@@ -59,6 +62,7 @@ namespace NovelGraph
             Character = character;
             PlayLetterSounds = playLetterSounds;
             CharactersPerSecond = charactersPerSecond;
+            Page = page;
         }
 
         public static NovelNodeResult Continue(string nextNodeId) =>
@@ -82,6 +86,9 @@ namespace NovelGraph
 
         public static NovelNodeResult Choice(string prompt, string stateKey, IReadOnlyList<NovelChoiceOption> choices) =>
             new NovelNodeResult(NovelNodeResultType.Choice, text: prompt, stateKey: stateKey, choices: choices);
+
+        public static NovelNodeResult CallPage(NovelPageAsset page, string returnNodeId) =>
+            new NovelNodeResult(NovelNodeResultType.NovelPage, returnNodeId, page: page);
 
         public static NovelNodeResult Complete() => new NovelNodeResult(NovelNodeResultType.Complete);
     }

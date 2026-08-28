@@ -4,6 +4,7 @@ using System.Reflection;
 using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEditor.UIElements;
 using UnityEditor;
 using UnityEngine.UIElements;
@@ -23,6 +24,9 @@ namespace NovelGraph.Editor
         private List<Port> m_ports;
         private SerializedObject m_serializedObject;
         private SerializedProperty m_serializedProperty;
+        private DropdownField m_namedRerouteDropdown;
+        private readonly Dictionary<string, NamedRerouteOutNode> m_namedRerouteChoices =
+            new Dictionary<string, NamedRerouteOutNode>();
 
         public NovelGraphNode Node => m_graphNode;
         public List<Port> Ports => m_ports;
@@ -77,6 +81,13 @@ namespace NovelGraph.Editor
                     continue;
                 }
 
+                if (m_graphNode is NamedRerouteInNode &&
+                    property.Name == nameof(NamedRerouteInNode.declarationId))
+                {
+                    DrawNamedRerouteSelector(property);
+                    continue;
+                }
+
                 if (info.hasVariablePorts)
                 {
                     ApplyFieldTooltip(DrawProperty(property.Name), property);
@@ -101,6 +112,144 @@ namespace NovelGraph.Editor
                 }
             }
             RefreshExpandedState();
+        }
+
+        private void DrawNamedRerouteSelector(FieldInfo property)
+        {
+            TooltipAttribute tooltipAttribute = property.GetCustomAttribute<TooltipAttribute>();
+            var row = new VisualElement();
+            row.style.flexDirection = FlexDirection.Row;
+            row.style.alignItems = Align.Center;
+            row.tooltip = tooltipAttribute?.tooltip ?? "Select a Named Reroute Declaration.";
+
+            m_namedRerouteDropdown = new DropdownField("Declaration");
+            m_namedRerouteDropdown.style.flexGrow = 1f;
+            m_namedRerouteDropdown.tooltip = row.tooltip;
+            m_namedRerouteDropdown.RegisterValueChangedCallback(change =>
+            {
+                if (!m_namedRerouteChoices.TryGetValue(change.newValue, out NamedRerouteOutNode declaration))
+                {
+                    return;
+                }
+
+                Undo.RecordObject(m_serializedObject.targetObject, "Select Named Reroute Declaration");
+                ((NamedRerouteInNode)m_graphNode).SetDeclaration(declaration);
+                EditorUtility.SetDirty(m_serializedObject.targetObject);
+                m_serializedObject.Update();
+            });
+            m_namedRerouteDropdown.RegisterCallback<MouseDownEvent>(
+                _ => RefreshNamedRerouteChoices(),
+                TrickleDown.TrickleDown);
+
+            Button createButton = new Button(CreateAndSelectNamedRerouteDeclaration)
+            {
+                text = "+ New"
+            };
+            createButton.tooltip = "Create a new Named Reroute Declaration near this usage and select it immediately.";
+            createButton.style.marginLeft = 4f;
+
+            row.Add(m_namedRerouteDropdown);
+            row.Add(createButton);
+            extensionContainer.Add(row);
+            RefreshNamedRerouteChoices();
+        }
+
+        private void RefreshNamedRerouteChoices()
+        {
+            if (m_namedRerouteDropdown == null || !(m_serializedObject.targetObject is NovelGraphAsset graph))
+            {
+                return;
+            }
+
+            List<NamedRerouteOutNode> declarations = graph.Nodes
+                .OfType<NamedRerouteOutNode>()
+                .OrderBy(declaration => declaration.routeName, StringComparer.OrdinalIgnoreCase)
+                .ThenBy(declaration => declaration.DeclarationId, StringComparer.Ordinal)
+                .ToList();
+            NamedRerouteInNode usage = (NamedRerouteInNode)m_graphNode;
+
+            if (string.IsNullOrWhiteSpace(usage.declarationId) && !string.IsNullOrWhiteSpace(usage.routeName))
+            {
+                NamedRerouteOutNode legacyMatch = declarations.FirstOrDefault(declaration =>
+                    string.Equals(declaration.routeName?.Trim(), usage.routeName.Trim(), StringComparison.Ordinal));
+                if (legacyMatch != null)
+                {
+                    usage.SetDeclaration(legacyMatch);
+                    EditorUtility.SetDirty(graph);
+                }
+            }
+
+            m_namedRerouteChoices.Clear();
+            var labels = new List<string>();
+            string selectedLabel = string.Empty;
+            foreach (NamedRerouteOutNode declaration in declarations)
+            {
+                string baseLabel = string.IsNullOrWhiteSpace(declaration.routeName)
+                    ? "Unnamed Declaration"
+                    : declaration.routeName.Trim();
+                string label = baseLabel;
+                if (labels.Contains(label))
+                {
+                    string shortId = declaration.DeclarationId.Substring(0, Math.Min(6, declaration.DeclarationId.Length));
+                    label = $"{baseLabel} [{shortId}]";
+                }
+
+                labels.Add(label);
+                m_namedRerouteChoices[label] = declaration;
+                if (string.Equals(usage.declarationId, declaration.DeclarationId, StringComparison.Ordinal))
+                {
+                    selectedLabel = label;
+                }
+            }
+
+            if (labels.Count == 0)
+            {
+                labels.Add("No declarations — click + New");
+            }
+            else if (string.IsNullOrWhiteSpace(selectedLabel))
+            {
+                selectedLabel = string.IsNullOrWhiteSpace(usage.declarationId)
+                    ? "Select a declaration…"
+                    : "Missing declaration";
+                labels.Insert(0, selectedLabel);
+            }
+
+            m_namedRerouteDropdown.choices = labels;
+            m_namedRerouteDropdown.SetValueWithoutNotify(
+                string.IsNullOrWhiteSpace(selectedLabel) ? labels[0] : selectedLabel);
+        }
+
+        private void CreateAndSelectNamedRerouteDeclaration()
+        {
+            NovelGraphView graphView = GetFirstAncestorOfType<NovelGraphView>();
+            if (graphView == null || !(m_serializedObject.targetObject is NovelGraphAsset graph))
+            {
+                return;
+            }
+
+            var existingNames = new HashSet<string>(
+                graph.Nodes.OfType<NamedRerouteOutNode>()
+                    .Select(declaration => declaration.routeName ?? string.Empty),
+                StringComparer.OrdinalIgnoreCase);
+            string routeName = "Named Route";
+            for (int suffix = 2; existingNames.Contains(routeName); suffix++)
+            {
+                routeName = $"Named Route {suffix}";
+            }
+
+            var declaration = new NamedRerouteOutNode { routeName = routeName };
+            Rect usagePosition = GetPosition();
+            declaration.SetPosition(new Rect(
+                usagePosition.x + Mathf.Max(320f, usagePosition.width + 100f),
+                usagePosition.y,
+                240f,
+                140f));
+
+            graphView.Add(declaration);
+            ((NamedRerouteInNode)m_graphNode).SetDeclaration(declaration);
+            EditorUtility.SetDirty(graph);
+            m_serializedObject.Update();
+            RefreshNamedRerouteChoices();
         }
 
         private static void ApplyFieldTooltip(PropertyField field, FieldInfo property)

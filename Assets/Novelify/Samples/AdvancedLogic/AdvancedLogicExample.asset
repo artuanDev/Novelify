@@ -1,0 +1,224 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ca3c65bee3324924abeef5501a79b74b, type: 3}
+  m_Name: AdvancedLogicExample
+  m_EditorClassIdentifier: NovelGraph.Runtime::NovelGraph.NovelGraphAsset
+  m_nodes:
+  - rid: 1574623332626858074
+  - rid: 1574623332626858075
+  - rid: 1574623332626858076
+  - rid: 1574623332626858077
+  - rid: 1574623332626858078
+  - rid: 1574623332626858079
+  - rid: 1574623332626858080
+  - rid: 1574623332626858081
+  - rid: 1574623332626858082
+  - rid: 1574623332626858083
+  m_connections:
+  - inputPort:
+      nodeId: 9ebe3e19-3f39-439d-b591-06bea0b01b6e
+      portIndex: 1
+    outputPort:
+      nodeId: c12c8b3b-8ed3-451f-a9aa-767063f8f796
+      portIndex: 0
+  - inputPort:
+      nodeId: ccb30f0a-6dd3-4a3e-b048-4b288a7cba2d
+      portIndex: 1
+    outputPort:
+      nodeId: 9ebe3e19-3f39-439d-b591-06bea0b01b6e
+      portIndex: 0
+  - inputPort:
+      nodeId: ca170972-7866-45d8-b727-efe18ef78a1f
+      portIndex: 0
+    outputPort:
+      nodeId: ccb30f0a-6dd3-4a3e-b048-4b288a7cba2d
+      portIndex: 0
+  - inputPort:
+      nodeId: 6b012d32-6acd-4e1d-9e56-2d131ab177be
+      portIndex: 1
+    outputPort:
+      nodeId: dc74a2b8-8580-485a-95ac-7abd54d6a400
+      portIndex: 0
+  - inputPort:
+      nodeId: d30bae30-aef3-4b00-97bd-2af4a64edc41
+      portIndex: 1
+    outputPort:
+      nodeId: 6b012d32-6acd-4e1d-9e56-2d131ab177be
+      portIndex: 0
+  - inputPort:
+      nodeId: 9e95ee79-067a-4ddf-a095-1ed8ab2625dd
+      portIndex: 1
+    outputPort:
+      nodeId: d30bae30-aef3-4b00-97bd-2af4a64edc41
+      portIndex: 0
+  - inputPort:
+      nodeId: 7a2883c8-74d6-49af-8cdb-b2fcee848fde
+      portIndex: 1
+    outputPort:
+      nodeId: 9e95ee79-067a-4ddf-a095-1ed8ab2625dd
+      portIndex: 0
+  - inputPort:
+      nodeId: c7bbe838-9e5f-455c-9efb-5e7fcceca76a
+      portIndex: 0
+    outputPort:
+      nodeId: 7a2883c8-74d6-49af-8cdb-b2fcee848fde
+      portIndex: 0
+  gameObject: {fileID: 0}
+  references:
+    version: 2
+    RefIds:
+    - rid: 1574623332626858074
+      type: {class: StartNode, ns: NovelGraph, asm: NovelGraph.Runtime}
+      data:
+        m_guid: c12c8b3b-8ed3-451f-a9aa-767063f8f796
+        m_position:
+          serializedVersion: 2
+          x: 40
+          y: 260
+          width: 250
+          height: 170
+        typeName: 
+    - rid: 1574623332626858075
+      type: {class: SetIntNode, ns: NovelGraph, asm: NovelGraph.Runtime}
+      data:
+        m_guid: 9ebe3e19-3f39-439d-b591-06bea0b01b6e
+        m_position:
+          serializedVersion: 2
+          x: 280
+          y: 260
+          width: 250
+          height: 170
+        typeName: 
+        key: rock_damage
+        value: 2
+    - rid: 1574623332626858076
+      type: {class: RerouteNode, ns: NovelGraph, asm: NovelGraph.Runtime}
+      data:
+        m_guid: ccb30f0a-6dd3-4a3e-b048-4b288a7cba2d
+        m_position:
+          serializedVersion: 2
+          x: 540
+          y: 260
+          width: 250
+          height: 170
+        typeName: 
+    - rid: 1574623332626858077
+      type: {class: NamedRerouteInNode, ns: NovelGraph, asm: NovelGraph.Runtime}
+      data:
+        m_guid: ca170972-7866-45d8-b727-efe18ef78a1f
+        m_position:
+          serializedVersion: 2
+          x: 760
+          y: 260
+          width: 250
+          height: 170
+        typeName: 
+        declarationId: 80eb8988d1d9400c9c8e5eaec289fdfe
+        routeName: rock_encounter
+    - rid: 1574623332626858078
+      type: {class: NamedRerouteOutNode, ns: NovelGraph, asm: NovelGraph.Runtime}
+      data:
+        m_guid: dc74a2b8-8580-485a-95ac-7abd54d6a400
+        m_position:
+          serializedVersion: 2
+          x: 1040
+          y: 40
+          width: 250
+          height: 170
+        typeName: 
+        m_declarationId: 80eb8988d1d9400c9c8e5eaec289fdfe
+        routeName: rock_encounter
+    - rid: 1574623332626858079
+      type: {class: NovelPageNode, ns: NovelGraph, asm: NovelGraph.Runtime}
+      data:
+        m_guid: 6b012d32-6acd-4e1d-9e56-2d131ab177be
+        m_position:
+          serializedVersion: 2
+          x: 1300
+          y: 40
+          width: 250
+          height: 170
+        typeName: 
+        page: {fileID: 11400000, guid: ca1d10d4843b8044e82f35eb0a7d9abb, type: 2}
+    - rid: 1574623332626858080
+      type: {class: DialogueNode, ns: NovelGraph, asm: NovelGraph.Runtime}
+      data:
+        m_guid: d30bae30-aef3-4b00-97bd-2af4a64edc41
+        m_position:
+          serializedVersion: 2
+          x: 1580
+          y: 40
+          width: 250
+          height: 170
+        typeName: 
+        speakerMode: 1
+        character: {fileID: 0}
+        speaker: 
+        dialogue: "The rock remains. Call the exact same page again\u2014no duplicated
+          dialogue or gameplay wiring."
+        playLetterSounds: 0
+        charactersPerSecond: 44
+        showCharacter: 1
+        expression: 
+        characterPosition: 2
+        characterTransitionDuration: 0.2
+        speakingMotion: 1
+        motionIntensity: 1
+        focusSpeaker: 1
+    - rid: 1574623332626858081
+      type: {class: NovelPageNode, ns: NovelGraph, asm: NovelGraph.Runtime}
+      data:
+        m_guid: 9e95ee79-067a-4ddf-a095-1ed8ab2625dd
+        m_position:
+          serializedVersion: 2
+          x: 1880
+          y: 40
+          width: 250
+          height: 170
+        typeName: 
+        page: {fileID: 11400000, guid: ca1d10d4843b8044e82f35eb0a7d9abb, type: 2}
+    - rid: 1574623332626858082
+      type: {class: DialogueNode, ns: NovelGraph, asm: NovelGraph.Runtime}
+      data:
+        m_guid: 7a2883c8-74d6-49af-8cdb-b2fcee848fde
+        m_position:
+          serializedVersion: 2
+          x: 2160
+          y: 40
+          width: 250
+          height: 170
+        typeName: 
+        speakerMode: 1
+        character: {fileID: 0}
+        speaker: 
+        dialogue: The rock component plays its own sound, runs its own break logic,
+          and removes itself.
+        playLetterSounds: 0
+        charactersPerSecond: 44
+        showCharacter: 1
+        expression: 
+        characterPosition: 2
+        characterTransitionDuration: 0.2
+        speakingMotion: 1
+        motionIntensity: 1
+        focusSpeaker: 1
+    - rid: 1574623332626858083
+      type: {class: EndNode, ns: NovelGraph, asm: NovelGraph.Runtime}
+      data:
+        m_guid: c7bbe838-9e5f-455c-9efb-5e7fcceca76a
+        m_position:
+          serializedVersion: 2
+          x: 2460
+          y: 40
+          width: 250
+          height: 170
+        typeName: 

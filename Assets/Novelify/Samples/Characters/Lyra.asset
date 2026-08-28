@@ -19,6 +19,40 @@ MonoBehaviour:
   m_pitchVariation: 0.08
   m_nameColor: {r: 0.16, g: 0.78, b: 0.78, a: 1}
   m_body:
+    m_sprite: {fileID: 21300000, guid: 049add888e82b69498eb2432bf5dfef5, type: 3}
+    m_animationFrames: []
+    m_framesPerSecond: 1
+    m_loop: 1
+    m_framing:
+      m_point: {x: 0.5, y: 0.58}
+      m_radius: 0.47
+      m_offset: {x: 0, y: 0}
+      m_flipX: 0
+  m_defaultExpression: neutral
+  m_expressions:
+  - m_id: neutral
+    m_eyes:
+      m_sprite: {fileID: 21300000, guid: 0a3be3ceda938054e849339a8c796045, type: 3}
+      m_animationFrames: []
+      m_framesPerSecond: 1
+      m_loop: 1
+      m_framing:
+        m_point: {x: 0.5, y: 0.58}
+        m_radius: 0.47
+        m_offset: {x: 0, y: 0}
+        m_flipX: 0
+    m_mouth:
+      m_idleSprite: {fileID: 21300000, guid: 7a77094c2514bf24ca941cb82eac2942, type: 3}
+      m_idleAnimationFrames: []
+      m_talkingAnimationFrames:
+      - {fileID: 21300000, guid: 7a77094c2514bf24ca941cb82eac2942, type: 3}
+      - {fileID: 21300000, guid: 54e3041e4b7aae5458a98b90f1860161, type: 3}
+      m_framesPerSecond: 7
+      m_framing:
+        m_point: {x: 0.5, y: 0.58}
+        m_radius: 0.47
+        m_offset: {x: 0, y: 0}
+        m_flipX: 0
     m_sprite: {fileID: 0}
     m_animationFrames: []
     m_framesPerSecond: 8
@@ -28,127 +62,67 @@ MonoBehaviour:
       m_radius: 0.5
       m_offset: {x: 0, y: 0}
       m_flipX: 0
-  m_defaultExpression: neutral
-  m_expressions:
-  - m_id: neutral
+  - m_id: shocked
     m_eyes:
-      m_sprite: {fileID: 0}
+      m_sprite: {fileID: 21300000, guid: c16150f50353e04459b0fb4f2b7f88ec, type: 3}
       m_animationFrames: []
-      m_framesPerSecond: 8
+      m_framesPerSecond: 1
       m_loop: 1
       m_framing:
-        m_point: {x: 0.5, y: 0.5}
-        m_radius: 0.5
+        m_point: {x: 0.5, y: 0.58}
+        m_radius: 0.47
         m_offset: {x: 0, y: 0}
         m_flipX: 0
     m_mouth:
-      m_idleSprite: {fileID: 0}
+      m_idleSprite: {fileID: 21300000, guid: 7a8f8f5f8d2a69545953a10220787ec3, type: 3}
       m_idleAnimationFrames: []
-      m_talkingAnimationFrames: []
-      m_framesPerSecond: 8
+      m_talkingAnimationFrames:
+      - {fileID: 21300000, guid: 7a8f8f5f8d2a69545953a10220787ec3, type: 3}
+      - {fileID: 21300000, guid: 54e3041e4b7aae5458a98b90f1860161, type: 3}
+      m_framesPerSecond: 7
       m_framing:
-        m_point: {x: 0.5, y: 0.5}
-        m_radius: 0.5
+        m_point: {x: 0.5, y: 0.58}
+        m_radius: 0.47
         m_offset: {x: 0, y: 0}
         m_flipX: 0
-    m_sprite: {fileID: 21300000, guid: eb8b86cacc929b546a4df57f4b06982a, type: 3}
+    m_sprite: {fileID: 0}
     m_animationFrames: []
-    m_framesPerSecond: 1
+    m_framesPerSecond: 8
     m_loop: 1
     m_framing:
       m_point: {x: 0.5, y: 0.5}
       m_radius: 0.5
       m_offset: {x: 0, y: 0}
       m_flipX: 0
-  - m_id: talking
-    m_eyes:
-      m_sprite: {fileID: 0}
-      m_animationFrames: []
-      m_framesPerSecond: 8
-      m_loop: 1
-      m_framing:
-        m_point: {x: 0.5, y: 0.5}
-        m_radius: 0.5
-        m_offset: {x: 0, y: 0}
-        m_flipX: 0
-    m_mouth:
-      m_idleSprite: {fileID: 0}
-      m_idleAnimationFrames: []
-      m_talkingAnimationFrames: []
-      m_framesPerSecond: 8
-      m_framing:
-        m_point: {x: 0.5, y: 0.5}
-        m_radius: 0.5
-        m_offset: {x: 0, y: 0}
-        m_flipX: 0
-    m_sprite: {fileID: 21300000, guid: c6557cbef099ada41a089e9733fcdc52, type: 3}
-    m_animationFrames:
-    - {fileID: 21300000, guid: c6557cbef099ada41a089e9733fcdc52, type: 3}
-    - {fileID: 21300000, guid: 80dbf2686aa3d1049a558108ff9e7933, type: 3}
-    m_framesPerSecond: 7
-    m_loop: 1
-    m_framing:
-      m_point: {x: 0.5, y: 0.61}
-      m_radius: 0.41
-      m_offset: {x: 0, y: 0}
-      m_flipX: 0
-  - m_id: shocked
-    m_eyes:
-      m_sprite: {fileID: 0}
-      m_animationFrames: []
-      m_framesPerSecond: 8
-      m_loop: 1
-      m_framing:
-        m_point: {x: 0.5, y: 0.5}
-        m_radius: 0.5
-        m_offset: {x: 0, y: 0}
-        m_flipX: 0
-    m_mouth:
-      m_idleSprite: {fileID: 0}
-      m_idleAnimationFrames: []
-      m_talkingAnimationFrames: []
-      m_framesPerSecond: 8
-      m_framing:
-        m_point: {x: 0.5, y: 0.5}
-        m_radius: 0.5
-        m_offset: {x: 0, y: 0}
-        m_flipX: 0
-    m_sprite: {fileID: 21300000, guid: 63987b591f1488a4e81b86ca039791dc, type: 3}
-    m_animationFrames: []
-    m_framesPerSecond: 1
-    m_loop: 1
-    m_framing:
-      m_point: {x: 0.5, y: 0.66}
-      m_radius: 0.37
-      m_offset: {x: 0, y: 0}
-      m_flipX: 0
   - m_id: determined
     m_eyes:
-      m_sprite: {fileID: 0}
+      m_sprite: {fileID: 21300000, guid: 1b17f90e99427fd40a9b9e0456524425, type: 3}
       m_animationFrames: []
-      m_framesPerSecond: 8
+      m_framesPerSecond: 1
       m_loop: 1
       m_framing:
-        m_point: {x: 0.5, y: 0.5}
-        m_radius: 0.5
+        m_point: {x: 0.5, y: 0.58}
+        m_radius: 0.47
         m_offset: {x: 0, y: 0}
         m_flipX: 0
     m_mouth:
-      m_idleSprite: {fileID: 0}
+      m_idleSprite: {fileID: 21300000, guid: 4777298d928379547836804d3f8db856, type: 3}
       m_idleAnimationFrames: []
-      m_talkingAnimationFrames: []
-      m_framesPerSecond: 8
+      m_talkingAnimationFrames:
+      - {fileID: 21300000, guid: 4777298d928379547836804d3f8db856, type: 3}
+      - {fileID: 21300000, guid: 54e3041e4b7aae5458a98b90f1860161, type: 3}
+      m_framesPerSecond: 7
       m_framing:
-        m_point: {x: 0.5, y: 0.5}
-        m_radius: 0.5
+        m_point: {x: 0.5, y: 0.58}
+        m_radius: 0.47
         m_offset: {x: 0, y: 0}
         m_flipX: 0
-    m_sprite: {fileID: 21300000, guid: 96ec48e08d7ce8241bf9b9c1432c071e, type: 3}
+    m_sprite: {fileID: 0}
     m_animationFrames: []
-    m_framesPerSecond: 1
+    m_framesPerSecond: 8
     m_loop: 1
     m_framing:
-      m_point: {x: 0.48, y: 0.61}
-      m_radius: 1.0798216
+      m_point: {x: 0.5, y: 0.5}
+      m_radius: 0.5
       m_offset: {x: 0, y: 0}
       m_flipX: 0

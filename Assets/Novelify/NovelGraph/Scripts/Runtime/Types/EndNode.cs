@@ -2,7 +2,7 @@ namespace NovelGraph
 {
     [System.Serializable]
     [NodeInfo("End", "Process/End", true, false,
-        description: "Ends graph execution and invokes the player's story-completed event.")]
+        description: "Returns from the current Novel Page, or completes the story when used in the root graph.")]
     public class EndNode : NovelGraphNode
     {
         public override NovelNodeResult Execute(NovelGraphContext context)

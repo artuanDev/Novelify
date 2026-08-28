@@ -1,0 +1,131 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 03cf82a4f4c05c4438a8d5c3292a03c5, type: 3}
+  m_Name: ReusableRockStrike
+  m_EditorClassIdentifier: NovelGraph.Runtime::NovelGraph.NovelPageAsset
+  m_nodes:
+  - rid: 1574623332626858070
+  - rid: 1574623332626858071
+  - rid: 1574623332626858072
+  - rid: 1574623332626858073
+  m_connections:
+  - inputPort:
+      nodeId: 2af5e1de-e358-428f-85c4-531219d03c3d
+      portIndex: 1
+    outputPort:
+      nodeId: 4d970d0c-b93d-4766-bb53-1fd30427e313
+      portIndex: 0
+  - inputPort:
+      nodeId: 0087aafb-55bf-4df8-bc2b-56cf971180b0
+      portIndex: 1
+    outputPort:
+      nodeId: 2af5e1de-e358-428f-85c4-531219d03c3d
+      portIndex: 0
+  - inputPort:
+      nodeId: 38818f26-bc26-4c8f-8e9a-c0a8ededf7f3
+      portIndex: 0
+    outputPort:
+      nodeId: 0087aafb-55bf-4df8-bc2b-56cf971180b0
+      portIndex: 0
+  gameObject: {fileID: 0}
+  m_pageId: b5e724164d114a6c943999460161c8b8
+  references:
+    version: 2
+    RefIds:
+    - rid: 1574623332626858070
+      type: {class: StartNode, ns: NovelGraph, asm: NovelGraph.Runtime}
+      data:
+        m_guid: 4d970d0c-b93d-4766-bb53-1fd30427e313
+        m_position:
+          serializedVersion: 2
+          x: 40
+          y: 160
+          width: 250
+          height: 170
+        typeName: 
+    - rid: 1574623332626858071
+      type: {class: DialogueNode, ns: NovelGraph, asm: NovelGraph.Runtime}
+      data:
+        m_guid: 2af5e1de-e358-428f-85c4-531219d03c3d
+        m_position:
+          serializedVersion: 2
+          x: 300
+          y: 160
+          width: 250
+          height: 170
+        typeName: 
+        speakerMode: 1
+        character: {fileID: 0}
+        speaker: 
+        dialogue: The same reusable Novel Page swings the crystal hammer.
+        playLetterSounds: 0
+        charactersPerSecond: 44
+        showCharacter: 1
+        expression: 
+        characterPosition: 2
+        characterTransitionDuration: 0.2
+        speakingMotion: 1
+        motionIntensity: 1
+        focusSpeaker: 1
+    - rid: 1574623332626858072
+      type: {class: CallFunctionNode, ns: NovelGraph, asm: NovelGraph.Runtime}
+      data:
+        m_guid: 0087aafb-55bf-4df8-bc2b-56cf971180b0
+        m_position:
+          serializedVersion: 2
+          x: 580
+          y: 160
+          width: 250
+          height: 170
+        typeName: 
+        callMode: 1
+        functionId: 
+        targetMode: 1
+        target: advanced_sample_rock
+        componentType: NovelGraphAdvancedSampleRock
+        methodName: Strike
+        arguments:
+        - name: playSound
+          source: 0
+          type: 3
+          stateKey: 
+          stringValue: 
+          intValue: 0
+          floatValue: 0
+          boolValue: 1
+        - name: impactLabel
+          source: 0
+          type: 0
+          stateKey: 
+          stringValue: crystal hammer
+          intValue: 0
+          floatValue: 0
+          boolValue: 0
+        - name: damage
+          source: 1
+          type: 1
+          stateKey: rock_damage
+          stringValue: 
+          intValue: 0
+          floatValue: 0
+          boolValue: 0
+    - rid: 1574623332626858073
+      type: {class: EndNode, ns: NovelGraph, asm: NovelGraph.Runtime}
+      data:
+        m_guid: 38818f26-bc26-4c8f-8e9a-c0a8ededf7f3
+        m_position:
+          serializedVersion: 2
+          x: 880
+          y: 160
+          width: 250
+          height: 170
+        typeName: 

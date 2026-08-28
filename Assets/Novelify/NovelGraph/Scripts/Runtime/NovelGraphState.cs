@@ -20,10 +20,19 @@ namespace NovelGraph
     [Serializable]
     public class NovelGraphSaveData
     {
-        public int version = 1;
+        public int version = 2;
         public string graphName;
+        public string currentGraphId;
         public string nodeId;
         public List<NovelGraphStateEntry> state = new List<NovelGraphStateEntry>();
+        public List<NovelGraphCallFrameSaveData> callStack = new List<NovelGraphCallFrameSaveData>();
+    }
+
+    [Serializable]
+    public class NovelGraphCallFrameSaveData
+    {
+        public string graphId;
+        public string returnNodeId;
     }
 
     public sealed class NovelGraphState

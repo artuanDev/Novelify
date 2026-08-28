@@ -58,10 +58,15 @@ Node behavior:
 | Set Integer | Stores a named integer immediately. |
 | Integer Condition | Uses **Equal** or **Not Equal** according to current state. |
 | Raise Signal | Sends a named event to gameplay code. |
-| Call Function | Invokes a matching `UnityEvent` function binding on the active player. |
-| End | Completes the story and invokes the completion event. |
+| Reroute | Passes flow through a compact node for cleaner graph layout. |
+| Named Reroute Declaration / Usage | Declares a reusable flow destination and lets usages select it from a dropdown without long wires or manually matching names. |
+| Novel Page | Runs a reusable page graph, then returns through **Next**. Pages can be reused and nested. |
+| Call Function | Invokes a player `UnityEvent` binding or a typed method on a scene component. |
+| End | Returns from a Novel Page, or completes the root story and invokes the completion event. |
 
 State keys, signal names, and function IDs are case-sensitive. Use stable, code-friendly names such as `trusted_mira`, `beacon_lit`, and `open_harbor_gates` because saves and gameplay listeners depend on them.
+
+Named reroutes use an Unreal/Amplify-style declaration workflow. Add **Flow > Named Reroute Usage**, choose an existing declaration from its dropdown, or click **+ New** to create and select one beside it. A declaration's friendly name can be changed later without breaking usages because the graph stores a stable internal ID. Older name-paired reroutes remain compatible and are upgraded when opened.
 
 ## Characters and voices
 
@@ -94,6 +99,12 @@ For a simple speaking line, set a Dialogue node to **Character** and use its pre
 
 For scenes with two non-player characters, use **Show Character** once for each participant, placing one at Left and one at Right. Dialogue nodes then change each speaker's emotion, mouth state, motion, and focus automatically. When the speaker changes, the previous mouth returns to idle while its current emotion remains. Use the standalone nodes when an emotion or movement should happen between lines, and **Clear Characters** when changing scenes.
 
+## Reuse story sections with Novel Pages
+
+Choose **Create > Novel Graph > New Novel Page**, open it like a normal graph, and give it one **Start** plus one or more **End** nodes. In a story graph, add **Flow > Novel Page** and assign the page asset. Reaching the page's End returns through the call node's **Next** port. The same page can be called from multiple locations or more than once, and pages can call other pages.
+
+The save system preserves the active page and its full return stack, so saving during dialogue inside a nested page resumes at the correct call site.
+
 ## Call scene functions
 
 Graph assets cannot safely reference objects from a Unity scene. Novelify therefore uses stable string IDs:
@@ -104,6 +115,19 @@ Graph assets cannot safely reference objects from a Unity scene. Novelify theref
 4. Add **Events > Call Function** to the graph and enter the exact same ID.
 
 When that node executes, the player's serialized `UnityEvent` invokes the selected object function and graph execution continues. A missing ID produces a visible notice and Console warning instead of stopping the story.
+
+For typed component calls, add `NovelFunctionTarget` to the scene GameObject that owns the behavior and give it a stable ID such as `breakable_rock`. On **Events > Call Function**:
+
+1. Set **Call Mode** to **Component Method** and **Target Mode** to **Target Id**.
+2. Enter the target ID, component class name, and case-sensitive public method name.
+3. Add one argument per method parameter. Arguments support `string`, `int`, `float`, and `bool` constants, or values read from integer/bool story state.
+4. Name every argument to bind by parameter name in any order, or leave all names empty to bind by list order.
+
+Targets can also be resolved as the story player's GameObject, by GameObject name, or by tag. Component scripts stay with the object they control—for example, a rock can expose `Strike(string impactLabel, int damage, bool playSound)` and handle its own animation, sound, and destruction.
+
+## Advanced logic example
+
+Choose **Tools > Novelify > Create or Refresh Advanced Logic Sample**, then open `Assets/Novelify/Samples/AdvancedLogic/AdvancedLogicExample.unity`. Its graph uses a normal reroute, a paired named reroute, a declared `rock_damage` state input, and the same reusable Novel Page twice. The page calls `NovelGraphAdvancedSampleRock.Strike` on a separate rock GameObject using three named typed inputs; the rock owns its impact sound and destroys itself after the second strike.
 
 ## React to decisions
 
@@ -134,13 +158,13 @@ The runner is also available through `player.Runner`. Read decision state with `
 
 ## Saves
 
-The included UI exposes **Save**, **Load**, and **Restart**. Saves use `PlayerPrefs` and include the current node ID plus all integer state. Changing node IDs by recreating nodes can invalidate an old save, so treat published graph assets as content with migration requirements.
+The included UI exposes **Save**, **Load**, and **Restart**. Saves use `PlayerPrefs` and include the current node ID, all integer state, and the complete Novel Page call stack. Changing node IDs by recreating nodes can invalidate an old save, so treat published graph assets as content with migration requirements.
 
-For production, replace the player UI or persistence without replacing the graph runtime: `NovelGraphRunner` is a plain C# class and emits `PresentationChanged`, `SignalRaised`, `FunctionRequested`, `Completed`, and `Faulted` events.
+For production, replace the player UI or persistence without replacing the graph runtime: `NovelGraphRunner` is a plain C# class and emits `PresentationChanged`, `SignalRaised`, `FunctionRequested`, `ComponentFunctionRequested`, `Completed`, and `Faulted` events.
 
 ## Tests
 
-Open **Window > General > Test Runner**, select **EditMode**, and run `NovelGraph.Tests.Editor`. The tests cover dialogue pauses, character voice metadata, choice branches and signals, function requests, integer conditions, save restoration, and mandatory tooltip coverage.
+Open **Window > General > Test Runner**, select **EditMode**, and run `NovelGraph.Tests.Editor`. The tests cover dialogue pauses, character voice metadata, choice branches and signals, reroutes, reusable pages and nested save restoration, typed component calls, integer conditions, and mandatory tooltip coverage.
 
 ## GitHub Actions
 

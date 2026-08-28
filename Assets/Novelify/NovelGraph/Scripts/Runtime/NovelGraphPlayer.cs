@@ -231,6 +231,7 @@ namespace NovelGraph
             m_runner.PresentationChanged += HandlePresentationChanged;
             m_runner.SignalRaised += HandleSignal;
             m_runner.FunctionRequested += HandleFunctionRequested;
+            m_runner.ComponentFunctionRequested += HandleComponentFunctionRequested;
             m_runner.CharacterStageRequested += HandleCharacterStageRequested;
             m_runner.Completed += HandleCompleted;
             m_runner.Faulted += ShowStatus;
@@ -242,6 +243,7 @@ namespace NovelGraph
             m_runner.PresentationChanged -= HandlePresentationChanged;
             m_runner.SignalRaised -= HandleSignal;
             m_runner.FunctionRequested -= HandleFunctionRequested;
+            m_runner.ComponentFunctionRequested -= HandleComponentFunctionRequested;
             m_runner.CharacterStageRequested -= HandleCharacterStageRequested;
             m_runner.Completed -= HandleCompleted;
             m_runner.Faulted -= ShowStatus;
@@ -412,6 +414,12 @@ namespace NovelGraph
 
             binding.Callback.Invoke();
             ShowStatus($"Function: {functionId}");
+        }
+
+        private void HandleComponentFunctionRequested(NovelComponentFunctionCall functionCall)
+        {
+            NovelFunctionInvoker.Invoke(functionCall, gameObject);
+            ShowStatus($"Function: {functionCall.MethodName}");
         }
 
         private void HandleSignal(string signal)

@@ -166,6 +166,151 @@ namespace NovelGraph.Tests
         }
 
         [Test]
+        public void ReroutesAndNamedReroutesContinueWithoutLongConnections()
+        {
+            StartNode start = Add(new StartNode());
+            RerouteNode reroute = Add(new RerouteNode());
+            NamedRerouteOutNode routeOut = Add(new NamedRerouteOutNode { routeName = "far_side" });
+            NamedRerouteInNode routeIn = Add(new NamedRerouteInNode());
+            routeIn.SetDeclaration(routeOut);
+            routeOut.routeName = "renamed_after_usage_was_created";
+            DialogueNode destination = Add(new DialogueNode { dialogue = "Arrived" });
+            m_graph.Connect(start, 0, reroute);
+            m_graph.Connect(reroute, 0, routeIn);
+            m_graph.Connect(routeOut, 0, destination);
+
+            NovelGraphRunner runner = new NovelGraphRunner();
+            runner.Start(m_graph);
+
+            Assert.That(runner.Status, Is.EqualTo(NovelGraphRunnerStatus.WaitingForAdvance));
+            Assert.That(runner.CurrentPresentation.Text, Is.EqualTo("Arrived"));
+        }
+
+        [Test]
+        public void LegacyNamedRerouteNamesStillResolve()
+        {
+            StartNode start = Add(new StartNode());
+            NamedRerouteInNode legacyUsage = Add(new NamedRerouteInNode { routeName = "legacy_route" });
+            NamedRerouteOutNode declaration = Add(new NamedRerouteOutNode { routeName = "legacy_route" });
+            DialogueNode destination = Add(new DialogueNode { dialogue = "Legacy arrived" });
+            m_graph.Connect(start, 0, legacyUsage);
+            m_graph.Connect(declaration, 0, destination);
+
+            NovelGraphRunner runner = new NovelGraphRunner();
+            runner.Start(m_graph);
+
+            Assert.That(runner.CurrentPresentation.Text, Is.EqualTo("Legacy arrived"));
+        }
+
+        [Test]
+        public void NovelPageCanBeCalledTwiceAndReturnsToEachCaller()
+        {
+            NovelPageAsset page = ScriptableObject.CreateInstance<NovelPageAsset>();
+            page.name = "Reusable Page";
+            try
+            {
+                StartNode pageStart = AddTo(page, new StartNode());
+                DialogueNode pageLine = AddTo(page, new DialogueNode { dialogue = "Reusable line" });
+                EndNode pageEnd = AddTo(page, new EndNode());
+                page.Connect(pageStart, 0, pageLine);
+                page.Connect(pageLine, 0, pageEnd);
+
+                StartNode start = Add(new StartNode());
+                NovelPageNode firstCall = Add(new NovelPageNode { page = page });
+                DialogueNode between = Add(new DialogueNode { dialogue = "Between calls" });
+                NovelPageNode secondCall = Add(new NovelPageNode { page = page });
+                DialogueNode after = Add(new DialogueNode { dialogue = "After calls" });
+                m_graph.Connect(start, 0, firstCall);
+                m_graph.Connect(firstCall, 0, between);
+                m_graph.Connect(between, 0, secondCall);
+                m_graph.Connect(secondCall, 0, after);
+
+                NovelGraphRunner runner = new NovelGraphRunner();
+                runner.Start(m_graph);
+                Assert.That(runner.CurrentPresentation.Text, Is.EqualTo("Reusable line"));
+
+                NovelGraphSaveData save = runner.CaptureSaveData();
+                Assert.That(save.callStack, Has.Count.EqualTo(1));
+                NovelGraphRunner restored = new NovelGraphRunner();
+                Assert.That(restored.Restore(m_graph, save), Is.True);
+                Assert.That(restored.CurrentPresentation.Text, Is.EqualTo("Reusable line"));
+
+                Assert.That(runner.Advance(), Is.True);
+                Assert.That(runner.CurrentPresentation.Text, Is.EqualTo("Between calls"));
+                Assert.That(runner.Advance(), Is.True);
+                Assert.That(runner.CurrentPresentation.Text, Is.EqualTo("Reusable line"));
+                Assert.That(runner.Advance(), Is.True);
+                Assert.That(runner.CurrentPresentation.Text, Is.EqualTo("After calls"));
+            }
+            finally
+            {
+                UnityEngine.Object.DestroyImmediate(page);
+            }
+        }
+
+        [Test]
+        public void ComponentFunctionUsesNamedTypedAndStoryStateArguments()
+        {
+            GameObject owner = new GameObject("Story Owner");
+            GameObject rockObject = new GameObject("Test Rock", typeof(AudioSource));
+            NovelGraphAdvancedSampleRock rock = rockObject.AddComponent<NovelGraphAdvancedSampleRock>();
+            NovelFunctionTarget target = rockObject.AddComponent<NovelFunctionTarget>();
+            target.SetTargetId("test_rock");
+            try
+            {
+                StartNode start = Add(new StartNode());
+                SetIntNode setDamage = Add(new SetIntNode { key = "damage", value = 1 });
+                CallFunctionNode call = Add(new CallFunctionNode
+                {
+                    callMode = NovelFunctionCallMode.ComponentMethod,
+                    targetMode = NovelFunctionTargetMode.TargetId,
+                    target = "test_rock",
+                    componentType = nameof(NovelGraphAdvancedSampleRock),
+                    methodName = nameof(NovelGraphAdvancedSampleRock.Strike),
+                    arguments = new System.Collections.Generic.List<NovelFunctionArgument>
+                    {
+                        new NovelFunctionArgument
+                        {
+                            name = "playSound",
+                            type = NovelFunctionArgumentType.Boolean,
+                            boolValue = false
+                        },
+                        new NovelFunctionArgument
+                        {
+                            name = "impactLabel",
+                            type = NovelFunctionArgumentType.String,
+                            stringValue = "test hammer"
+                        },
+                        new NovelFunctionArgument
+                        {
+                            name = "damage",
+                            source = NovelFunctionArgumentSource.StoryState,
+                            type = NovelFunctionArgumentType.Integer,
+                            stateKey = "damage"
+                        }
+                    }
+                });
+                EndNode end = Add(new EndNode());
+                m_graph.Connect(start, 0, setDamage);
+                m_graph.Connect(setDamage, 0, call);
+                m_graph.Connect(call, 0, end);
+
+                NovelGraphRunner runner = new NovelGraphRunner();
+                runner.ComponentFunctionRequested += request => NovelFunctionInvoker.Invoke(request, owner);
+                runner.Start(m_graph, owner);
+
+                Assert.That(runner.Status, Is.EqualTo(NovelGraphRunnerStatus.Completed));
+                Assert.That(rock.RemainingHealth, Is.EqualTo(3));
+                Assert.That(rock.LastImpactLabel, Is.EqualTo("test hammer"));
+            }
+            finally
+            {
+                UnityEngine.Object.DestroyImmediate(rockObject);
+                UnityEngine.Object.DestroyImmediate(owner);
+            }
+        }
+
+        [Test]
         public void CharacterUtilityNodesRaiseStageCommandsAndContinue()
         {
             NovelCharacter character = ScriptableObject.CreateInstance<NovelCharacter>();
@@ -498,6 +643,12 @@ namespace NovelGraph.Tests
         private T Add<T>(T node) where T : NovelGraphNode
         {
             m_graph.AddNode(node);
+            return node;
+        }
+
+        private static T AddTo<T>(NovelGraphAsset graph, T node) where T : NovelGraphNode
+        {
+            graph.AddNode(node);
             return node;
         }
     }
